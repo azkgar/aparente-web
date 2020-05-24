@@ -1,12 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import {Form, Input, Button, notification} from "antd";
 import{UserAddOutlined, LockOutlined} from "@ant-design/icons";
 
 import "./LoginForm.scss";
 
 export default function LoginForm() {
+    const [inputs, setInputs] = useState({
+        email:"",
+        password:""
+    });
+
+    const changeForm = e => {
+        setInputs({
+            ...inputs,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const login = e => {
+        e.preventDefault();
+    }
+
     return (
-        <Form className = "login-form">
+        <Form className = "login-form" onChange = {changeForm} onSubmit = {login}>
             <Form.Item>
                 <Input 
                     prefix = {<UserAddOutlined style= {{color: "rgba(0,0,0,0.25)"}}/>}

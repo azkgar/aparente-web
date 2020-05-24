@@ -37,11 +37,11 @@
             }
 
             .ant-tabs-nav{
-                width: 90%;
+                width: 100%;
             }
 
             .ant-tabs-tab{
-                width: auto;
+                width: 50%;
                 height: 60px !important;
                 text-align: center;
                 font-size: 0em + 19px / $defaultFontSize;
