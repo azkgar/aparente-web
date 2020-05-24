@@ -28,6 +28,21 @@ const routes = [
                 component: Error404
             }
         ]
+    },
+    {
+        path: "/",
+        component: LayoutBasic,
+        exact: false,
+        routes: [
+            {
+                path: "/",
+                component: Home,
+                exact: true
+            },
+            {
+                component: Error404
+            }
+        ]
     }
 ]
 
