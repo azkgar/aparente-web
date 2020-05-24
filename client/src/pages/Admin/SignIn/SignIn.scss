@@ -14,9 +14,11 @@
 
         &-logo{
             padding: 60px 20px;
-            margin-left: 40%;
             img{
-                width: 30%;
+                width: 200px;
+                @media(min-width: $media-breackpoint-up-md){
+                    width: 300px;
+                }
             }
         }
 
@@ -26,7 +28,7 @@
             .ant-tabs{
                 width: 90vw;
                 @media(min-width: $media-breackpoint-up-lg){
-                    width: auto;
+                    width: auto !important;
                 }
             }
 
@@ -35,11 +37,11 @@
             }
 
             .ant-tabs-nav{
-                width: 100%;
+                width: 90%;
             }
 
             .ant-tabs-tab{
-                width: 50px;
+                width: auto;
                 height: 60px !important;
                 text-align: center;
                 font-size: 0em + 19px / $defaultFontSize;
@@ -48,7 +50,7 @@
                 margin: 0 !important;
 
                 @media(min-width: $media-breackpoint-up-lg){
-                    width: 220px;
+                    width: 220px !important;
                     font-size: 0em + 23px / $defaultFontSize;
                 }
 

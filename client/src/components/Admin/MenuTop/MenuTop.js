@@ -1,7 +1,7 @@
 import React from "react";
 import {Button} from "antd"
 import{MenuUnfoldOutlined, MenuFoldOutlined, PoweroffOutlined} from "@ant-design/icons"
-import AparenteLogo from "../../../assets/img/jpg/APARENTE_logo_negro.jpg"
+import AparenteLogo from "../../../assets/img/png/APARENTE_logo_blanco_sinfondo.png"
 
 import "./MenuTop.scss";
 
