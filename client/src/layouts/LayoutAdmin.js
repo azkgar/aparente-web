@@ -5,6 +5,8 @@ import MenuTop from "../components/Admin/MenuTop";
 import MenuSider from "../components/Admin/MenuSider";
 import AdminSignIn from "../pages/Admin/SignIn";
 
+import {getAccessToken, getRefreshToken} from "../api/auth";
+
 import "./LayoutAdmin.scss";
 
 export default function LayoutAdmin(props){

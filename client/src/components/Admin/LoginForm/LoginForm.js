@@ -29,7 +29,6 @@ export default function LoginForm() {
             });
         } else {
             const {accessToken, refreshToken} = result;
-            console.log(result);
             localStorage.setItem(ACCESS_TOKEN, accessToken);
             localStorage.setItem(REFRESH_TOKEN, refreshToken);
 
