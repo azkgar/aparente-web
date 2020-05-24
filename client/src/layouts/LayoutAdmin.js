@@ -12,7 +12,7 @@ export default function LayoutAdmin(props){
     const [menuCollapsed, setMenuCollapsed] = useState(false);
     const {Header, Content, Footer} = Layout;
 
-    const user = "user";
+    const user = null;
 
     if(!user){
         return(

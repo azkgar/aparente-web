@@ -1,7 +1,7 @@
 @import "../../../scss/index.scss";
 
 .signin{
-    background-image: url("../../../assets/img/jpg/original.jpg");
+    background-color: rgb(25,25,25);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -14,8 +14,9 @@
 
         &-logo{
             padding: 60px 20px;
+            margin-left: 40%;
             img{
-                width: 100%;
+                width: 30%;
             }
         }
 
