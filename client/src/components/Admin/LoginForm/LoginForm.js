@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Form, Input, Button, notification} from "antd";
 import {UserAddOutlined, LockOutlined} from "@ant-design/icons";
 import {signInApi} from "../../../api/user";
+import {ACCESS_TOKEN, REFRESH_TOKEN} from "../../../utils/constants";
 
 import "./LoginForm.scss";
 
@@ -18,8 +19,26 @@ export default function LoginForm() {
         })
     }
 
-    const login = e => {
-        signInApi(inputs);
+    const login = async e => {
+        e.preventDefault();
+        const result = await signInApi(inputs);
+
+        if(result.message) {
+            notification["error"]({
+                message: result.message
+            });
+        } else {
+            const {accessToken, refreshToken} = result;
+            console.log(result);
+            localStorage.setItem(ACCESS_TOKEN, accessToken);
+            localStorage.setItem(REFRESH_TOKEN, refreshToken);
+
+            notification["success"]({
+                message: "Usuario autenticado"
+            });
+
+            window.location.href = "/admin";
+        }
     }
 
     return (
@@ -43,7 +62,7 @@ export default function LoginForm() {
                 />
             </Form.Item>
             <Form.Item>
-                <Button htmlType = "submit" className = "login-form__button" >
+                <Button htmlType = "submit" className = "login-form__button" onClick = {login}>
                     Entrar
                 </Button>
             </Form.Item>
