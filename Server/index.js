@@ -7,7 +7,7 @@ mongoose.set("useFindAndModify", false);
 
 mongoose.connect(
     `mongodb://${IP_SERVER}:${PORT_DB}/boda`,
-    {useNewUrlParser: true, useUnifiedTopology: true},
+    {useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true},
     (err,res) => {
         if (err) {
             throw err;
