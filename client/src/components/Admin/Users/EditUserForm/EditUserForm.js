@@ -47,8 +47,11 @@ export default function EditUserForm(props) {
         if(userUpdate.password || userUpdate.repeatPassword) {
             if(userUpdate.password !== userUpdate.repeatPassword) {
                 notification["error"]({message: "Las contraseñas no coinciden"});
-            } 
-            return;
+                return;
+            } else {
+                delete userUpdate.repeatPassword;
+            }
+            
         }
 
         if(!userUpdate.name || !userUpdate.lastname || !userUpdate.email) {
@@ -63,6 +66,12 @@ export default function EditUserForm(props) {
                     notification["success"]({message: result.message});
                     setIsVisibleModal(false);
                     setReloadUsers(true);
+                    setUserData({
+                        ...userData,
+                        password: "",
+                        repeatPassword: ""
+                    });
+                    
                 });
             });
         } else {
@@ -70,6 +79,11 @@ export default function EditUserForm(props) {
                 notification["success"]({message: result.message});
                 setIsVisibleModal(false);
                 setReloadUsers(true);
+                setUserData({
+                    ...userData,
+                    password: "",
+                    repeatPassword: ""
+                });
             });
         }
     };
@@ -184,6 +198,7 @@ function EditForm(props) {
                             prefix = {<LockOutlined />}
                             type = "password"
                             placeholder = "Contraseña"
+                            value = {userData.password}
                             onChange = {e => setUserData({...userData, password: e.target.value})}
                         />
                     </Form.Item>
@@ -194,6 +209,7 @@ function EditForm(props) {
                             prefix = {<LockOutlined />}
                             type = "password"
                             placeholder = "Repetir contraseña"
+                            value = {userData.repeatPassword}
                             onChange = {e => setUserData({...userData, repeatPassword: e.target.value})}
                         />
                     </Form.Item> 
