@@ -1,24 +1,26 @@
 import React, {useState, useEffect, useCallback} from "react";
-import {Avatar, Form, Input, Select, Button, Row, Col} from "antd";
-import{UserOutlined, MailOutlined, LockOutlined,CheckOutlined} from "@ant-design/icons"
+import {Avatar, Form, Input, Select, Button, Row, Col, notification} from "antd";
+import{UserOutlined, MailOutlined, LockOutlined} from "@ant-design/icons"
 import {useDropzone} from "react-dropzone";
 import noAvatar from "../../../../assets/img/png/no-avatar.png"
-import {getAvatarApi} from "../../../../api/user";
-
+import {uploadAvatarApi, updateUserApi, getAvatarApi} from "../../../../api/user";
+import {getAccessTokenApi} from "../../../../api/auth";
 
 import "./EditUserForm.scss";
 
 export default function EditUserForm(props) {
-    const {user} = props;
+    const {user, setIsVisibleModal, setReloadUsers} = props;
     const [avatar, setAvatar] = useState(null);
     const [userData, setUserData] = useState({});
 
     useEffect(() => {
-        setUserData({name: user.name,
+        setUserData({
+            name: user.name,
             lastname: user.lastname,
             email: user.email,
             role: user.role,
-            avatar: user.avatar})
+            avatar: user.avatar
+        });
     }, [user]);
 
     useEffect(() => {
@@ -39,15 +41,45 @@ export default function EditUserForm(props) {
 
     const updateUser = e => {
         e.preventDefault();
-        console.log(userData);
-    }
+        const token = getAccessTokenApi();
+        let userUpdate = userData;
+
+        if(userUpdate.password || userUpdate.repeatPassword) {
+            if(userUpdate.password !== userUpdate.repeatPassword) {
+                notification["error"]({message: "Las contraseñas no coinciden"});
+            } 
+            return;
+        }
+
+        if(!userUpdate.name || !userUpdate.lastname || !userUpdate.email) {
+            notification["error"]({message: "Email, nombre y apellido obligatorios"});
+            return;
+        }
+
+        if(typeof userUpdate.avatar === "object") {
+            uploadAvatarApi(token, userUpdate.avatar, user._id).then(response => {
+                userUpdate.avatar = response.avatarName;
+                updateUserApi(token, userUpdate, user._id).then(result => {
+                    notification["success"]({message: result.message});
+                    setIsVisibleModal(false);
+                    setReloadUsers(true);
+                });
+            });
+        } else {
+            updateUserApi(token, userUpdate, user._id).then(result => {
+                notification["success"]({message: result.message});
+                setIsVisibleModal(false);
+                setReloadUsers(true);
+            });
+        }
+    };
 
     return(
         <div className = "edit-user-form">
             <UploadAvatar avatar = {avatar} setAvatar = {setAvatar} />
             <EditForm userData = {userData} setUserData = {setUserData} updateUser = {updateUser}/>
         </div>
-    )
+    );
 }
 
 function UploadAvatar(props) {
@@ -84,10 +116,9 @@ function UploadAvatar(props) {
             <input {...getInputProps()} />
             {isDragActive ? (
                 <Avatar size = {150} src = {noAvatar} />
-            ) : <Avatar size = {150} src = {avatarUrl ? avatarUrl : noAvatar} />}
+             ) : ( <Avatar size = {150} src = {avatarUrl ? avatarUrl : noAvatar} />)}
         </div>
     );
-
 }
 
 function EditForm(props) {

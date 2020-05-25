@@ -145,7 +145,7 @@ export function updateUserApi(token, user, userId){
         return response.json();
     }).then(result => {
         return result;
-    }). catch(err => {
+    }).catch(err => {
         return err.message;
     });
 }
