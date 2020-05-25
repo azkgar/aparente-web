@@ -13,4 +13,7 @@ api.route("/signin")
 api.route("/users")
 .get([md_auth.ensureAuth], UserController.getUsers);
 
+api.route("/users-active")
+.get([md_auth.ensureAuth], UserController.getUsersActive);
+
 module.exports = api;
