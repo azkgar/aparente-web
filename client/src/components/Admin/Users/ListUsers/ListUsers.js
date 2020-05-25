@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Switch, List, Avatar, Button} from "antd";
 import{EditOutlined, StopOutlined, DeleteOutlined,CheckOutlined} from "@ant-design/icons"
 import NoAvatar from "../../../../assets/img/png/no-avatar.png";
 import Modal from "../../../Modal";
 import EditUserForm from "../EditUserForm";
+import {getAvatarApi} from "../../../../api/user";
 
 import "./ListUsers.scss";
 
@@ -33,7 +34,7 @@ export default function ListUsers(props) {
     );
 }
 
-function UsersActive(props){
+function UsersActive(props) {
     const {usersActive, setIsVisibleModal, setModalTitle, setModalContent} = props;
 
     const editUser = user => {
@@ -47,8 +48,27 @@ function UsersActive(props){
             className = "users-active"
             itemLayout = "horizontal"
             dataSource = {usersActive}
-            renderItem = {user => (
-                <List.Item
+            renderItem = {user => <UserActive user = {user} editUser = {editUser} />}
+        />
+    );
+}
+
+function UserActive(props) {
+    const {user, editUser} = props;
+    const [avatar, setAvatar] = useState(null);
+
+    useEffect(() => {
+        if(user.avatar) {
+            getAvatarApi(user.avatar).then(response => {
+                setAvatar(response);
+            });
+        } else {
+            setAvatar(null);
+        }
+    }, [user]);
+
+    return (
+        <List.Item
                     actions = {[
                     <Button 
                         type = "primary"
@@ -68,28 +88,45 @@ function UsersActive(props){
                     ]}
                 >
                     <List.Item.Meta 
-                        avatar = {<Avatar src = {user.avatar ? user.avatar : NoAvatar}/>}
+                        avatar = {<Avatar src = {avatar ? avatar : NoAvatar}/>}
                         title = {`
                             ${user.name ? user.name : "Actualiza tu nombre"}
                             ${user.lastname ? user.lastname : "Actualiza tu apellido"}
                         `}
                         description = {user.email}
                     />
-                </List.Item>
-            )}
-        />
+         </List.Item>
     );
 }
 
-function UsersInactive(props){
+function UsersInactive(props) {
     const {usersInactive} = props;
     return (
         <List 
             className = "users-active"
             itemLayout = "horizontal"
             dataSource = {usersInactive}
-            renderItem = {user => (
-                <List.Item
+            renderItem = {user => <UserInactive user = {user} />}
+        />
+    );
+}
+
+function UserInactive(props) {
+    const {user} = props;
+    const [avatar, setAvatar] = useState(null);
+
+    useEffect(() => {
+        if(user.avatar) {
+            getAvatarApi(user.avatar).then(response => {
+                setAvatar(response);
+            });
+        } else {
+            setAvatar(null);
+        }
+    }, [user]);
+
+    return(
+        <List.Item
                     actions = {[
                     <Button 
                         type = "primary"
@@ -104,7 +141,7 @@ function UsersInactive(props){
                     ]}
                 >
                     <List.Item.Meta 
-                        avatar = {<Avatar src = {user.avatar ? user.avatar : NoAvatar}/>}
+                        avatar = {<Avatar src = {avatar ? avatar : NoAvatar}/>}
                         title = {`
                             ${user.name ? user.name : "Actualiza tu nombre"}
                             ${user.lastname ? user.lastname : "Actualiza tu apellido"}
@@ -112,7 +149,6 @@ function UsersInactive(props){
                         description = {user.email}
                     />
                 </List.Item>
-            )}
-        />
     );
+
 }
