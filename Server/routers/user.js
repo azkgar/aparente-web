@@ -1,5 +1,6 @@
 const express = require("express");
 const UserController = require("../controllers/user");
+const md_auth = require("../middleware/authenticated");
 
 const api = express.Router();
 
@@ -10,6 +11,6 @@ api.route("/signin")
 .post(UserController.signIn);
 
 api.route("/users")
-.get(UserController.getUsers);
+.get([md_auth.ensureAuth], UserController.getUsers);
 
 module.exports = api;
