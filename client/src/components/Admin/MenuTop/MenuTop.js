@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import {Button} from "antd"
 import{MenuUnfoldOutlined, MenuFoldOutlined, PoweroffOutlined} from "@ant-design/icons"
 import AparenteLogo from "../../../assets/img/png/APARENTE_logo_extendido_sinfondo.png"
