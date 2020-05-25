@@ -28,4 +28,7 @@ api.route("/get-avatar/:avatarName")
 api.route("/update-user/:id")
 .put([md_auth.ensureAuth], UserController.updateUser);
 
+api.route("/activate-user/:id")
+.put([md_auth.ensureAuth], UserController.activateUser);
+
 module.exports = api;
