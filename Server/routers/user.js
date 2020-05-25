@@ -34,4 +34,7 @@ api.route("/activate-user/:id")
 api.route("/delete-user/:id")
 .delete([md_auth.ensureAuth], UserController.deleteUser);
 
+api.route("/signup-admin")
+.post([md_auth.ensureAuth], UserController.signUpAdmin);
+
 module.exports = api;
