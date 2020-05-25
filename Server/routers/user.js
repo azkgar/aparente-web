@@ -22,4 +22,7 @@ api.route("/users-active")
 api.route("/upload-avatar/:id")
 .put([md_auth.ensureAuth, md_upload_avatar], UserController.uploadAvatar);
 
+api.route("/get-avatar/:avatarName")
+.get(UserController.getAvatar);
+
 module.exports = api;
