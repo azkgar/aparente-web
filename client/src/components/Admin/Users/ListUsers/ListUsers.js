@@ -1,13 +1,15 @@
 import React, {useState, useEffect} from "react";
-import {Switch, List, Avatar, Button, notification} from "antd";
-import{EditOutlined, StopOutlined, DeleteOutlined,CheckOutlined} from "@ant-design/icons"
+import {Switch, List, Avatar, Button, notification, Modal as ModalAntd} from "antd";
+import{EditOutlined, StopOutlined, DeleteOutlined,CheckOutlined, QuestionCircleOutlined} from "@ant-design/icons"
 import NoAvatar from "../../../../assets/img/png/no-avatar.png";
 import Modal from "../../../Modal";
 import EditUserForm from "../EditUserForm";
-import {getAvatarApi, activateUserApi} from "../../../../api/user";
+import {getAvatarApi, activateUserApi, deleteUserApi} from "../../../../api/user";
 import {getAccessTokenApi} from "../../../../api/auth";
 
 import "./ListUsers.scss";
+
+const {confirm} = ModalAntd;
 
 export default function ListUsers(props) {
     const {usersActive, usersInactive, setReloadUsers} = props;
@@ -27,7 +29,7 @@ export default function ListUsers(props) {
                     {viewUsersActives ? "Usuarios Activos" : "Usuarios Inactivos"}
                 </span>
             </div>
-            {viewUsersActives ? <UsersActive usersActive = {usersActive} setIsVisibleModal = {setIsVisibleModal} setModalTitle = {setModalTitle} setModalContent = {setModalContent} setReloadUsers = {setReloadUsers}/> : <UsersInactive usersInactive = {usersInactive} setReloadUsers = {setReloadUsers}/>}
+            {viewUsersActives ? <UsersActive usersActive = {usersActive} setIsVisibleModal = {setIsVisibleModal} setModalTitle = {setModalTitle} setModalContent = {setModalContent} setReloadUsers = {setReloadUsers} /> : <UsersInactive usersInactive = {usersInactive} setReloadUsers = {setReloadUsers} />}
             <Modal title = {modalTitle} isVisible={isVisibleModal} setIsVisible  = {setIsVisibleModal}>
                 {modalContent}
             </Modal>
@@ -79,6 +81,27 @@ function UserActive(props) {
         });
     }
 
+    const showDeleteConfirm = () => {
+        const accessToken = getAccessTokenApi();
+
+        confirm({
+            icon: <QuestionCircleOutlined />,
+            title: "Eliminar usuario",
+            content: `¿Estás seguro de eliminar a ${user.email}?`,
+            okText: "Eliminar",
+            okType: "danger",
+            cancelText: "Cancelar",
+            onOk() {
+                deleteUserApi(accessToken, user._id).then(response => {
+                    notification["success"]({message: response});
+                    setReloadUsers(true);
+                }).catch(err => {
+                    notification["error"]({message: err});
+                });
+            }
+        })
+    }
+
     return (
         <List.Item
                     actions = {[
@@ -94,7 +117,7 @@ function UserActive(props) {
                     </Button>,
                     <Button 
                         type = "danger"
-                        onClick = {() => console.log("eliminar usuario")}>
+                        onClick = {showDeleteConfirm}>
                             <DeleteOutlined />
                     </Button>
                     ]}
@@ -148,6 +171,27 @@ function UserInactive(props) {
         });
     }
 
+    const showDeleteConfirm = () => {
+        const accessToken = getAccessTokenApi();
+
+        confirm({
+            icon: <QuestionCircleOutlined />,
+            title: "Eliminar usuario",
+            content: `¿Estás seguro de eliminar a ${user.email}?`,
+            okText: "Eliminar",
+            okType: "danger",
+            cancelText: "Cancelar",
+            onOk() {
+                deleteUserApi(accessToken, user._id).then(response => {
+                    notification["success"]({message: response});
+                    setReloadUsers(true);
+                }).catch(err => {
+                    notification["error"]({message: err});
+                });
+            }
+        })
+    }
+
     return(
         <List.Item
                     actions = {[
@@ -158,7 +202,7 @@ function UserInactive(props) {
                     </Button>,
                     <Button 
                         type = "danger"
-                        onClick = {() => console.log("eliminar usuario")}>
+                        onClick = {showDeleteConfirm}>
                             <DeleteOutlined />
                     </Button>
                     ]}
