@@ -9,4 +9,7 @@ api.route("/signup")
 api.route("/signin")
 .post(UserController.signIn);
 
+api.route("/users")
+.get(UserController.getUsers);
+
 module.exports = api;

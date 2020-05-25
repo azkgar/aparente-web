@@ -35,7 +35,7 @@ export default function LayoutAdmin(props){
                         <LoadRoutes routes={routes}/>
                     </Content>
                     <Footer className="layout-admin__footer">
-                     Aparente 2020
+                     <p>Creado con estilo por Aparente® 2020</p>
                     </Footer>
                 </Layout>
             </Layout>
