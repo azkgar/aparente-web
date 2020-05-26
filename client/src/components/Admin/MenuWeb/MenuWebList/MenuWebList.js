@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
 import {Switch, List, Button, Modal as ModalAntd, notification} from "antd";
-import{EditOutlined, DeleteOutlined, MenuOutlined} from "@ant-design/icons"
+import{EditOutlined, DeleteOutlined, MenuOutlined} from "@ant-design/icons";
 import Modal from "../../../Modal";
 import DragSortableList from "react-drag-sortable";
 import  {updateMenuApi, activateMenuApi} from "../../../../api/menu";
 import {getAccessTokenApi} from "../../../../api/auth";
+import AddMenuWebForm from "../AddMenuWebForm";
 
 import "./MenuWebList.scss";
 
@@ -14,7 +15,7 @@ const {confirm} = ModalAntd;
 export default function MenuWebList(props) {
     const {menu, setRealoadMenuWeb} = props;
     const [listItems, setListItems] = useState([]);
-    const [isvisibleModal, setIsVisibleModal] = useState(false);
+    const [isVisibleModal, setIsVisibleModal] = useState(false);
     const [modalTitle, setModalTitle] = useState("");
     const [modalContent, setModalContent] = useState(null);
 
@@ -50,15 +51,26 @@ export default function MenuWebList(props) {
             }
         );
     }
+    
+    const addMenuWebModal = () => {
+        setIsVisibleModal(true);
+        setModalTitle("Nuevo menú");
+        setModalContent(
+            <AddMenuWebForm />
+        );
+    }
 
     return(
         <div className = "menu-web-list">
             <div className = "menu-web-list__header">
-                <Button type = "primary">Nuevo menú</Button>
+                <Button type = "primary" onClick = {addMenuWebModal}>Crear nuevo menú</Button>
             </div>
             <div className = "menu-web-list__items">
                 <DragSortableList items = {listItems} onSort = {onSort} type = "vertical" />
             </div>
+            <Modal title = {modalTitle} isVisible = {isVisibleModal} setIsVisible = {setIsVisibleModal}>
+                {modalContent}
+            </Modal>
         </div>
     );
 }
