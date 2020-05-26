@@ -3,7 +3,6 @@ import {Menu} from "antd";
 import {Link} from "react-router-dom";
 import logo from "../../../assets/img/png/APARENTE_logo_blanco_sinfondo.png"
 import {getMenuApi} from "../../../api/menu";
-import SocialLinks from "../SocialLinks";
 
 import "./MenuTop.scss";
 
@@ -22,13 +21,18 @@ export default function MenuTop(props) {
             setMenuData(arrayMenu);
         });
     }, []);
+    const rightStyle = {position: 'absolute', top: "15%", right: 0}
+    
     return(
+        <div>
         <Menu className = "menu-top-web" mode = "horizontal">
             <Menu.Item className = "menu-top-web__logo">
                 <Link to = {"/"}>
                     <img src = {logo} alt = "Aparente" />
                 </Link>
             </Menu.Item>
+        </Menu>
+        <Menu className = "menu-top-web" mode = "horizontal" style = {rightStyle}>
             {menuData.map(item => {
                 const external = item.url.indexOf("http") > -1 ? true : false;
 
@@ -41,14 +45,12 @@ export default function MenuTop(props) {
                 }
 
                 return(
-                    <Menu.Item key = {item._id} className = {"menu-top-web__item"}>
+                    <Menu.Item key = {item._id} className = "menu-top-web__item">
                         <Link to = {item.url}>{item.title}</Link>
                     </Menu.Item>
                 );
             })}
-            <div>
-                <SocialLinks />
-            </div>
         </Menu>
+        </div>
     );
 }
