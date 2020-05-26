@@ -77,7 +77,7 @@ export default function MenuWebList(props) {
             title: "Eliminar menú",
             content: `¿Estás seguro de eliminar el menú ${menu.title}?`,
             okText: "Eliminar",
-            okType: "danger",
+            okButtonProps: {type: "primary", danger: true},
             cancelText: "Cancelar",
             onOk() {
                 deleteMenuApi(accessToken,menu._id).then(response => {
