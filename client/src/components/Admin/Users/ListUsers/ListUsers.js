@@ -6,6 +6,7 @@ import Modal from "../../../Modal";
 import EditUserForm from "../EditUserForm";
 import {getAvatarApi, activateUserApi, deleteUserApi} from "../../../../api/user";
 import {getAccessTokenApi} from "../../../../api/auth";
+import AddUserForm from "../AddUserForm";
 
 import "./ListUsers.scss";
 
@@ -21,7 +22,9 @@ export default function ListUsers(props) {
     const addUserModal = () => {
         setIsVisibleModal(true);
         setModalTitle("Crear nuevo usuario");
-        setModalContent(<div> <h1>Formulario</h1></div>);
+        setModalContent(
+            <AddUserForm setIsVisibleModal = {setIsVisibleModal} setReloadUsers = {setReloadUsers} />
+        );
     }
 
     return(
