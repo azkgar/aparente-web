@@ -3,6 +3,7 @@ import {Menu} from "antd";
 import {Link} from "react-router-dom";
 import logo from "../../../assets/img/png/APARENTE_logo_blanco_sinfondo.png"
 import {getMenuApi} from "../../../api/menu";
+import SocialLinks from "../SocialLinks";
 
 import "./MenuTop.scss";
 
@@ -46,7 +47,7 @@ export default function MenuTop(props) {
                 );
             })}
             <div>
-                Social Media
+                <SocialLinks />
             </div>
         </Menu>
     );
