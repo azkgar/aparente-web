@@ -10,17 +10,19 @@ export default function LayoutBasic(props){
     const {Footer} = Layout;
 
     return (
-        <Row>
-            <Col md={4}/>
-            <Col md={16}>
-            <MenuTop />
+        <>
+            <Row>
+                <Col md={4}/>
+                <Col md={16}>
+                <MenuTop />
+                </Col>
+                <Col md={4}/>
+            </Row>
             <LoadRoutes routes={routes}/>
             <Footer>
                 Creado con estilo por Aparente® 2020
             </Footer>
-            </Col>
-            <Col md={4}/>
-        </Row>
+        </>
     )
 }
 
