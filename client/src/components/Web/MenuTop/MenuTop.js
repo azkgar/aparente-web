@@ -21,7 +21,7 @@ export default function MenuTop(props) {
             setMenuData(arrayMenu);
         });
     }, []);
-    const rightStyle = {position: 'absolute', top: "15%", right: 0}
+    const rightStyle = {position: 'absolute', top: "25%", right: 0}
     
     return(
         <div>

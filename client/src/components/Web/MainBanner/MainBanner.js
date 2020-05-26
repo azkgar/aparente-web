@@ -6,11 +6,10 @@ import "./MainBanner.scss";
 export default function MainBanner() {
     return(
         <div className = "main-banner"> 
-            <div className = "main-banner__dark" />
             <Row>
                 <Col lg = {4} />
                 <Col lg = {16}> 
-                    <h1>SIN  APARIENCIA <br/> SOMOS  <span className = "entes">ENTES</span><span className = "guion-bajo">_</span></h1>
+                    <h1>SIN APARIENCIA <br/> SOMOS <span className = "entes">ENTES</span><span className = "guion-bajo">_</span></h1>
                 </Col>
                 <Col lg = {4} />
             </Row>
