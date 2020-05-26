@@ -1,26 +1,27 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom"
-import {Layout} from "antd";
+import {Layout, Row, Col} from "antd";
+import MenuTop from "../components/Web/MenuTop";
 
 import "./LayoutBasic.scss";
 
 export default function LayoutBasic(props){
     const {routes} = props;
-    const {Content, Footer} = Layout;
+    const {Footer} = Layout;
 
-    return(
-        <Layout>
-            <h2>Menu Sider User</h2>
-            <Layout>
-                <Content>
-                    <LoadRoutes routes={routes}/>
-                </Content>
-                <Footer>
-                    Aparente 2020
-                </Footer>
-            </Layout>
-        </Layout>
-    );
+    return (
+        <Row>
+            <Col md={4}/>
+            <Col md={16}>
+            <MenuTop />
+            <LoadRoutes routes={routes}/>
+            <Footer>
+                Creado con estilo por Aparente® 2020
+            </Footer>
+            </Col>
+            <Col md={4}/>
+        </Row>
+    )
 }
 
 function LoadRoutes({routes}){

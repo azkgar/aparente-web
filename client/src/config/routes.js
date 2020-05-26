@@ -13,7 +13,6 @@ import Home from "../pages/Home";
 
 //Error Page
 import Error404 from "../pages/Error404";
-import { ThunderboltOutlined } from "@ant-design/icons";
 
 const routes = [
     {
