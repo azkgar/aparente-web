@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Form, Input, Button, Select, notification} from "antd";
-import{FontSizeOutlined, DeleteOutlined, MenuOutlined} from "@ant-design/icons";
+import{FontSizeOutlined} from "@ant-design/icons";
 import {addMenuApi} from "../../../../api/menu";
 import {getAccessTokenApi} from "../../../../api/auth";
 
