@@ -13,7 +13,7 @@ const {confirm} = ModalAntd;
 
 
 export default function MenuWebList(props) {
-    const {menu, setRealoadMenuWeb} = props;
+    const {menu, setReloadMenuWeb} = props;
     const [listItems, setListItems] = useState([]);
     const [isVisibleModal, setIsVisibleModal] = useState(false);
     const [modalTitle, setModalTitle] = useState("");
@@ -56,7 +56,7 @@ export default function MenuWebList(props) {
         setIsVisibleModal(true);
         setModalTitle("Nuevo menú");
         setModalContent(
-            <AddMenuWebForm />
+            <AddMenuWebForm setIsVisibleModal = {setIsVisibleModal} setReloadMenuWeb = {setReloadMenuWeb} />
         );
     }
 
