@@ -1,0 +1,51 @@
+@import "../../../scss/index.scss";
+
+.navbar{
+
+    padding-right: 200px;
+    padding-left: 200px;
+    font-weight: bold;
+
+    @media(min-width: 2000px){
+        padding-right: 400px;
+        padding-left: 400px;
+    }
+    @media(max-width: $media-breackpoint-up-md){
+        padding-right: 100px;
+        padding-left: 100px;
+    }
+    @media(max-width: 425px){
+        padding-right: 60px;
+        padding-left: 60px;
+    }
+    @media(max-width: $media-breackpoint-up-xs){
+        padding-right: 45px;
+        padding-left: 45px;
+    }
+
+    img{
+        width: 150px;
+
+        @media(max-width: $media-breackpoint-up-md){
+            width: 100px;
+        }
+
+        @media(max-width: 425px){
+            width: 80px;
+        }
+
+        @media(max-width: $media-breackpoint-up-xs){
+            width: 70px;
+        }
+    }
+
+    .navbar-collapse{
+        @media (max-width:767px){
+            text-align: right;
+        }
+    }
+
+    .navbar-toggler{
+            border: none;
+    }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import {Route, Switch} from "react-router-dom"
 import {Layout, Row, Col} from "antd";
 import MenuTop from "../components/Web/MenuTop";
+import MenuBoot from "../components/Web/MenuBoot";
 
 import "./LayoutBasic.scss";
 
@@ -11,13 +12,14 @@ export default function LayoutBasic(props){
 
     return (
         <>
-            <Row>
+            {/* <Row>
                 <Col md={4}/>
                 <Col md={16}>
                 <MenuTop />
                 </Col>
                 <Col md={4}/>
-            </Row>
+            </Row> */}
+            <MenuBoot />
             <LoadRoutes routes={routes}/>
             <Footer>
                 Creado con estilo por Aparente® 2020

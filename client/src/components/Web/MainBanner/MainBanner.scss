@@ -6,6 +6,19 @@
     position: relative;
     height: 500px;
     background-color: $background-dark-web;
+    overflow: hidden;
+
+    @media(max-width: 1024px){
+        height: 400px;
+    }
+    @media(max-width: $media-breackpoint-up-md){
+        height: 250px;
+    }
+
+    @media(max-width: 425px){
+        height: 190px;
+        width: 100%;
+    }
 
 
         .main-title {
@@ -23,10 +36,35 @@
             .entes{
                 color: $background-dark-web;
                 text-shadow: -2px 2px 0 gray, 2px 2px 0 gray, 2px -2px 0 gray, -2px -2px 0 gray;
+
+                @media(max-width: $media-breackpoint-up-md){
+                    text-shadow: -1px 1px 0 gray, 1px 1px 0 gray, 1px -1px 0 gray, -1px -1px 0 gray;
+                }
             }
 
             .guion-bajo{
                 color: rgb(0, 89, 202);
+            }
+
+            @media(max-width: 1024px){
+                font-size: 50px;
+            }
+
+            @media(max-width: $media-breackpoint-up-md){
+                font-size: 35px;
+                word-spacing: 15px;
+                letter-spacing: 10px;
+            }
+
+            @media(max-width: 425px){
+                font-size: 20px;
+                word-spacing: 10px;
+                letter-spacing: 8px;
+            }
+
+            @media(max-width: $media-breackpoint-up-xs){
+                letter-spacing: 5px;
+                word-spacing: 8px;
             }
         }
 
@@ -36,6 +74,23 @@
             left: 0;
             bottom: 0;
             width: 250px;
+
+            @media(max-width: 1024px){
+                width: 180px;
+            }
+
+            @media(max-width: $media-breackpoint-up-md){
+                width: 130px;
+            }
+
+            @media(max-width: 425px){
+                width: 100px;
+                left: -40px;
+            }
+
+            @media(max-width: $media-breackpoint-up-xs){
+                left: -50px;
+            }
         }
         .img-mujer{
             position: absolute;
@@ -43,6 +98,23 @@
             right: 0;
             bottom: 0;
             width: 320px;
+
+            @media(max-width: 1024px){
+                width: 235px;
+            }
+
+            @media(max-width: $media-breackpoint-up-md){
+                width: 175px;
+            }
+
+            @media(max-width: 425px){
+                width: 135px;
+                right: -55px;
+            }
+
+            @media(max-width: $media-breackpoint-up-xs){
+                right: -65px;
+            }
         }
 
 }
