@@ -5,6 +5,9 @@
     padding-right: 200px;
     padding-left: 200px;
     font-weight: bold;
+    font-size: 110%;
+    letter-spacing: 1.5px;
+    font-family: "Muli", "sans-serif";
 
     @media(min-width: 2000px){
         padding-right: 400px;
@@ -39,13 +42,25 @@
         }
     }
 
-    .navbar-collapse{
-        @media (max-width:767px){
-            text-align: right;
-        }
-    }
+    
 
     .navbar-toggler{
             border: none;
     }
 }
+
+.navbar-dark{
+    .navbar-nav{
+        .nav-link{
+            margin-right: 8px;
+            color: white;
+            text-align: right;
+
+            &:hover{
+                color: rgb(0,89,202);
+            }
+        }
+    }
+}
+
+

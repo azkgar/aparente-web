@@ -44,7 +44,7 @@ export default function MenuTop(props) {
                         if(external) {
                             return (
                                 <li key = {item._id} className = "nav-item">
-                                    <a className="nav-link" href={item.url} target = "_blank" rel = "noopener noreferrer">{item.title}</a>
+                                    <a className="nav-link list-item" href={item.url} target = "_blank" rel = "noopener noreferrer">{item.title}</a>
                                 </li>
                             );
                         }
