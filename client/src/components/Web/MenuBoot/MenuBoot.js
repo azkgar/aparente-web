@@ -22,31 +22,36 @@ export default function MenuTop(props) {
     }, []);
 
     const black = {style: "rgb(25,25,25"}
+
+    function removeClass() {
+        const element = document.getElementById("navbarNav");
+        element.classList.remove("show");
+    }
     
     return(
-        <nav class="navbar navbar-expand-lg navbar-dark" style = {black}>
+        <nav className="navbar navbar-expand-lg navbar-dark" style = {black}>
             <Link to = {"/"} className = "navbar-brand">
                 <img src = {logo} alt = "Aparente" />
             </Link>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <div className="collapse navbar-collapse" id="navbarNav">
+                <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                     {menuData.map(item => {
                         const external = item.url.indexOf("http") > -1 ? true: false;
 
                         if(external) {
                             return (
-                                <li key = {item._id} class = "nav-item">
-                                    <a class="nav-link" href={item.url} target = "_blank" rel = "noopener noreferrer">{item.title}</a>
+                                <li key = {item._id} className = "nav-item">
+                                    <a className="nav-link" href={item.url} target = "_blank" rel = "noopener noreferrer">{item.title}</a>
                                 </li>
                             );
                         }
 
                         return (
                             <li key = {item._id} className = "nav-item">
-                                <Link to = {item.url} className = "nav-link">{item.title}</Link>
+                                <Link to = {item.url} className = "nav-link" onClick = {removeClass()}>{item.title}</Link>
                             </li>
                         );
                     })}
