@@ -1,14 +1,14 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom"
-import {Layout, Row, Col} from "antd";
+import {Row, Col} from "antd";
 import MenuTop from "../components/Web/MenuTop";
 import MenuBoot from "../components/Web/MenuBoot";
+import Footer from "../components/Web/Footer";
 
 import "./LayoutBasic.scss";
 
 export default function LayoutBasic(props){
     const {routes} = props;
-    const {Footer} = Layout;
 
     return (
         <>
@@ -21,9 +21,7 @@ export default function LayoutBasic(props){
             </Row> */}
             <MenuBoot />
             <LoadRoutes routes={routes}/>
-            <Footer>
-                Creado con estilo por Aparente® 2020
-            </Footer>
+            <Footer />
         </>
     )
 }

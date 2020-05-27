@@ -1,0 +1,38 @@
+import React from 'react';
+import {Layout, Row, Col} from "antd";
+
+import "./Footer.scss";
+
+export default function Footer() {
+    const {Footer} = Layout;
+
+    return (
+        <Footer className = "footer">
+            <Row>
+                <Col md = {4}/>
+                <Col md = {16}>
+                    <Row>
+                        <Col md = {8}>
+                            Mi información
+                        </Col>
+                        <Col md = {8}>
+                            Navegación
+                        </Col>
+                        <Col md = {8}>
+                            Newsletter
+                        </Col>
+                    </Row>
+                    <Row className = "footer__copyright">
+                        <Col md = {12}>
+                            Creado con estilo por Aparente®
+                        </Col>
+                        <Col md = {12}>
+                            ©Todos los derechos reservados 2020
+                        </Col>
+                    </Row>
+                </Col>
+                <Col md = {4}/>
+            </Row>
+        </Footer>
+    )
+}
