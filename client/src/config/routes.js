@@ -10,6 +10,7 @@ import AdminMenuWeb from "../pages/Admin/MenuWeb";
 
 //User Pages
 import Home from "../pages/Home";
+import Courses from "../pages/Courses";
 
 //Error Page
 import Error404 from "../pages/Error404";
@@ -53,6 +54,11 @@ const routes = [
             {
                 path: "/",
                 component: Home,
+                exact: true
+            },
+            {
+                path: "/courses",
+                component: Courses,
                 exact: true
             },
             {
