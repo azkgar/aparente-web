@@ -26,11 +26,11 @@ function getPosts(req,res) {
         sort: {date: "desc"}
     };
 
-    Post.paginate({}, options, (error, postStored) => {
+    Post.paginate({}, options, (error, postsStored) => {
         if(error){
             res.status(500).send({code: 500, message: "Error del servidor"});
         } else {
-            if(!postStored) {
+            if(!postsStored) {
                 res.status(404).send({code: 404, message: "No se encontró ningún post"});
             } else {
                 res.status(200).send({code: 200, posts: postsStored});
