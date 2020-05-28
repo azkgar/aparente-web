@@ -49,7 +49,7 @@ import "./Blog.scss";
             </div>
             <h1>El último post</h1>
             <h1>Lista de todos los posts</h1>
-             <PostsList posts = {posts}/> 
+             <PostsList posts = {posts} setReloadPosts = {setReloadPosts}/> 
              <Pagination posts = {posts} location = {location} history = {history}/>
             <Modal
                 title = {modalTitle}
