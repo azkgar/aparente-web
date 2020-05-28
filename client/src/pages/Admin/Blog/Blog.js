@@ -4,9 +4,8 @@ import Modal from "../../../components/Modal";
 import queryString from "query-string";
 import {withRouter} from "react-router-dom";
 import {getPostsApi} from "../../../api/post";
-
+import {PostsList} from "../../../components/Admin/Blog/PostsList";
 import "./Blog.scss";
-
 
  function Blog(props) {
     const {location, history} = props;
@@ -21,7 +20,7 @@ import "./Blog.scss";
     
     useEffect(()=>{
         getPostsApi(12, page).then(response => {
-            if(response?.code != 200){
+            if(response?.code !== 200){
                 notification["warning"]({message: response.message});
             } else {
                 setPosts(response.posts);
@@ -33,6 +32,10 @@ import "./Blog.scss";
         setReloadPosts(false);
     }, [page, reloadPosts]);
 
+    if(!posts) {
+        return null;
+    }
+
     return (
         <div className = "blog">
             <div className = "blog__add-post">
@@ -40,9 +43,9 @@ import "./Blog.scss";
                     Nuevo post
                 </Button>
             </div>
-            <h1>Post List</h1>
+           
             <h2>Paginación</h2>
-
+            
             <Modal
                 title = {modalTitle}
                 isVisible = {isVisibleModal}
