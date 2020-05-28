@@ -51,7 +51,7 @@ export default function MenuTop(props) {
 
                         return (
                             <li key = {item._id} className = "nav-item">
-                                <Link to = {item.url} className = "nav-link" onClick = {removeClass()}>{item.title}</Link>
+                                <Link to = {item.url} className = "nav-link" onClick = {removeClass}>{item.title}</Link>
                             </li>
                         );
                     })}
