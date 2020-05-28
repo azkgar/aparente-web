@@ -3,8 +3,10 @@ import {Button, notification} from "antd";
 import Modal from "../../../components/Modal";
 import queryString from "query-string";
 import {withRouter} from "react-router-dom";
+import PostsList from "../../../components/Admin/Blog/PostsList";
 import {getPostsApi} from "../../../api/post";
-import {PostsList} from "../../../components/Admin/Blog/PostsList";
+
+
 import "./Blog.scss";
 
  function Blog(props) {
@@ -18,6 +20,8 @@ import "./Blog.scss";
 
     const {page = 1} = queryString.parse(location.search);
     
+    console.log(posts);
+    
     useEffect(()=>{
         getPostsApi(12, page).then(response => {
             if(response?.code !== 200){
@@ -28,7 +32,6 @@ import "./Blog.scss";
         }).catch(() => {
             notification["error"]({message: "Error del servidor" });
         });
-
         setReloadPosts(false);
     }, [page, reloadPosts]);
 
@@ -43,15 +46,16 @@ import "./Blog.scss";
                     Nuevo post
                 </Button>
             </div>
-           
-            <h2>Paginación</h2>
-            
+            <h1>El último post</h1>
+            <h1>Lista de todos los posts</h1>
+             <PostsList posts = {posts}/> 
             <Modal
                 title = {modalTitle}
                 isVisible = {isVisibleModal}
                 setIsVisible = {setIsVisibleModal}
                 width = "75%"
             />
+            <h2>Paginación</h2>
         </div>
     )
 }
