@@ -4,6 +4,7 @@ import Modal from "../../../components/Modal";
 import queryString from "query-string";
 import {withRouter} from "react-router-dom";
 import PostsList from "../../../components/Admin/Blog/PostsList";
+import Pagination from "../../../components/Pagination";
 import {getPostsApi} from "../../../api/post";
 
 
@@ -49,15 +50,16 @@ import "./Blog.scss";
             <h1>El último post</h1>
             <h1>Lista de todos los posts</h1>
              <PostsList posts = {posts}/> 
+             <Pagination posts = {posts} location = {location} history = {history}/>
             <Modal
                 title = {modalTitle}
                 isVisible = {isVisibleModal}
                 setIsVisible = {setIsVisibleModal}
                 width = "75%"
             />
-            <h2>Paginación</h2>
+            
         </div>
-    )
+    );
 }
 
 export default withRouter(Blog);
