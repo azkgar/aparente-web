@@ -74,3 +74,15 @@ export function updatePostApi (token, id, data) {
         return err;
     });
 }
+
+export function getPostApi (urlPost) {
+    const url = `${basePath}/${apiVersion}/get-post/${urlPost}`;
+
+    return fetch(url).then(response => {
+        return response.json();
+    }).then(result => {
+        return result;
+    }).catch(err => {
+        return err;
+    });
+}
