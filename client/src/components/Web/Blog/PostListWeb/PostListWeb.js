@@ -42,6 +42,7 @@ export default function PostListWeb(props) {
             <title>
                 Aparente | Blog con estilo
             </title>
+            <meta name = "description" content =  "Blog | Web sobre apariencia y estilo" />
         </Helmet>
         <div className = "posts-list-web">
             <h1>Blog</h1>

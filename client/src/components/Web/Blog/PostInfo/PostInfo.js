@@ -31,6 +31,7 @@ export default function PostInfo(props) {
         <>
         <Helmet>
             <title>Aparente | {postInfo.title}</title>
+            <meta name = "description" content =  {postInfo.title}/>
         </Helmet>
         <div className = "port-info">
             <h1 className = "post-info__title">{postInfo.title}</h1>

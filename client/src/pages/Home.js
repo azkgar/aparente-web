@@ -8,6 +8,7 @@ export default function Home(){
         <>
             <Helmet>
                 <title>Aparente</title>
+                <meta name = "description" content =  "Home | Web sobre apariencia y estilo"/>
             </Helmet>
             <MainBanner />
             <HomeCourses />
