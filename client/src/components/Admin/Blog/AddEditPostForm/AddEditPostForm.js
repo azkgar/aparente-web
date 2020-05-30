@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {Row, Col, Form, Input, Button, DatePicker, notification} from "antd";
-import {FontSizeOutlined, LinkOutlined, UserOutlined, TagOutlined, CalendarOutlined} from "@ant-design/icons";
+import {FontSizeOutlined, LinkOutlined, UserOutlined, TagOutlined} from "@ant-design/icons";
 import moment from "moment";
 import {Editor} from "@tinymce/tinymce-react";
 import { getAccessTokenApi } from '../../../../api/auth';
-import {addPostApi} from "../../../../api/post";
+import {addPostApi, updatePostApi} from "../../../../api/post";
 
 import "./AddEditPostForm.scss";
 
@@ -16,14 +16,7 @@ export default function AddEditPostForm(props) {
         if(post){
             setPostData(post);
         } else {
-            setPostData({
-                title: "",
-                url: "",
-                description: "",
-                date: "",
-                category:"",
-                user: ""
-            });
+            setPostData({});
         }
     }, [post]);
 
@@ -40,8 +33,7 @@ export default function AddEditPostForm(props) {
                 addPost();
                 
             } else {
-                console.log("Editando post");
-                console.log(postData);
+                updatePost();
             }
         } 
     }
@@ -61,6 +53,20 @@ export default function AddEditPostForm(props) {
                 message: "Error del servidor"
             });
         });
+    }
+
+    const updatePost = () => {
+        const token = getAccessTokenApi();
+        updatePostApi(token, post._id, postData)
+        .then(response => {
+            const typeNotification = response.code === 200 ? "success" : "warning";
+            notification[typeNotification]({message: response.message});
+            setIsVisibleModal(false);
+            setReloadPosts(true);
+            setPostData({});
+        }).catch(() => {
+            notification["error"]({message: "Error del servidor"});
+        }); 
     }
     
     return (
@@ -140,7 +146,7 @@ function AddEditForm(props) {
                     'advlist autolink lists link image charmap print preview anchor',
                     'searchreplace visualblocks code fullscreen',
                     'insertdatetime media table paste code help wordcount',
-                    "textcolor fullscreen preview emoticons"
+                    "fullscreen preview emoticons"
                 ],
                 toolbar:
                    'undo redo | formatselect | bold italic underline strikethrough  blockquote subscript superscript code backcolor | alignleft aligncenter alignright alignjustify |bullist numlist outdent indent | removeformat | help | image editimage imageoptions | forecolor backcolor | fullscreen | preview | emoticons',

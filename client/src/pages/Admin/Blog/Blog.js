@@ -22,8 +22,6 @@ import "./Blog.scss";
 
     const {page = 1} = queryString.parse(location.search);
     
-    console.log(posts);
-    
     useEffect(()=>{
         getPostsApi(12, page).then(response => {
             if(response?.code !== 200){
@@ -39,8 +37,14 @@ import "./Blog.scss";
 
     const addPost = () => {
         setIsVisibleModal(true);
-        setModalTitle("Nuevo post");
+        setModalTitle("Zona de redacción");
         setModalContent(<AddEditPostForm setIsVisibleModal = {setIsVisibleModal} setReloadPosts = {setReloadPosts} post = {null}/>);
+    }
+
+    const editPost = post => {
+        setIsVisibleModal(true);
+        setModalTitle(`Edita el post: ${post.title}`);
+        setModalContent(<AddEditPostForm setIsVisibleModal = {setIsVisibleModal} setReloadPosts = {setReloadPosts} post = {post}/>);
     }
 
     if(!posts) {
@@ -54,9 +58,8 @@ import "./Blog.scss";
                     Nuevo post
                 </Button>
             </div>
-            <h1>El último post</h1>
             <h1>Lista de todos los posts</h1>
-             <PostsList posts = {posts} setReloadPosts = {setReloadPosts}/> 
+             <PostsList posts = {posts} setReloadPosts = {setReloadPosts} editPost = {editPost}/> 
              <Pagination posts = {posts} location = {location} history = {history}/>
             <Modal
                 title = {modalTitle}
