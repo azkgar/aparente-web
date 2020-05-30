@@ -11,7 +11,8 @@ const PostSchema = Schema({
     },
     description: String,
     date: Date,
-    category: String
+    category: String,
+    user: String
 });
 
 PostSchema.plugin(mongoosePaginate);
