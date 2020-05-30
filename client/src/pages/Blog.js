@@ -1,13 +1,19 @@
 import React from 'react';
 import {Row, Col} from "antd";
 import {useParams} from "react-router-dom";
+import PostListWeb from "../components/Web/Blog/PostListWeb";
 
 export default function Blog(props) {
+    const {location, history} = props;
     const {url} = useParams();
 
     return (
-        <div>
-            {url ? <h1>En un post</h1> : <h1>Lista de post</h1>}
-        </div>
+        <Row>
+            <Col md = {4} />
+            <Col md = {16}>
+                {url ? ("PostInfo") : <PostListWeb location = {location} history = {history} />}
+            </Col>
+            <Col md = {4} />
+        </Row>
     )
 }
