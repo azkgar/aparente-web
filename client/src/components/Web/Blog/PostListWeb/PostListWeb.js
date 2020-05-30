@@ -3,6 +3,7 @@ import {Spin, List, notification} from "antd";
 import {Link} from "react-router-dom";
 import moment from "moment";
 import queryString from "query-string";
+import {Helmet} from "react-helmet";
 import Pagination from "../../../Pagination";
 import {getPostsApi} from "../../../../api/post";
 import "moment/locale/es";
@@ -36,11 +37,18 @@ export default function PostListWeb(props) {
     }
 
     return (
+        <>
+        <Helmet>
+            <title>
+                Aparente | Blog con estilo
+            </title>
+        </Helmet>
         <div className = "posts-list-web">
             <h1>Blog</h1>
             <List dataSource = {posts.docs} renderItem = {post => <Post post = {post} />} />
             <Pagination posts = {posts} location = {location} history = {history} />
         </div>
+        </>
     )
 }
 

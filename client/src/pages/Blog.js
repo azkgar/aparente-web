@@ -12,7 +12,7 @@ export default function Blog(props) {
         <Row>
             <Col md = {4} />
             <Col md = {16}>
-                {url ? <PostInfo url = {url} />: <PostListWeb location = {location} history = {history} />}
+                {url ? <PostInfo url = {url} /> : <PostListWeb location = {location} history = {history} />}
             </Col>
             <Col md = {4} />
         </Row>
