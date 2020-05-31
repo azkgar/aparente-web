@@ -1,16 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import {Row, Col, Form, Input, Button, DatePicker, notification} from "antd";
+import {Row, Col, Form, Input, Button, DatePicker, Select, notification} from "antd";
 import {FontSizeOutlined, LinkOutlined, UserOutlined, TagOutlined} from "@ant-design/icons";
 import moment from "moment";
 import {Editor} from "@tinymce/tinymce-react";
 import { getAccessTokenApi } from '../../../../api/auth';
 import {addPostApi, updatePostApi} from "../../../../api/post";
+import {getUsersActiveApi} from "../../../../api/user";
 
 import "./AddEditPostForm.scss";
 
 export default function AddEditPostForm(props) {
     const { setIsVisibleModal, setReloadPosts, post} = props;
     const [postData, setPostData] = useState ({});
+    const [userData, setUserData] = useState([]);
+    const token = getAccessTokenApi();
 
     useEffect(()=>{
         if(post){
@@ -19,6 +22,12 @@ export default function AddEditPostForm(props) {
             setPostData({});
         }
     }, [post]);
+
+    useEffect(() => {
+        getUsersActiveApi(token, true).then(response => {
+            setUserData(response.users);
+        });
+    }, [token]);
 
     const processPost = e => {
         e.preventDefault();
@@ -38,7 +47,8 @@ export default function AddEditPostForm(props) {
         } 
     }
 
-    const addPost = ( )=> {
+    const addPost = () => {
+    
         const token = getAccessTokenApi();
         addPostApi(token, postData).then(response => {
             const typeNotification = response.code === 200 ? "success" : "warning";
@@ -56,6 +66,7 @@ export default function AddEditPostForm(props) {
     }
 
     const updatePost = () => {
+       
         const token = getAccessTokenApi();
         updatePostApi(token, post._id, postData)
         .then(response => {
@@ -71,23 +82,24 @@ export default function AddEditPostForm(props) {
     
     return (
         <div className = "add-edit-post-form">
-            <AddEditForm postData = {postData} setPostData = {setPostData} post = {post} processPost = {processPost}/>
+            <AddEditForm postData = {postData} setPostData = {setPostData} post = {post} processPost = {processPost} userData = {userData} />
         </div>
     );
 }
 
 function AddEditForm(props) {
-    const {postData, setPostData, post, processPost } = props;
+    const {postData, setPostData, post, processPost, userData } = props;
+    const {Option} = Select;
 
     return(
        <Form
         className = "add-edit-post-form"
-        layout = "inline"
         onSubmit = {processPost}
         
        >
             <Row>
                 <Col span = {8}>
+                    <Form.Item>
                     <Input
                         prefix = {<FontSizeOutlined />}
                         placeholder = "Título"
@@ -95,8 +107,10 @@ function AddEditForm(props) {
                         onChange = {e => setPostData({...postData, title: e.target.value})}
 
                      />
+                     </Form.Item>
                 </Col>
                 <Col span = {8}>
+                    <Form.Item>
                     <Input
                         prefix = {<LinkOutlined />}
                         placeholder = "url"
@@ -104,8 +118,10 @@ function AddEditForm(props) {
                         onChange = {e => setPostData({...postData, url: transformTextToUrl(e.target.value)})}
 
                      />
+                     </Form.Item>
                 </Col>
                 <Col span = {8}>
+                    <Form.Item>
                     <DatePicker 
                         style ={{width: "100%"}}
                         format = "DD/MM/YYYY HH:mm:ss"
@@ -114,18 +130,22 @@ function AddEditForm(props) {
                         value = {postData.date && moment(postData.date)}
                         onChange = {(e, value) => setPostData({...postData, date: moment(value, "DD/MM/YYYY HH:mm:ss").toISOString()})}
                     />
+                    </Form.Item>
                 </Col>
             </Row>
             <Row>
                 <Col span = {12}>
+                <Form.Item>
                     <Input
                         prefix = {<UserOutlined />}
                         placeholder = "Usuario"
                         value = {postData.username}
                         onChange = {e => setPostData({...postData, username: e.target.value})}
                      />
+                     </Form.Item>
                 </Col>
                 <Col span = {12}>
+                    <Form.Item>
                     <Input
                         prefix = {<TagOutlined />}
                         placeholder = "Categoría"
@@ -133,8 +153,11 @@ function AddEditForm(props) {
                         onChange = {e => setPostData({...postData, categories: transformTextToUrl(e.target.value)})}
 
                      />
+                     </Form.Item>
                 </Col>
             </Row>
+            <Row>
+            <Form.Item>
             <Editor
                 apiKey= {process.env.REACT_APP_TINYMCE_API_KEY}
                 value={postData.content ? postData.content : ""}
@@ -154,6 +177,15 @@ function AddEditForm(props) {
                 }}
                 onBlur={e => setPostData({...postData, content: e.target.getContent()})}
             />
+            </Form.Item>
+            </Row>
+            <Row gutter = {24}>
+                <Col span = {12}>
+                <Select placeholder = "Autor" onChange = {e => setPostData({...postData, username: e})} value = {userData.name}>
+                    {userData.map( user => <Option key = {user._id} value = {user.name} prefix = {<UserOutlined />}>{user.name}</Option>)}
+                </Select>
+                </Col>
+            </Row>
         
             <Button type = "primary" htmlType = "submit" className = "btn-submit" onClick = {processPost}>
                 {post ? "Actualizar" : "Publicar" }
@@ -166,3 +198,16 @@ function transformTextToUrl(text) {
     const url = text.replace(" ", "-");
     return url.toLowerCase();
 }
+
+//function UserList(props) {
+    
+    //const {userData, setPostData} = props;
+
+    //return(
+    //<Form.Item>
+    //    <Select placeholder = "Autor" onChange = {e => setPostData({...userData, name: e})} value = {userData.name}>
+    //            {userData.map( user => <Option key = {user._id} value = {user.name}>{user.name}</Option>)}
+    //    </Select>
+    //</Form.Item>
+    //);
+//}
