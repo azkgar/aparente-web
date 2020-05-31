@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
-import {Switch, List, Button, Modal as ModalAntd, notification} from "antd";
-import{EditOutlined, DeleteOutlined, QuestionCircleOutlined} from "@ant-design/icons";
+import {Avatar, Switch, List, Button, Modal as ModalAntd, notification} from "antd";
+import{EditOutlined, DeleteOutlined, QuestionCircleOutlined, TagOutlined} from "@ant-design/icons";
 import Modal from "../../../Modal";
 import DragSortableList from "react-drag-sortable";
-import  {updateCategoryApi, activateCategoryApi, deleteCategoryApi} from "../../../../api/category";
+import  {updateCategoryApi, activateCategoryApi, deleteCategoryApi, getCoverApi} from "../../../../api/category";
 import {getAccessTokenApi} from "../../../../api/auth";
 import AddCategoryForm from "../AddCategoryForm";
 import EditCategoryForm from "../EditCategoryForm";
+import noCover from "../../../../assets/img/png/Missing.png";
+
 
 import "./CategoriesList.scss";
 
@@ -26,12 +28,13 @@ export default function CategoriesList(props) {
         categories.forEach(item => {
             listItemsArray.push({
                 content: (
-                    <CategoryItem item = {item} activateCategory = {activateCategory} editCategoryModal = {editCategoryModal} deleteCategory = {deleteCategory} />
+                    <CategoryItem item = {item} activateCategory = {activateCategory} editCategoryModal = {editCategoryModal} deleteCategory = {deleteCategory } />
                 )
             });
         });
         setListItems(listItemsArray);
     }, [categories]);
+
 
     const onSort = (sortedList, dropEvent) => {
         const accessToken = getAccessTokenApi();
@@ -75,7 +78,7 @@ export default function CategoriesList(props) {
         confirm({
             icon: <QuestionCircleOutlined />,
             title: "Eliminar categoría",
-            content: `¿Estás seguro de eliminar la categoría ${categories.title}?`,
+            content: `¿Estás seguro de eliminar la categoría ${categories.tag}?`,
             okText: "Eliminar",
             okButtonProps: {type: "primary", danger: true},
             cancelText: "Cancelar",
@@ -107,6 +110,17 @@ export default function CategoriesList(props) {
 
 function CategoryItem(props) {
     const {item, activateCategory, editCategoryModal, deleteCategory} = props;
+    const [avatar, setAvatar] = useState(null);
+
+    useEffect(() => {
+        if(item.avatar){
+            getCoverApi(item.avatar).then(response => {
+                setAvatar(response);
+            });
+        } else {
+            setAvatar(null);
+        }
+    }, [item]);
 
     return(
         <List.Item
@@ -120,7 +134,7 @@ function CategoryItem(props) {
                 </Button>
             ]}
         >
-            <List.Item.Meta title = {item.tag} />
+            <List.Item.Meta avatar = {<Avatar src = {avatar ? avatar : noCover} shape ="square" size = {150}/>} title = {item.tag}  />
         </List.Item>
     );
 }

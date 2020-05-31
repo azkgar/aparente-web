@@ -2,7 +2,7 @@ import React, {useState, useEffect, useCallback} from "react";
 import {Avatar, Form, Input, Button, notification} from "antd";
 import{TagOutlined} from "@ant-design/icons";
 import {useDropzone} from "react-dropzone";
-import noCover from "../../../../assets/img/png/Missing.png"
+import noCover from "../../../../assets/img/png/Missing.png";
 import {updateCategoryApi, getCoverApi, uploadCoverApi} from "../../../../api/category";
 import {getAccessTokenApi} from "../../../../api/auth";
 
@@ -105,8 +105,8 @@ function UploadCover(props) {
         <div className = "upload-avatar" {...getRootProps()}>
             <input {...getInputProps()} />
             {isDragActive ? (
-                <Avatar size = {150} src = {noCover} />
-             ) : ( <Avatar size = {150} src = {avatarUrl ? avatarUrl : noCover} />)}
+                <Avatar size = {360} shape = "square"  src = {noCover} />
+             ) : ( <Avatar size = {360} shape = "square" src = {avatarUrl ? avatarUrl : noCover} />)}
         </div>
     );
 }

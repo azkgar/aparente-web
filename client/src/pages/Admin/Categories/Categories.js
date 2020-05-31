@@ -15,7 +15,6 @@ export default function Categories()  {
 
     return(
         <div className = "menu-web">
-        <h1>menú de categorias</h1>
             <CategoriesList categories = {categories} setReloadCategories = {setReloadCategories} />
         </div>
     );
