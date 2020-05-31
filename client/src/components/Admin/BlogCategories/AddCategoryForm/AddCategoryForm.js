@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Form, Input, Button, Select, notification} from "antd";
+import {Form, Input, Button, notification} from "antd";
 import{TagOutlined} from "@ant-design/icons";
 import {addCategoryApi} from "../../../../api/category";
 import {getAccessTokenApi} from "../../../../api/auth";
@@ -56,7 +56,6 @@ export default function AddCategoryForm(props) {
 
 function AddForm(props) {
     const {categoriesData, setCategoriesData, addCategory} = props;
-    const {Option} = Select;
 
     return(
         <Form className = "form-add" onSubmit = {addCategory}>

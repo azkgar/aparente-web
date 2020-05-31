@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Avatar, Switch, List, Button, Modal as ModalAntd, notification} from "antd";
-import{EditOutlined, DeleteOutlined, QuestionCircleOutlined, TagOutlined} from "@ant-design/icons";
+import{EditOutlined, DeleteOutlined, QuestionCircleOutlined} from "@ant-design/icons";
 import Modal from "../../../Modal";
 import DragSortableList from "react-drag-sortable";
 import  {updateCategoryApi, activateCategoryApi, deleteCategoryApi, getCoverApi} from "../../../../api/category";
