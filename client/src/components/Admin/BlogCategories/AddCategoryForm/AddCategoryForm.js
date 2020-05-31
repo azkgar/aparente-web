@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Form, Input, Button, Select, notification} from "antd";
-import{FontSizeOutlined} from "@ant-design/icons";
+import{TagOutlined} from "@ant-design/icons";
 import {addCategoryApi} from "../../../../api/category";
 import {getAccessTokenApi} from "../../../../api/auth";
 
@@ -62,7 +62,7 @@ function AddForm(props) {
         <Form className = "form-add" onSubmit = {addCategory}>
             <Form.Item>
                 <Input 
-                    prefix = {<FontSizeOutlined />}
+                    prefix = {<TagOutlined />}
                     placeholder = "Categoría"
                     value = {categoriesData.tag}
                     onChange = {e => setCategoriesData({...categoriesData, tag: e.target.value})}
