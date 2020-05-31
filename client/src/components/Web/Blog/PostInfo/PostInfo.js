@@ -38,7 +38,7 @@ export default function PostInfo(props) {
             <div className = "post-info__creation-date">
                 {moment(postInfo.date).local("es").format("LL")}
             </div>
-            <div className = "post-info__description" dangerouslySetInnerHTML = {{__html: postInfo.description}}>
+            <div className = "post-info__description" dangerouslySetInnerHTML = {{__html: postInfo.content}}>
 
             </div>
         </div>

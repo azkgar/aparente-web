@@ -9,10 +9,10 @@ const PostSchema = Schema({
         type: String,
         unique: true
     },
-    description: String,
+    content: String,
     date: Date,
-    category: String,
-    user: String
+    categories: String,
+    username: String
 });
 
 PostSchema.plugin(mongoosePaginate);

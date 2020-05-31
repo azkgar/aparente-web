@@ -22,9 +22,9 @@ export default function AddEditPostForm(props) {
 
     const processPost = e => {
         e.preventDefault();
-        const {title, url, description, date, category, user} = postData;
+        const {title, url, content, date, categories, username} = postData;
 
-        if(!title || !url || !description || !date || !user || !category){
+        if(!title || !url || !content || !date || !username || !categories){
             notification["error"]({
                 message: "Todos los campos son obligatorios"
             });
@@ -121,23 +121,23 @@ function AddEditForm(props) {
                     <Input
                         prefix = {<UserOutlined />}
                         placeholder = "Usuario"
-                        value = {postData.user}
-                        onChange = {e => setPostData({...postData, user: e.target.value})}
+                        value = {postData.username}
+                        onChange = {e => setPostData({...postData, username: e.target.value})}
                      />
                 </Col>
                 <Col span = {12}>
                     <Input
                         prefix = {<TagOutlined />}
                         placeholder = "Categoría"
-                        value = {postData.category}
-                        onChange = {e => setPostData({...postData, category: transformTextToUrl(e.target.value)})}
+                        value = {postData.categories}
+                        onChange = {e => setPostData({...postData, categories: transformTextToUrl(e.target.value)})}
 
                      />
                 </Col>
             </Row>
             <Editor
                 apiKey= {process.env.REACT_APP_TINYMCE_API_KEY}
-                initialValue={postData.description ? postData.description : ""}
+                value={postData.content ? postData.content : ""}
                 init={{
                 selector: "textarea",
                 height: 500,
@@ -152,7 +152,7 @@ function AddEditForm(props) {
                    'undo redo | formatselect | bold italic underline strikethrough  blockquote subscript superscript code backcolor | alignleft aligncenter alignright alignjustify |bullist numlist outdent indent | removeformat | help | image editimage imageoptions | forecolor backcolor | fullscreen | preview | emoticons',
                 textcolor_rows: "4"
                 }}
-                onBlur={e => setPostData({...postData, description: e.target.getContent()})}
+                onBlur={e => setPostData({...postData, content: e.target.getContent()})}
             />
         
             <Button type = "primary" htmlType = "submit" className = "btn-submit" onClick = {processPost}>
