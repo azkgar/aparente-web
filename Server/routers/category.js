@@ -2,7 +2,7 @@ const express = require("express");
 const multiparty = require("connect-multiparty");
 const CategoryController = require("../controllers/category");
 
-const md_upload_cover = multiparty({uploadDir: "./uploads/coverImage"});
+const md_upload_cover = multiparty({uploadDir: "./uploads/categories"});
 const md_auth = require("../middleware/authenticated");
 
 const api = express.Router();
@@ -20,7 +20,7 @@ api.delete("/delete-category/:id", [md_auth.ensureAuth], CategoryController.dele
 api.route("/upload-category-cover/:id")
 .put([md_auth.ensureAuth, md_upload_cover], CategoryController.uploadCover);
 
-api.route("/get-category-cover/:coverName")
+api.route("/get-category-cover/:avatarName")
 .get(CategoryController.getCover);
 
 module.exports = api;

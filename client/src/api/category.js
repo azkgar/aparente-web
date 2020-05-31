@@ -96,8 +96,8 @@ export function deleteCategoryApi(token,categoryId) {
     });
 }
 
-export function uploadCoverApi(token,avatar,userId){
-    const url = `${basePath}/${apiVersion}/upload-avatar/${userId}`;
+export function uploadCoverApi(token,avatar,categoryId){
+    const url = `${basePath}/${apiVersion}/upload-category-cover/${categoryId}`;
     const formData = new FormData();
     
     formData.append("avatar", avatar, avatar.name);
@@ -120,7 +120,7 @@ export function uploadCoverApi(token,avatar,userId){
 }
 
 export function getCoverApi(avatarName){
-    const url = `${basePath}/${apiVersion}/get-avatar/${avatarName}`;
+    const url = `${basePath}/${apiVersion}/get-category-cover/${avatarName}`;
 
     return fetch(url).then( response => {
         return response.url;

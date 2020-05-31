@@ -63,7 +63,7 @@ export default function CategoriesList(props) {
 
     const editCategoryModal = categories => {
         setIsVisibleModal(true);
-        setModalTitle(`Editando categoría: ${categories.title}`);
+        setModalTitle(`Editando categoría: ${categories.tag}`);
         setModalContent(
             <EditCategoryForm setIsVisibleModal = {setIsVisibleModal} setReloadCategories = {setReloadCategories} categories = {categories} />
         );

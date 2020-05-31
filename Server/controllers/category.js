@@ -1,4 +1,4 @@
-const  fs = require("fs");
+const fs = require("fs");
 const path = require("path");
 const Category = require("../models/category");
 
@@ -103,29 +103,31 @@ function uploadCover(req,res) {
             } else {
                 let category = categoryData;
                 
-                if(req.files){
-                    let filePath = req.files.cover.path;
+                if(req.files) {
+                    let filePath = req.files.avatar.path;
                     let fileSplit = filePath.split("/");
                     let fileName = fileSplit[2];
+
                     let extSplit = fileName.split(".");
                     let fileExt = extSplit[1];
 
                     if(fileExt !== "png" && fileExt !== "jpg"){
-                        res.status(400).send({message: "Solo se permiten .png y .jpg como cover de categoría"});
+                        res.status(400).send({message: "La extensión no es válida. Usa .png o .jpg"});
                     } else {
                         category.avatar = fileName;
-                        Category.findByIdAndUpdate({_id: params.id}, category, (err, categoryResult) =>{
+                        Category.findByIdAndUpdate({_id: params.id}, category, (err, categoryResult) => {
                             if(err) {
                                 res.status(500).send({message: "Error del servidor"});
                             } else {
                                 if(!categoryResult) {
                                     res.status(404).send({message: "Categoría no encontrada"});
                                 } else {
-                                    res.status(200).send({coverName: fileName});
+                                    res.status(200).send({avatarName: fileName });
                                 }
                             }
                         });
                     }
+
                 }
             }
         }
@@ -133,7 +135,7 @@ function uploadCover(req,res) {
 }
 
 function getCover(req,res) {
-    const coverName = req.params.coverName;
+    const coverName = req.params.avatarName;
     const filePath = "./uploads/categories/" + coverName;
 
     fs.exists(filePath, exists => {

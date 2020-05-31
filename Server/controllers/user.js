@@ -58,7 +58,7 @@ function signIn(req,res) {
                     if(err) {
                         res.status(500).send({message: "Error del servidor"});
                     } else if(!check) {
-                        res.status(404).send({message: "La contraseña es incorrecta"});
+                        res.status(404).send({message: "Nombre de usuario o contraseña inválidos"});
                     } else {
                         if(!userStored.active) {
                             res.status(200).send({code: 200, message: "El usuario no está activo"});
