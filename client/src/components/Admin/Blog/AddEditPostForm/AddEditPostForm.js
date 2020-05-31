@@ -89,7 +89,6 @@ export default function AddEditPostForm(props) {
 
 function AddEditForm(props) {
     const {postData, setPostData, post, processPost, userData } = props;
-    const {Option} = Select;
 
     return(
        <Form
@@ -181,9 +180,7 @@ function AddEditForm(props) {
             </Row>
             <Row gutter = {24}>
                 <Col span = {12}>
-                <Select placeholder = "Autor" onChange = {e => setPostData({...postData, username: e})} value = {userData.name}>
-                    {userData.map( user => <Option key = {user._id} value = {user.name} prefix = {<UserOutlined />}>{user.name}</Option>)}
-                </Select>
+                    <UserList userData = {userData} setPostData = {setPostData} postData = {postData}/>
                 </Col>
             </Row>
         
@@ -199,15 +196,15 @@ function transformTextToUrl(text) {
     return url.toLowerCase();
 }
 
-//function UserList(props) {
-    
-    //const {userData, setPostData} = props;
+function UserList(props) {
+    const {Option} = Select;
+    const {userData, postData, setPostData} = props;
 
-    //return(
-    //<Form.Item>
-    //    <Select placeholder = "Autor" onChange = {e => setPostData({...userData, name: e})} value = {userData.name}>
-    //            {userData.map( user => <Option key = {user._id} value = {user.name}>{user.name}</Option>)}
-    //    </Select>
-    //</Form.Item>
-    //);
-//}
+    return(
+    <Form.Item>
+        <Select placeholder = "Autor" onChange = {e => setPostData({...postData, username: e})} value = {userData.name}>
+                    {userData.map( user => <Option key = {user._id} value = {user.name}>{user.name}</Option>)}
+        </Select>
+    </Form.Item>
+    );
+}
