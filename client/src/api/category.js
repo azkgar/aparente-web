@@ -12,8 +12,8 @@ export function getCategoriesApi() {
     });
 }
 
-export function updateMenuApi(token, menuId, data) {
-    const url = `${basePath}/${apiVersion}/update-menu/${menuId}`;
+export function updateCategoryApi(token, categoryId, data) {
+    const url = `${basePath}/${apiVersion}/update-category/${categoryId}`;
 
     const params = {
         method: "PUT",
@@ -33,8 +33,8 @@ export function updateMenuApi(token, menuId, data) {
     });
 }
 
-export function activateMenuApi(token, menuId, status) {
-    const url = `${basePath}/${apiVersion}/activate-menu/${menuId}`;
+export function activateCategoryApi(token, categoryId, status) {
+    const url = `${basePath}/${apiVersion}/activate-category/${categoryId}`;
 
     const params = {
         method: "PUT",
@@ -55,8 +55,8 @@ export function activateMenuApi(token, menuId, status) {
 
 }
 
-export function addMenuApi(token,menu) {
-    const url = `${basePath}/${apiVersion}/add-menu/`;
+export function addCategoryApi(token,category) {
+    const url = `${basePath}/${apiVersion}/add-category/`;
 
     const params = {
         method: "POST",
@@ -64,7 +64,7 @@ export function addMenuApi(token,menu) {
             "Content-Type": "application/json",
             "Authorization": token
         },
-        body: JSON.stringify(menu)
+        body: JSON.stringify(category)
     }
 
     return fetch(url, params).then(response => {
@@ -76,8 +76,8 @@ export function addMenuApi(token,menu) {
     });
 }
 
-export function deleteMenuApi(token,menuId) {
-    const url = `${basePath}/${apiVersion}/delete-menu/${menuId}`;
+export function deleteCategoryApi(token,categoryId) {
+    const url = `${basePath}/${apiVersion}/delete-category/${categoryId}`;
 
     const params = {
         method: "DELETE",
@@ -96,7 +96,7 @@ export function deleteMenuApi(token,menuId) {
     });
 }
 
-export function uploadAvatarApi(token,avatar,userId){
+export function uploadCoverApi(token,avatar,userId){
     const url = `${basePath}/${apiVersion}/upload-avatar/${userId}`;
     const formData = new FormData();
     
@@ -119,7 +119,7 @@ export function uploadAvatarApi(token,avatar,userId){
     });
 }
 
-export function getAvatarApi(avatarName){
+export function getCoverApi(avatarName){
     const url = `${basePath}/${apiVersion}/get-avatar/${avatarName}`;
 
     return fetch(url).then( response => {

@@ -1,22 +1,22 @@
 import React, {useState, useEffect} from "react";
 import {getCategoriesApi} from "../../../api/category";
-import MenuWebList from "../../../components/Admin/MenuWeb/MenuWebList";
+import CategoriesList from "../../../components/Admin/BlogCategories/CategoriesList";
 
-export default function CategoriesWeb()  {
+export default function Categories()  {
     const [categories, setCategories] = useState([]);
-    const [reloadCategoriesWeb, setReloadCategoriesWeb] = useState(false);
+    const [reloadCategories, setReloadCategories] = useState(false);
 
     useEffect(() => {
         getCategoriesApi().then(response => {
             setCategories(response.category);
         });
-        setReloadCategoriesWeb(false);
-    }, [reloadCategoriesWeb]);
+        setReloadCategories(false);
+    }, [reloadCategories]);
 
     return(
         <div className = "menu-web">
         <h1>menú de categorias</h1>
-            {/*<MenuWebList categories = {categories} setReloadCategoriesWeb = {setReloadCategoriesWeb} />*/}
+            <CategoriesList categories = {categories} setReloadCategories = {setReloadCategories} />
         </div>
     );
 }

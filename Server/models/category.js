@@ -8,7 +8,8 @@ const CategorySchema = Schema ({
         unique: true
     },
     active: Boolean,
-    avatar: String
+    avatar: String,
+    order: Number
 });
 
 module.exports = mongoose.model("Category", CategorySchema);

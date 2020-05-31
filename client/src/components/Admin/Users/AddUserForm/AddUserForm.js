@@ -6,7 +6,7 @@ import {getAccessTokenApi} from "../../../../api/auth";
 
 import "./AddUserForm.scss";
 
-export default function EditUserForm(props) {
+export default function AddUserForm(props) {
     const {setIsVisibleModal, setReloadUsers} = props;
     const [userData, setUserData] = useState({});
 

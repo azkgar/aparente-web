@@ -3,11 +3,12 @@ const path = require("path");
 const Category = require("../models/category");
 
 function addCategory(req, res) {
-    const {tag, active, avatar} = req.body;
+    const {tag, active, avatar, order} = req.body;
     const category = new Category();
     category.tag = tag;
     category.active = active;
     category.avatar = avatar;
+    category.order = order;
 
     category.save((err, createdCategory) => {
         if(err) {
