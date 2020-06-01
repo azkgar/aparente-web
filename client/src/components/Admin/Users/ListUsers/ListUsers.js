@@ -141,8 +141,8 @@ function UserActive(props) {
                     <List.Item.Meta 
                         avatar = {<Avatar src = {avatar ? avatar : NoAvatar}/>}
                         title = {`
-                            ${user.name ? user.name : "Actualiza tu nombre"}
-                            ${user.lastname ? user.lastname : "Actualiza tu apellido"}
+                            ${user.name ? user.name : "Nombre"}
+                            ${user.lastname ? user.lastname : "Apellido"}
                         `}
                         description = {user.email}
                     />
@@ -226,8 +226,8 @@ function UserInactive(props) {
                     <List.Item.Meta 
                         avatar = {<Avatar src = {avatar ? avatar : NoAvatar}/>}
                         title = {`
-                            ${user.name ? user.name : "Actualiza tu nombre"}
-                            ${user.lastname ? user.lastname : "Actualiza tu apellido"}
+                            ${user.name ? user.name : "Nombre"}
+                            ${user.lastname ? user.lastname : "Apellido"}
                         `}
                         description = {user.email}
                     />

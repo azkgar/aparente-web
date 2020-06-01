@@ -5,6 +5,7 @@ import MenuTop from "../components/Admin/MenuTop";
 import MenuSider from "../components/Admin/MenuSider";
 import AdminSignIn from "../pages/Admin/SignIn";
 import useAuth from "../hooks/useAuth";
+import moment from "moment";
 
 import "./LayoutAdmin.scss";
 
@@ -35,7 +36,7 @@ export default function LayoutAdmin(props){
                         <LoadRoutes routes={routes}/>
                     </Content>
                     <Footer className="layout-admin__footer">
-                     <p>Creado con estilo por Aparente® 2020</p>
+                     <p>Creado con estilo por Aparente® {moment().year()}</p>
                     </Footer>
                 </Layout>
             </Layout>

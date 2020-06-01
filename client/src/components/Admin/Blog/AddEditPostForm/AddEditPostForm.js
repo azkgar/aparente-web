@@ -111,7 +111,7 @@ function AddEditForm(props) {
         onSubmit = {processPost}
         
        >
-            <Row>
+            <Row gutter = {24}>
                 <Col span = {8}>
                     <Form.Item>
                     <Input
@@ -149,13 +149,17 @@ function AddEditForm(props) {
             </Row>
             <Row gutter = {24}>
                 <Col span = {12}>
-                    <UserList userData = {userData} setPostData = {setPostData} postData = {postData}/>
+                    <Form.Item>
+                        <UserList userData = {userData} setPostData = {setPostData} postData = {postData}/>
+                    </Form.Item>
                 </Col>
                 <Col span = {12}>
-                    <CategoriesList categories = {categories} setPostData = {setPostData} postData = {postData} />
+                    <Form.Item>
+                        <CategoriesList categories = {categories} setPostData = {setPostData} postData = {postData} />
+                    </Form.Item>
                 </Col>
             </Row>
-            <Row>
+            <Row gutter = {24}>
             <Form.Item>
             <Editor
                 apiKey= {process.env.REACT_APP_TINYMCE_API_KEY}

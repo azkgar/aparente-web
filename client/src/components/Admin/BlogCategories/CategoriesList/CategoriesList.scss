@@ -1,0 +1,51 @@
+@import "../../../../scss/index.scss";
+
+.categories-list{
+    font-family: $titles-font;
+
+    &__header {
+        display: flex;
+        text-align: center;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+    }
+
+    &__items {
+        background-color: #fff;
+        padding: 1% 2% 2% 2%;
+
+        .List{
+            position: relative;
+
+            button{
+                .anticon{
+                    transform: translateY(-15%);
+                }
+            }
+            
+            .draggable{
+                width: 100%;
+                background-color: rgba(255,255,255,0.5);
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &.dragged{
+                    border: 1px solid #e2e2e2;
+                    padding: 0 10px;
+                }
+            }
+        }
+
+        .ant-list-item-meta {
+            display: flex;
+            align-items: center;
+
+            &-title{
+                margin-left: 3%;
+            }
+        }
+    }
+}

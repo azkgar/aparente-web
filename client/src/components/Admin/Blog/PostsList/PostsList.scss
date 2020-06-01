@@ -1,1 +1,16 @@
 @import "../../../../scss/index.scss";
+
+.ant-list{
+
+    padding: 1% 5%;
+    background-color: #fff;
+
+    li{
+
+        
+        .anticon{
+            transform: translateY(-15%);
+        }
+        
+    }
+}

@@ -58,7 +58,7 @@ import "./Blog.scss";
                     Nuevo post
                 </Button>
             </div>
-            <h1>Lista de todos los posts</h1>
+            <h4>Nuestras publicaciones</h4>
              <PostsList posts = {posts} setReloadPosts = {setReloadPosts} editPost = {editPost}/> 
              <Pagination posts = {posts} location = {location} history = {history}/>
             <Modal
@@ -68,8 +68,7 @@ import "./Blog.scss";
                 width = "75%"
             > 
                 {modalContent}
-            </Modal>
-            
+            </Modal>  
         </div>
     );
 }

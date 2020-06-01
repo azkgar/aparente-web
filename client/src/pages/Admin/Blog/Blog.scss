@@ -1,6 +1,10 @@
 @import "../../../scss/index.scss";
 
 .blog{
+    font-family: $titles-font;
+    h4{
+        margin-bottom: 3%;
+    }
     &__add-post {
         text-align: right;
         margin-bottom: 20px;

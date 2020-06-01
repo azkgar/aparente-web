@@ -9,7 +9,7 @@ export default function Pagination(props) {
 
     const onChangePage = newPage => {
         history.push(`${location.pathname}?page=${newPage}`);
-    }
+    };
 
     return(
         <PaginationAntd 
@@ -19,5 +19,5 @@ export default function Pagination(props) {
             onChange = {newPage => onChangePage(newPage)}
             className = "pagination"
         />
-    )
+    );
 }

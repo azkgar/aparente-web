@@ -3,6 +3,7 @@ import {Layout, Row, Col} from "antd";
 import MyInfo from "./MyInfo";
 import NavigationFooter from "./NavigationFooter";
 import Newsletter from "../Newsletter";
+import moment from "moment";
 
 import "./Footer.scss";
 
@@ -30,7 +31,7 @@ export default function Footer() {
                             Creado con estilo por Aparente®
                         </Col>
                         <Col md = {12}>
-                            ©Todos los derechos reservados 2020
+                            ©Todos los derechos reservados {moment().year()}
                         </Col>
                     </Row>
                 </Col>

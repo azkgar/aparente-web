@@ -15,6 +15,10 @@
             color: $font-light;
             background: transparent;
         }
+
+        .anticon{
+            transform: translateY(-15%);
+        }
     }
 
     &__left {
@@ -26,6 +30,6 @@
 
     &__right{
         position: absolute;
-        right: 0;
+        right: 3%;
     }
 }
