@@ -105,8 +105,8 @@ function UploadCover(props) {
         <div className = "upload-avatar" {...getRootProps()}>
             <input {...getInputProps()} />
             {isDragActive ? (
-                <Avatar size = {360} shape = "square"  src = {noCover} />
-             ) : ( <Avatar size = {360} shape = "square" src = {avatarUrl ? avatarUrl : noCover} />)}
+                <Avatar size={window.screen.width > 425 ? 240 : 120} shape = "square"  src = {noCover} />
+             ) : ( <Avatar size={window.screen.width > 425 ? 240 : 120} shape = "square" src = {avatarUrl ? avatarUrl : noCover} />)}
         </div>
     );
 }

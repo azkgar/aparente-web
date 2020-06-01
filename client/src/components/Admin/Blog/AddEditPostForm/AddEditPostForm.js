@@ -159,7 +159,7 @@ function AddEditForm(props) {
                     </Form.Item>
                 </Col>
             </Row>
-            <Row gutter = {24}>
+            
             <Form.Item>
             <Editor
                 apiKey= {process.env.REACT_APP_TINYMCE_API_KEY}
@@ -181,7 +181,7 @@ function AddEditForm(props) {
                 onBlur={e => setPostData({...postData, content: e.target.getContent()})}
             />
             </Form.Item>
-            </Row>
+            
         
             <Button type = "primary" htmlType = "submit" className = "btn-submit" onClick = {processPost}>
                 {post ? "Actualizar" : "Publicar" }
@@ -238,6 +238,7 @@ function CategoriesList(props) {
                 value={postData ? postData.categories : selectedItems}
                 onChange={e => handleChange(e)}
                 style={{ width: '100%' }}
+                className = "categories"
             >
                 {filteredOptions.map(item => (
                     <Option key={item} value={item}>

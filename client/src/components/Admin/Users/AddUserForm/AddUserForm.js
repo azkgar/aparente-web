@@ -30,7 +30,7 @@ export default function AddUserForm(props) {
         }
     }
     return(
-        <div className = "ad-user-form">
+        <div className = "add-user-form">
             <AddForm userData = {userData} setUserData = {setUserData} addUser = {addUser} />
         </div>
     )

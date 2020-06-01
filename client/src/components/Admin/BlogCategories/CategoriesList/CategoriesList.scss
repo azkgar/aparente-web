@@ -39,9 +39,29 @@
             }
         }
 
+        .ant-list-item-action{
+            @media (max-width: 576px){
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 5%
+            }
+        }
+
         .ant-list-item-meta {
             display: flex;
             align-items: center;
+
+            @media (max-width: 320px){
+                display: block;
+                &-avatar{
+                    text-align: center;
+                    padding-left: 8%;
+                }
+                &-title{
+                    margin: 5% auto 2% auto;
+                    text-align: center;
+                }
+            }
 
             &-title{
                 margin-left: 3%;
