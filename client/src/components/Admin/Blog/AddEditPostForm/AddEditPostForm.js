@@ -6,6 +6,7 @@ import {Editor} from "@tinymce/tinymce-react";
 import { getAccessTokenApi } from '../../../../api/auth';
 import {addPostApi, updatePostApi} from "../../../../api/post";
 import {getUsersActiveApi} from "../../../../api/user";
+import {getCategoriesApi} from "../../../../api/category";
 
 import "./AddEditPostForm.scss";
 
@@ -13,6 +14,7 @@ export default function AddEditPostForm(props) {
     const { setIsVisibleModal, setReloadPosts, post} = props;
     const [postData, setPostData] = useState ({});
     const [userData, setUserData] = useState([]);
+    const [categories, setCategories] = useState([]);
     const token = getAccessTokenApi();
 
     useEffect(()=>{
@@ -28,6 +30,19 @@ export default function AddEditPostForm(props) {
             setUserData(response.users);
         });
     }, [token]);
+
+    useEffect( () => {
+        getCategoriesApi().then(response => {
+            const arrayCategories = [];
+            response.category.forEach(item => {
+                if(item.active){
+                    arrayCategories.push(item);
+                }
+                //item.active && arrayMenu.push(item);
+            });
+            setCategories(arrayCategories);
+        });
+    }, []);
 
     const processPost = e => {
         e.preventDefault();
@@ -82,13 +97,13 @@ export default function AddEditPostForm(props) {
     
     return (
         <div className = "add-edit-post-form">
-            <AddEditForm postData = {postData} setPostData = {setPostData} post = {post} processPost = {processPost} userData = {userData} />
+            <AddEditForm postData = {postData} setPostData = {setPostData} post = {post} processPost = {processPost} userData = {userData} categories = {categories} />
         </div>
     );
 }
 
 function AddEditForm(props) {
-    const {postData, setPostData, post, processPost, userData } = props;
+    const {postData, setPostData, post, processPost, userData, categories} = props;
 
     return(
        <Form
@@ -182,6 +197,9 @@ function AddEditForm(props) {
                 <Col span = {12}>
                     <UserList userData = {userData} setPostData = {setPostData} postData = {postData}/>
                 </Col>
+                <Col span = {12}>
+                    <CategoriesList categories = {categories} setPostData = {setPostData} postData = {postData} />
+                </Col>
             </Row>
         
             <Button type = "primary" htmlType = "submit" className = "btn-submit" onClick = {processPost}>
@@ -207,4 +225,54 @@ function UserList(props) {
         </Select>
     </Form.Item>
     );
+}
+
+function CategoriesList(props) {
+    const {categories, postData, setPostData} = props;
+    const {Option} = Select
+    //const [postCategories, setPostCategories] = useState([]);
+    //const [filteredOptions, setFilteredOptions] = useState([]);
+    const categoryList = [];
+    categories.map( category => (
+        categoryList.push(category.tag)
+    ));
+
+    const postCategories = postData.categories;
+
+    //console.log(postData);
+
+    //useEffect(() => {
+    //    if(!postData) {
+    //        setPostCategories([]);
+    //        setFilteredOptions(categoryList.filter(o => !postCategories.includes(o)));
+    //        console.log(postCategories);
+    //        console.log(filteredOptions);
+    //        
+    //        
+    //    } else {
+    //        setPostCategories(postData.categories);
+    //        setFilteredOptions(categoryList.filter(o => !postCategories.includes(o)));
+    //        console.log(postCategories);
+    //        console.log(filteredOptions);
+    //    }
+    //},[postData]);
+
+    const filteredOptions = categoryList.filter(o => !postCategories.includes(o));
+           
+        
+        return(
+            <Select
+                mode="multiple"
+                placeholder="Selecciona la(s) categoría(s)"
+                value={postCategories}
+                onChange={e => setPostData({...postData, categories: e})}
+                style={{ width: '100%' }}
+            >
+                {filteredOptions.map(item => (
+                    <Option key={item} value={item}>
+                        {item}
+                    </Option>
+                ))}
+            </Select>
+        ); 
 }

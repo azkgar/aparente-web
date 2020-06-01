@@ -11,7 +11,7 @@ const PostSchema = Schema({
     },
     content: String,
     date: Date,
-    categories: String,
+    categories: Array,
     username: String,
     cover: String
 });
