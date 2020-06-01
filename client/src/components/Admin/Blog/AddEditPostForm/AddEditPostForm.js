@@ -147,27 +147,12 @@ function AddEditForm(props) {
                     </Form.Item>
                 </Col>
             </Row>
-            <Row>
+            <Row gutter = {24}>
                 <Col span = {12}>
-                <Form.Item>
-                    <Input
-                        prefix = {<UserOutlined />}
-                        placeholder = "Usuario"
-                        value = {postData.username}
-                        onChange = {e => setPostData({...postData, username: e.target.value})}
-                     />
-                     </Form.Item>
+                    <UserList userData = {userData} setPostData = {setPostData} postData = {postData}/>
                 </Col>
                 <Col span = {12}>
-                    <Form.Item>
-                    <Input
-                        prefix = {<TagOutlined />}
-                        placeholder = "Categoría"
-                        value = {postData.categories}
-                        onChange = {e => setPostData({...postData, categories: transformTextToUrl(e.target.value)})}
-
-                     />
-                     </Form.Item>
+                    <CategoriesList categories = {categories} setPostData = {setPostData} postData = {postData} />
                 </Col>
             </Row>
             <Row>
@@ -186,20 +171,12 @@ function AddEditForm(props) {
                     "fullscreen preview emoticons"
                 ],
                 toolbar:
-                   'undo redo | formatselect | bold italic underline strikethrough  blockquote subscript superscript code backcolor | alignleft aligncenter alignright alignjustify |bullist numlist outdent indent | removeformat | help | image editimage imageoptions | forecolor backcolor | fullscreen | preview | emoticons',
+                   'undo redo | formatselect | bold italic underline strikethrough  blockquote emoticons subscript superscript code forecolor backcolor | alignleft aligncenter alignright alignjustify |bullist numlist outdent indent | removeformat | help | image editimage imageoptions | fullscreen preview ',
                 textcolor_rows: "4"
                 }}
                 onBlur={e => setPostData({...postData, content: e.target.getContent()})}
             />
             </Form.Item>
-            </Row>
-            <Row gutter = {24}>
-                <Col span = {12}>
-                    <UserList userData = {userData} setPostData = {setPostData} postData = {postData}/>
-                </Col>
-                <Col span = {12}>
-                    <CategoriesList categories = {categories} setPostData = {setPostData} postData = {postData} />
-                </Col>
             </Row>
         
             <Button type = "primary" htmlType = "submit" className = "btn-submit" onClick = {processPost}>
