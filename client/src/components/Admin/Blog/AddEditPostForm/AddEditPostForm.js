@@ -220,8 +220,8 @@ function UserList(props) {
 
     return(
     <Form.Item>
-        <Select placeholder = "Autor" onChange = {e => setPostData({...postData, username: e})} value = {userData.name}>
-                    {userData.map( user => <Option key = {user._id} value = {user.name}>{user.name}</Option>)}
+        <Select placeholder = "Autor" onChange = {e => setPostData({...postData, username: e})} value = {postData.username}>
+                    {userData.map( user => <Option key = {user._id} value = { user.name}>{user.name}</Option>)}
         </Select>
     </Form.Item>
     );
@@ -230,42 +230,32 @@ function UserList(props) {
 function CategoriesList(props) {
     const {categories, postData, setPostData} = props;
     const {Option} = Select
-    //const [postCategories, setPostCategories] = useState([]);
-    //const [filteredOptions, setFilteredOptions] = useState([]);
+    
     const categoryList = [];
     categories.map( category => (
         categoryList.push(category.tag)
     ));
 
-    const postCategories = postData.categories;
+    const [selectedItems, setSelectedItems] = useState([]);
 
-    //console.log(postData);
+    const handleChange = (e) => {
+        if(postData){
+            setSelectedItems(e);
+            setPostData({...postData, categories: e});        
+        } else {
+            setSelectedItems(e);
+        } 
+    }
 
-    //useEffect(() => {
-    //    if(!postData) {
-    //        setPostCategories([]);
-    //        setFilteredOptions(categoryList.filter(o => !postCategories.includes(o)));
-    //        console.log(postCategories);
-    //        console.log(filteredOptions);
-    //        
-    //        
-    //    } else {
-    //        setPostCategories(postData.categories);
-    //        setFilteredOptions(categoryList.filter(o => !postCategories.includes(o)));
-    //        console.log(postCategories);
-    //        console.log(filteredOptions);
-    //    }
-    //},[postData]);
-
-    const filteredOptions = categoryList.filter(o => !postCategories.includes(o));
+    const filteredOptions = categoryList.filter(o => !selectedItems.includes(o));
            
         
         return(
             <Select
                 mode="multiple"
                 placeholder="Selecciona la(s) categoría(s)"
-                value={postCategories}
-                onChange={e => setPostData({...postData, categories: e})}
+                value={postData ? postData.categories : selectedItems}
+                onChange={e => handleChange(e)}
                 style={{ width: '100%' }}
             >
                 {filteredOptions.map(item => (
