@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Spin, List, notification} from "antd";
-import {Link} from "react-router-dom";
+import {Spin, List, Card, notification} from "antd";
+import {Link, useLocation, withRouter} from "react-router-dom";
 import moment from "moment";
 import queryString from "query-string";
 import {Helmet} from "react-helmet";
@@ -28,13 +28,14 @@ export default function PostListWeb(props) {
                 message: "Error del servidor"
             })
         });
-    }, [page]);    
+    }, [page]); 
 
     if(!posts) {
         return (
             <Spin tip = "Cargando" style = {{width: "100%", padding: "200px 0"}} />
         )
     }
+    
 
     return (
         <>
@@ -46,28 +47,38 @@ export default function PostListWeb(props) {
         </Helmet>
         <div className = "posts-list-web">
             <h1>Blog</h1>
-            <List dataSource = {posts.docs} renderItem = {post => <Post post = {post} />} />
+            <PostCard posts = {posts.docs}/>
             <Pagination posts = {posts} location = {location} history = {history} />
         </div>
         </>
     )
 }
 
-function Post(props) {
-    const {post} = props;
-    const day = moment(post.date).format("DD");
-    const month = moment(post.date).format("MMMM");
+function PostCard(props) {
+    const {posts} = props;
+    const {Meta} = Card;
 
-
-
-    return (
-    <List.Item className = "post">
-        <div className = "post__date">
-            <span>{day}</span>
-            <span>{month}</span>
-        </div>
-        <Link to = {`/blog/${post.url}`}>
-            <List.Item.Meta title = {post.title} />
-        </Link>
-    </List.Item>)
+     return(
+         <div className = "container-posts">
+             {posts.map(post => {
+                const day = moment(post.date).format("DD");
+                const month = moment(post.date).format("MMMM");
+                const year = moment(post.date).format("YYYY");
+             return (
+                 
+                <Link to = {`/blog/${post.url}`}>
+                    <Card
+                        key = {post._id}
+                        hoverable
+                        style = {{widht: 240}}
+                        cover = {<img alt = {post.title} src = {post.cover} />}
+                        className = "post-card"
+                    >
+                        <Meta title = {post.title} description = {`Publicado el ${day} de ${month} de ${year}`} />
+                    </Card>
+                </Link>
+             );
+            })}
+         </div>
+     );
 }
