@@ -8,9 +8,17 @@
         justify-content: space-between;
         margin-bottom: 20px;
 
+        @media (max-width:390px){
+            display: block;
+        }
+
         &-switch{
             display: flex;
             align-items: center;
+
+            @media (max-width:390px){
+                margin-bottom: 5%;
+            }
     
             > button {
                 margin-right: 20px;
@@ -26,6 +34,21 @@
         .ant-list-item-meta{
             display: flex;
             align-items: center;
+
+            @media(max-width: 576px){
+                margin-bottom: 5%;
+            }
+
+            @media(max-width: 390px){
+                display: block;
+                text-align: center;
+                &-avatar{
+                    padding-left: 5%;
+                }
+                &-description{
+                    font-size: 10px;
+                }
+            }
         }
 
         li{
