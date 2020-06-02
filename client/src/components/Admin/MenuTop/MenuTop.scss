@@ -25,6 +25,10 @@
         &-logo{
             width: 240px;
             padding: 0 10px;
+
+            @media(max-width:390px){
+                width: 200px;
+            }
         }
     }
 
