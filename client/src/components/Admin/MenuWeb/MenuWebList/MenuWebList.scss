@@ -44,6 +44,16 @@
             display: flex;
             align-items: center;
 
+            @media (max-width: 375px){
+                text-align: center;
+                margin-bottom: 8%;
+            }
+        }
+
+        .ant-list-item-action{
+            @media (max-width: 320px){
+                    margin-left: -8%;
+            }
         }
     }
 }
