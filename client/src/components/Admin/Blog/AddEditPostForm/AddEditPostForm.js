@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Row, Col, Form, Input, Button, DatePicker, Select, notification} from "antd";
-import {FontSizeOutlined, LinkOutlined, UserOutlined, TagOutlined} from "@ant-design/icons";
+import {FontSizeOutlined, LinkOutlined, FileImageOutlined} from "@ant-design/icons";
 import moment from "moment";
 import {Editor} from "@tinymce/tinymce-react";
 import { getAccessTokenApi } from '../../../../api/auth';
@@ -148,15 +148,26 @@ function AddEditForm(props) {
                 </Col>
             </Row>
             <Row gutter = {24}>
-                <Col span = {12}>
+                <Col span = {8}>
                     <Form.Item>
                         <UserList userData = {userData} setPostData = {setPostData} postData = {postData}/>
                     </Form.Item>
                 </Col>
-                <Col span = {12}>
+                <Col span = {8}>
                     <Form.Item>
                         <CategoriesList categories = {categories} setPostData = {setPostData} postData = {postData} />
                     </Form.Item>
+                </Col>
+                <Col span = {8}>
+                    <Form.Item>
+                    <Input
+                        prefix = {<FileImageOutlined />}
+                        placeholder = "Post cover image url"
+                        value = {postData.cover}
+                        onChange = {e => setPostData({...postData, cover: e.target.value})}
+                        className = "cover-image"
+                     />
+                     </Form.Item>
                 </Col>
             </Row>
             
