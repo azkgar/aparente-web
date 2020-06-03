@@ -66,7 +66,7 @@ function PostCard(props) {
                 const year = moment(post.date).format("YYYY");
              return (
                  
-                <Link to = {`/blog/${post.url}`}>
+                <Link to = {`/blog/${post.url}`} key = {post._id}>
                     <Card
                         key = {post._id}
                         hoverable

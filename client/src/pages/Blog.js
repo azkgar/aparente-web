@@ -5,6 +5,7 @@ import PostListWeb from "../components/Web/Blog/PostListWeb";
 import PostInfo from "../components/Web/Blog/PostInfo";
 import Sider from "../components/Web/Blog/Sider";
 import MainBanner from "../components/Web/Blog/MainBanner";
+import SearchBar from "../components/Web/Blog/SearchBar";
 
 export default function Blog(props) {
     const {location, history} = props;
@@ -12,7 +13,8 @@ export default function Blog(props) {
 
     return (
         <>
-        {url ? null : <MainBanner />}
+        {!url && <MainBanner />}
+        <SearchBar />
         <Row>
             <Col md = {1} sm = {0}/>
             <Col md = {16} sm = {24} >
@@ -20,9 +22,7 @@ export default function Blog(props) {
             </Col>
             <Col md = {1} sm = {0}/>
             <Sider/>
-            {/*<Col md = {4} />*/}
         </Row>
         </>
-
     )
 }
