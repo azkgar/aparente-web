@@ -86,3 +86,15 @@ export function getPostApi (urlPost) {
         return err;
     });
 }
+
+export function getAllPostsApi() {
+    const url = `${basePath}/${apiVersion}/get-all-posts`;
+
+    return fetch(url).then(response => {
+        return response.json();
+    }).then(result => {
+        return result;
+    }).catch(err => {
+        return err;
+    });
+}

@@ -88,10 +88,21 @@ function getPost(req,res) {
     });
 }
 
+function getAllPosts(req,res) {
+    Post.find().then(posts => {
+        if(!posts) {
+            res.status(404).send({message: "No se encontraron posts"});
+        } else {
+            res.status(200).send({posts});
+        }
+    });
+}
+
 module.exports = {
     addPost,
     getPosts,
     updatePost,
     deletePost,
-    getPost
+    getPost,
+    getAllPosts
 }

@@ -1,6 +1,7 @@
 import React, {useState, useEffect}  from 'react';
-import { Form, Row, Col, Input, Tooltip, Button} from 'antd';
+import { Form, Row, Col, Input, Button} from 'antd';
 import { SearchOutlined, FontSizeOutlined } from '@ant-design/icons';
+import {getAllPostsApi} from "../../../../api/post";
 
 import "./SearchBar.scss";
 
@@ -8,6 +9,7 @@ export default function SearchBar() {
     const [isTyping, setIsTyping] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [search, setSearch] = useState("");
+    const [postTitles, setPostTitles] = useState([]);
 
     useEffect(() => {
         if(!search){
@@ -23,6 +25,22 @@ export default function SearchBar() {
         }
     }, [isVisible]);
 
+    useEffect(() => {
+        getAllPostsApi().then(response => {
+            const titlesArray = [];
+            response.posts.docs.map( post => (
+                titlesArray.push(post.title)
+                
+            ));
+            console.log(titlesArray);
+            console.log(response.posts);
+            
+            
+            setPostTitles(titlesArray);
+        });
+        console.log(postTitles);
+    }, []);
+
     function visible() {
         setIsVisible(!isVisible);
     }
@@ -35,11 +53,6 @@ export default function SearchBar() {
     }
 
     const inputClass = isVisible ? "search-input-display" : "search-input-hidden";
-    console.log(search);
-    console.log(isTyping);
-    console.log(isVisible);
-    
-    
     
     return (
         
