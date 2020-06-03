@@ -12,7 +12,7 @@ export default function Blog(props) {
 
     return (
         <>
-        <MainBanner />
+        {url ? null : <MainBanner />}
         <Row>
             <Col md = {16} offset = {1}>
                 {url ? <PostInfo url = {url} /> : <PostListWeb location = {location} history = {history} />}
@@ -22,5 +22,6 @@ export default function Blog(props) {
             {/*<Col md = {4} />*/}
         </Row>
         </>
+
     )
 }

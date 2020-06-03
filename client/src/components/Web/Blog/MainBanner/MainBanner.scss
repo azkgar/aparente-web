@@ -6,6 +6,7 @@
     font-family: $main-title-font;
     overflow: hidden;
     align-items: bottom;
+    //padding-top: 2%;
     &__machine{
         .maquina{
             width: 100%;
@@ -15,7 +16,7 @@
 
     h1{
         color: white;
-        font-size: 95px;
+        font-size: 90px;
         font-weight: bold;
         letter-spacing: 20px;
         text-transform: uppercase;

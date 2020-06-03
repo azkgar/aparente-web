@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Spin, List, Card, notification} from "antd";
-import {Link, useLocation, withRouter} from "react-router-dom";
+import {Spin, Card, notification} from "antd";
+import {Link} from "react-router-dom";
 import moment from "moment";
 import queryString from "query-string";
 import {Helmet} from "react-helmet";
