@@ -14,10 +14,11 @@ export default function Blog(props) {
         <>
         {url ? null : <MainBanner />}
         <Row>
-            <Col md = {16} offset = {1}>
+            <Col md = {1} sm = {0}/>
+            <Col md = {16} sm = {24} >
                 {url ? <PostInfo url = {url} /> : <PostListWeb location = {location} history = {history} />}
             </Col>
-            <Col md = {1} />
+            <Col md = {1} sm = {0}/>
             <Sider/>
             {/*<Col md = {4} />*/}
         </Row>

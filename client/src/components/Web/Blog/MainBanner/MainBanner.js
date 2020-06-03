@@ -7,7 +7,7 @@ import "./MainBanner.scss";
 
 export default function MainBanner() {
     return (
-        <Row gutter = {24} className = "blog-main-banner" align = "middle">
+        <Row className = "blog-main-banner" align = "middle">
             <Col span = {4} className = "blog-main-banner__machine">
                 <img alt = "Aparente máquina de escribir" src = {machine} className = "maquina" /> 
             </Col>

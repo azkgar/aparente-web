@@ -5,22 +5,37 @@
     text-align: center;
     background-color: rgb(245, 245, 245);
     font-family: $titles-font;
+    overflow: hidden;
+
+    @media(max-width: 450px){
+        margin: 20px 0;
+    }
 
     h1{
         padding-top: 5%;
         span{
             color: $azul-aparente;
         }
+
+        @media(max-width: 450px){
+            padding-top: 8%;
+        }
     }
 
     .container-posts{
         width: 100%;
-        
 
         .post-card{
             width: 45%;
             display: inline-block;
             margin: 2.5% 1% 2.5% 0;
+
+            @media(max-width: 450px){
+                display: block;
+                width: 90%;
+                margin-right: auto;
+                margin-left: auto;
+            }
         }
     }
 }
