@@ -3,7 +3,15 @@
 .posts-list-web{
     margin: 50px 0;
     text-align: center;
-    background-color: #fff;
+    background-color: rgb(245, 245, 245);
+    font-family: $titles-font;
+
+    h1{
+        padding-top: 5%;
+        span{
+            color: $azul-aparente;
+        }
+    }
 
     .container-posts{
         width: 100%;

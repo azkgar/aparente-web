@@ -1,0 +1,20 @@
+@import "../../../../scss/index.scss";
+
+.side-menu{
+    background-color: $azul-aparente;
+    margin: 50px 0;
+    display: inline-table;
+    
+    &__content{
+        width: 80%;
+        background-color: rgb(245,245,245);
+        margin: 10% auto 10% auto;
+
+        h3{
+            padding-top: 10%;
+        }
+    }
+    
+
+    
+}
