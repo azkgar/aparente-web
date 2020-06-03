@@ -37,7 +37,7 @@ export default function PostInfo(props) {
     return (
         <>
         <Helmet>
-            <title>Aparente | {postInfo.title}</title>
+            <title>B_ | {postInfo.title}</title>
             <meta name = "description" content =  {postInfo.title}/>
         </Helmet>
         <div className = "post-info">

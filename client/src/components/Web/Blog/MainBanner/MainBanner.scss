@@ -6,31 +6,84 @@
     font-family: $main-title-font;
     overflow: hidden;
     align-items: bottom;
-    //padding-top: 2%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+
+    @media (max-width: 790px){
+        height: 200px;
+    }
+
+    @media (max-width: 460px){
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    @media (min-width: 2500px){
+            height:600px;    
+    }
+
     &__machine{
         .maquina{
-            width: 100%;
+            width: 230px;
+            margin-left: -60px;
+
+            @media (max-width: 790px){
+                width: 130px;
+                margin-left: -50px;
+            }
+
+            @media (max-width: 460px){
+                width: 90px;
+                margin-left: -30px;
+            }
+
+            @media (min-width: 2500px){
+                margin-left: -180px;    
+             }
         }
     }
     
 
     h1{
         color: white;
-        font-size: 90px;
+        font-size: 70px;
         font-weight: bold;
-        letter-spacing: 20px;
+        letter-spacing: 25px;
         text-transform: uppercase;
 
         span{
             color: $azul-aparente;
         }
+
+        @media (max-width: 790px){
+            font-size: 60px;
+        }
+
+        @media (max-width: 460px){
+            font-size: 40px;
+            letter-spacing: 15px;
+        }
+
+
     }
 
     &__paper{
         .papel{
-            width: 120%;
+            width: 250px;
             z-index: -1;
             transform: rotate(20deg);
+
+            @media (max-width: 790px){
+                width: 150px;
+                margin-right: 0px;
+            }
+
+            @media (max-width: 460px){
+                width: 100px;
+            }
+            
+            @media (min-width: 2500px){
+                margin-right: -180px;    
+             }
 
         }
     }
