@@ -119,13 +119,13 @@ export default function SearchBar() {
                 <Button shape = "circle" icon = {<SearchOutlined/>} htmlType = "submit" className = "search-button" onClick = {isTyping && isVisible ? searchValue : visible} /> 
             </Form.Item>
         </Form>
-        <FoundList urls = {urls} showPosts = {showPosts} matchTitles = {matchTitles} word = {word} setShowPosts = {setShowPosts} notFound = {notFound} open = {open}/>
+        <FoundList urls = {urls} showPosts = {showPosts} matchTitles = {matchTitles} word = {word} setShowPosts = {setShowPosts} notFound = {notFound} open = {open} setOpen = {setOpen} />
         </div>
     );
 }
 
 function FoundList(props) {
-    const {urls, showPosts, matchTitles, word, notFound, open} = props;
+    const {urls, showPosts, matchTitles, word, notFound, open, setOpen} = props;
     const result = []
     let i;
         for(i=0; i<urls.length; i++){
@@ -145,7 +145,7 @@ function FoundList(props) {
                 bordered
                 dataSource = {result}
                 renderItem = {item => (
-                    <List.Item>
+                    <List.Item onClick = {e => setOpen(false)}>
                         <Link to = {`/blog/${item.url}`}> {item.title} </Link>
                     </List.Item>
                 )}
@@ -166,7 +166,7 @@ function FoundList(props) {
                 <li><FontAwesomeIcon icon={['fab', 'whatsapp']} className = "whatsapp"/>    <a href = {`https://api.whatsapp.com/send?phone=525612982728&text=¡Azkary!%20Tengo%20una%20duda%20buenísima%20relacionada%20con%20${word}%20que%20no%20encontré%20en%20el%20blog.%20😱`} target = "_blank">WhatsApp</a></li>
                 <li><FontAwesomeIcon icon={['far', 'envelope']} className = "email"/>    <a href = {`mailto:agarcia@aparente.mx?subject=Excelente%20tema%20para%20el%20blog.&body=¡Azkary!%20Tengo%20una%20duda%20buenísima%20relacionada%20con%20${word}%20que%20no%20encontré%20en%20el%20blog.%20😱`} target ="_top">email</a></li>
             </ul>
-            O puedes seguir mejorando tu apariencia leyendo los posts disponibles en el blog 😉</p>
+            O puedes seguir mejorando tu imagen leyendo los posts disponibles en el blog 😉</p>
             </div> </> : null
         );
     }

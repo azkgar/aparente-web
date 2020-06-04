@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Spin, notification} from "antd";
+import {Spin, Tag, notification} from "antd";
 import moment from "moment";
 import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
@@ -44,6 +44,17 @@ export default function PostInfo(props) {
             <h1 className = "post-info__title">{postInfo.title}</h1>
             <div className = "post-info__creation-date">
                 {moment(postInfo.date).local("es").format("LL")}
+            </div>
+            <div className = "post-info__tags">
+                {postInfo.categories.map(tag => {
+                    if(tag){
+                        return(
+                            <Tag color = "#0059ca">{tag}</Tag>
+                        );
+                    } else {
+                        return null;
+                    }
+                })}
             </div>
             <div className = "post-info__description" dangerouslySetInnerHTML = {{__html: postInfo.content}}>
 
