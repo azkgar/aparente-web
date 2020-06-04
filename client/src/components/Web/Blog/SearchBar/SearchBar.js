@@ -1,4 +1,4 @@
-import React, {useState, useEffect}  from 'react';
+import React, {useState, useEffect, useRef}  from 'react';
 import { Form, Row, Col, Input, Button, List, Divider} from 'antd';
 import { SearchOutlined, FontSizeOutlined } from '@ant-design/icons';
 import {getAllPostsApi} from "../../../../api/post";
@@ -15,6 +15,10 @@ export default function SearchBar() {
     const [matchTitles, setMatchTitles] = useState([]);
     const [urls, setUrls] = useState([]);
     const [showPosts, setShowPosts] = useState(false);
+    const [word, setWord] = useState("");
+    const [notFound, setNotFound] = useState(false);
+    const node = useRef();
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         if(!search){
@@ -26,6 +30,7 @@ export default function SearchBar() {
 
     useEffect(() => {
         if(isVisible === false){
+            setWord(search);
             setSearch("");
         }
     }, [isVisible]);
@@ -68,27 +73,43 @@ export default function SearchBar() {
             });
             setUrls(urlArray); 
             setShowPosts(true);
+            setOpen(true);
 
         } else {
             setUrls([]);
             setShowPosts(false);
+            setNotFound(true);
+            setOpen(true);
         }
         setIsTyping(false);
         setIsVisible(false);
     }
 
+    const handleClick = e => {
+        if (node.current.contains(e.target)){
+            return;
+        }
+        setOpen(false);
+    }
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClick);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClick);
+        };
+    }, []);
+
     const inputClass = isVisible ? "search-input-display" : "search-input-hidden";
-    console.log(urls);
-    
-    
+    console.log(open);
     return (
-        <div>
+        <div ref = {node}>
         <Row gutter = {24} className = "search-container">
         <Col md = {4} sm = {0} />
         <Col md = {16} sm = {24}>
         <Form onSubmit = {searchValue} >
             <Form.Item >
-                <Input 
+                <Input
                     placeholder = "Buscar" 
                     type = "text"
                     name = "searchTerm" 
@@ -106,7 +127,7 @@ export default function SearchBar() {
         <Row>
             <Col md = {4}/>
             <Col md = {16}>
-                <FoundList urls = {urls} showPosts = {showPosts} matchTitles = {matchTitles} />
+                <FoundList urls = {urls} showPosts = {showPosts} matchTitles = {matchTitles} word = {word} setShowPosts = {setShowPosts} notFound = {notFound} open = {open}/>
             </Col>
             <Col md = {4}/>
         </Row>
@@ -115,8 +136,7 @@ export default function SearchBar() {
 }
 
 function FoundList(props) {
-    const {urls, showPosts, matchTitles} = props;
-    const hideMessage = showPosts ? "show-message" : "hide-message";
+    const {urls, showPosts, matchTitles, word, notFound, open} = props;
     const result = []
     let i;
         for(i=0; i<urls.length; i++){
@@ -128,10 +148,11 @@ function FoundList(props) {
 
     if(showPosts){
         return(
+            open ?
             <>
-            <Divider orientation = "left">Default Size</Divider>
+            <Divider orientation = "left">Resultados</Divider>
             <List 
-                header = {<div>Resultados de la búsqueda:</div>}
+                header = {<div>{`Títulos relacionados con ${word}:`}</div>}
                 bordered
                 dataSource = {result}
                 renderItem = {item => (
@@ -140,13 +161,15 @@ function FoundList(props) {
                     </List.Item>
                 )}
             />
-            </>
+            </> : null
         );
     } else {
-        return(<div className = {hideMessage}>
+        return(notFound && open ?
+            <div className = "not-found">
             <p>Lo sentimos, aún no escribimos posts relacionados a tu búsqueda.<br/>
             Si te urge saber al respecto contáctanos a contacto@aparente.mx o en los siguientes enlaces: <br/>
             Con gusto te resolveremos cualquier duda o inquietud y lo tomaremos en cuenta para nuestros próximos posts</p>
-        </div>);
+            </div> : null
+        );
     }
 }
