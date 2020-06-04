@@ -5,6 +5,7 @@ import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import {getPostApi} from "../../../../api/post";
 import "moment/locale/es";
+import HyvorTalk from 'hyvor-talk-react'
 
 import "./PostInfo.scss";
 
@@ -49,7 +50,7 @@ export default function PostInfo(props) {
                 {postInfo.categories.map(tag => {
                     if(tag){
                         return(
-                            <Tag color = "#0059ca">{tag}</Tag>
+                            <Tag key = {postInfo._id}color = "#0059ca">{tag}</Tag>
                         );
                     } else {
                         return null;
@@ -57,8 +58,11 @@ export default function PostInfo(props) {
                 })}
             </div>
             <div className = "post-info__description" dangerouslySetInnerHTML = {{__html: postInfo.content}}>
-
             </div>
+            <HyvorTalk.Embed 
+                websiteId={791}
+                id={postInfo._id}
+            />
         </div>
         </>
     )

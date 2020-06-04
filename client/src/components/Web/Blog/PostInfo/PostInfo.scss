@@ -14,8 +14,7 @@
     }
 
     img{
-        width: 90%;
-        height: auto;
+
 
         @media (max-width: 450px){
             width: 95%;
@@ -85,11 +84,6 @@
             @media (max-width: 450px){
                 font-size: 18px;
             }
-        }
-
-        img{
-            width: 80%;
-            height: auto;
         }
 
         @media (max-width: 450px){
