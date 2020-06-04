@@ -1,7 +1,8 @@
 import React, {useState, useEffect}  from 'react';
-import { Form, Row, Col, Input, Button} from 'antd';
+import { Form, Row, Col, Input, Button, List, Divider} from 'antd';
 import { SearchOutlined, FontSizeOutlined } from '@ant-design/icons';
 import {getAllPostsApi} from "../../../../api/post";
+import {Link} from "react-router-dom";
 
 import "./SearchBar.scss";
 
@@ -10,9 +11,10 @@ export default function SearchBar() {
     const [isVisible, setIsVisible] = useState(false);
     const [search, setSearch] = useState("");
     const [postTitles, setPostTitles] = useState([]);
-    const [matchTitles, setMatchTitles] = useState([]);
     const [posts, setPosts] = useState({});
+    const [matchTitles, setMatchTitles] = useState([]);
     const [urls, setUrls] = useState([]);
+    const [showPosts, setShowPosts] = useState(false);
 
     useEffect(() => {
         if(!search){
@@ -35,7 +37,6 @@ export default function SearchBar() {
             response.posts.map( post => (
                 titlesArray.push(post.title.toLowerCase())
             ));
-
             setPostTitles(titlesArray);
         });
     }, []);
@@ -53,7 +54,7 @@ export default function SearchBar() {
                 matchArray.push(title);
             }
         });
-
+        setMatchTitles(matchArray);
         if(matchArray.length){
             const urlArray = [];
             posts.map( post => {
@@ -65,31 +66,23 @@ export default function SearchBar() {
                     }
                 });
             });
-            setUrls(urlArray);
-            console.log(urlArray);
-            
-            
+            setUrls(urlArray); 
+            setShowPosts(true);
+
         } else {
-            console.log("No hay coincidencias");
             setUrls([]);
-            
+            setShowPosts(false);
         }
-        
-        
         setIsTyping(false);
         setIsVisible(false);
-        setMatchTitles(matchArray);
-
-        
-        console.log(matchArray);
     }
 
     const inputClass = isVisible ? "search-input-display" : "search-input-hidden";
-    console.log(matchTitles);
     console.log(urls);
     
+    
     return (
-        
+        <div>
         <Row gutter = {24} className = "search-container">
         <Col md = {4} sm = {0} />
         <Col md = {16} sm = {24}>
@@ -110,5 +103,50 @@ export default function SearchBar() {
         </Col>
         <Col md = {4} sm = {0} />
         </Row>
-    )
+        <Row>
+            <Col md = {4}/>
+            <Col md = {16}>
+                <FoundList urls = {urls} showPosts = {showPosts} matchTitles = {matchTitles} />
+            </Col>
+            <Col md = {4}/>
+        </Row>
+        </div>
+    );
+}
+
+function FoundList(props) {
+    const {urls, showPosts, matchTitles} = props;
+    const hideMessage = showPosts ? "show-message" : "hide-message";
+    const result = []
+    let i;
+        for(i=0; i<urls.length; i++){
+        result.push({
+            title: matchTitles[i],
+            url: urls[i]
+            });
+        }
+
+    if(showPosts){
+        return(
+            <>
+            <Divider orientation = "left">Default Size</Divider>
+            <List 
+                header = {<div>Resultados de la búsqueda:</div>}
+                bordered
+                dataSource = {result}
+                renderItem = {item => (
+                    <List.Item>
+                        <Link to = {`/blog/${item.url}`}> {item.title} </Link>
+                    </List.Item>
+                )}
+            />
+            </>
+        );
+    } else {
+        return(<div className = {hideMessage}>
+            <p>Lo sentimos, aún no escribimos posts relacionados a tu búsqueda.<br/>
+            Si te urge saber al respecto contáctanos a contacto@aparente.mx o en los siguientes enlaces: <br/>
+            Con gusto te resolveremos cualquier duda o inquietud y lo tomaremos en cuenta para nuestros próximos posts</p>
+        </div>);
+    }
 }
