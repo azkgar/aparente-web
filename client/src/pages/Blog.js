@@ -18,6 +18,7 @@ export default function Blog(props) {
         <Row>
             <Col md = {1} sm = {0}/>
             <Col md = {16} sm = {24} >
+                
                 {url ? <PostInfo url = {url} /> : <PostListWeb location = {location} history = {history} />}
             </Col>
             <Col md = {1} sm = {0}/>

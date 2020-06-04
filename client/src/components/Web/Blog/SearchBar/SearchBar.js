@@ -1,8 +1,9 @@
 import React, {useState, useEffect, useRef}  from 'react';
-import { Form, Row, Col, Input, Button, List, Divider} from 'antd';
+import { Form, Input, Button, List, Divider} from 'antd';
 import { SearchOutlined, FontSizeOutlined } from '@ant-design/icons';
 import {getAllPostsApi} from "../../../../api/post";
 import {Link} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import "./SearchBar.scss";
 
@@ -101,13 +102,10 @@ export default function SearchBar() {
     }, []);
 
     const inputClass = isVisible ? "search-input-display" : "search-input-hidden";
-    console.log(open);
+    
     return (
         <div ref = {node}>
-        <Row gutter = {24} className = "search-container">
-        <Col md = {4} sm = {0} />
-        <Col md = {16} sm = {24}>
-        <Form onSubmit = {searchValue} >
+        <Form onSubmit = {searchValue}  className = "search-container">
             <Form.Item >
                 <Input
                     placeholder = "Buscar" 
@@ -121,16 +119,7 @@ export default function SearchBar() {
                 <Button shape = "circle" icon = {<SearchOutlined/>} htmlType = "submit" className = "search-button" onClick = {isTyping && isVisible ? searchValue : visible} /> 
             </Form.Item>
         </Form>
-        </Col>
-        <Col md = {4} sm = {0} />
-        </Row>
-        <Row>
-            <Col md = {4}/>
-            <Col md = {16}>
-                <FoundList urls = {urls} showPosts = {showPosts} matchTitles = {matchTitles} word = {word} setShowPosts = {setShowPosts} notFound = {notFound} open = {open}/>
-            </Col>
-            <Col md = {4}/>
-        </Row>
+        <FoundList urls = {urls} showPosts = {showPosts} matchTitles = {matchTitles} word = {word} setShowPosts = {setShowPosts} notFound = {notFound} open = {open}/>
         </div>
     );
 }
@@ -165,11 +154,20 @@ function FoundList(props) {
         );
     } else {
         return(notFound && open ?
+            <>
+            <Divider orientation = "left">¡Ups!</Divider>
             <div className = "not-found">
-            <p>Lo sentimos, aún no escribimos posts relacionados a tu búsqueda.<br/>
-            Si te urge saber al respecto contáctanos a contacto@aparente.mx o en los siguientes enlaces: <br/>
-            Con gusto te resolveremos cualquier duda o inquietud y lo tomaremos en cuenta para nuestros próximos posts</p>
-            </div> : null
+            <p>Lo siento... 😔 Todavía no escribo un post relacionado con {word}.<br/>
+
+            Pero ¡Qué buen tema! Puedes mandarme un mensaje con tu duda o pregunta a:
+            <ul>
+                <li><FontAwesomeIcon icon={['fab', 'instagram']} className = "instagram"/>    <a href = "https://www.instagram.com/aparentemx/" target = "_blank">Instagram</a></li>
+                <li><FontAwesomeIcon icon={['fab', 'facebook-messenger']} className = "facebook"/>    <a href = "http://m.me/AparenteMX" target = "_blank">Facebook</a></li>
+                <li><FontAwesomeIcon icon={['fab', 'whatsapp']} className = "whatsapp"/>    <a href = {`https://api.whatsapp.com/send?phone=525612982728&text=¡Azkary!%20Tengo%20una%20duda%20buenísima%20relacionada%20con%20${word}%20que%20no%20encontré%20en%20el%20blog.%20😱`} target = "_blank">WhatsApp</a></li>
+                <li><FontAwesomeIcon icon={['far', 'envelope']} className = "email"/>    <a href = {`mailto:agarcia@aparente.mx?subject=Excelente%20tema%20para%20el%20blog.&body=¡Azkary!%20Tengo%20una%20duda%20buenísima%20relacionada%20con%20${word}%20que%20no%20encontré%20en%20el%20blog.%20😱`} target ="_top">email</a></li>
+            </ul>
+            O puedes seguir mejorando tu apariencia leyendo los posts disponibles en el blog 😉</p>
+            </div> </> : null
         );
     }
 }

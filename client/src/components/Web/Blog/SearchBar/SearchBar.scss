@@ -1,18 +1,12 @@
 @import "../../../../scss/index.scss";
 
 .search-container{
-    margin-top: 2%;
+    margin-top: 5%;
     align-items: center;
-}
-
-form{
     text-align: right;
 }
 
 .search{
-    
-    height: 50px;
-    overflow: hidden;
 
     &-input{
         &-hidden{
@@ -31,22 +25,30 @@ form{
     }
     
     &-button{
-        
         .anticon{
             transform: translateY(-15%);
         }
     }
 }
-button{
-    margin-bottom: 0;
-}
 
 .ant-btn-icon-only{
     position: relative;
-    margin-right: 20%;
+    margin-right: 29%;
     width: 40px;
     height: 40px;
     transform: translateY(8%);
+
+    @media (max-width: 450px){
+        margin-right: 10%;
+    }
+}
+.ant-list{
+    margin-bottom: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    @media (max-width: 450px){
+        margin-bottom: 5%;
+    }
 }
 
 .ant-list-item{
@@ -59,4 +61,39 @@ button{
 
 .not-found{
     background-color: rgb(245,245,245);
+    margin-left: 5%;
+    margin-right:5%;
+    border-radius: 5px;
+    
+    p{
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        line-height: 2;
+    }
+
+    ul{
+        list-style: none;
+        margin-top: 1%;
+    }
+    .facebook{
+        margin-right: 1%;
+        color: rgb(52,152,247)
+    }
+
+    .instagram{
+        margin-right: 1%;
+        color: rgb(157,65,174);
+    }
+
+    .whatsapp{
+        margin-right: 1%;
+        color: rgb(98,205,86);
+    }
+
+    .email{
+        margin-right: 1%;
+        color: rgb(0,89,202);
+    }
 }
