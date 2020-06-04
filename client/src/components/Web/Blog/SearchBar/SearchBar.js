@@ -10,6 +10,9 @@ export default function SearchBar() {
     const [isVisible, setIsVisible] = useState(false);
     const [search, setSearch] = useState("");
     const [postTitles, setPostTitles] = useState([]);
+    const [matchTitles, setMatchTitles] = useState([]);
+    const [posts, setPosts] = useState({});
+    const [urls, setUrls] = useState([]);
 
     useEffect(() => {
         if(!search){
@@ -28,17 +31,13 @@ export default function SearchBar() {
     useEffect(() => {
         getAllPostsApi().then(response => {
             const titlesArray = [];
-            response.posts.docs.map( post => (
-                titlesArray.push(post.title)
-                
+            setPosts(response.posts);
+            response.posts.map( post => (
+                titlesArray.push(post.title.toLowerCase())
             ));
-            console.log(titlesArray);
-            console.log(response.posts);
-            
-            
+
             setPostTitles(titlesArray);
         });
-        console.log(postTitles);
     }, []);
 
     function visible() {
@@ -47,12 +46,47 @@ export default function SearchBar() {
 
     function searchValue(e){
         e.preventDefault();
-        window.alert(`Buscando... ${search}`)
+        const matchArray = [];
+        postTitles.map(title => {
+            const match = title.indexOf(search.toLowerCase()) > -1 ? true : false;
+            if(match) {
+                matchArray.push(title);
+            }
+        });
+
+        if(matchArray.length){
+            const urlArray = [];
+            posts.map( post => {
+                matchArray.map( single => {
+                    const lower = post.title.toLowerCase();
+                    const match = lower.indexOf(single) > -1 ? true : false;
+                    if(match){
+                        urlArray.push(post.url);
+                    }
+                });
+            });
+            setUrls(urlArray);
+            console.log(urlArray);
+            
+            
+        } else {
+            console.log("No hay coincidencias");
+            setUrls([]);
+            
+        }
+        
+        
         setIsTyping(false);
         setIsVisible(false);
+        setMatchTitles(matchArray);
+
+        
+        console.log(matchArray);
     }
 
     const inputClass = isVisible ? "search-input-display" : "search-input-hidden";
+    console.log(matchTitles);
+    console.log(urls);
     
     return (
         
