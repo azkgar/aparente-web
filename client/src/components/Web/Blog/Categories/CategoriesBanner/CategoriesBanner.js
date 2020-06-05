@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import { Row, Col, Carousel, Avatar } from 'antd';
 import {getCategoriesApi} from "../../../../../api/category";
-//import noCover from "../../../../assets/img/png/Missing.png";
+import {Link} from "react-router-dom";
+
 
 import "./CategoriesBanner.scss";
 
@@ -22,6 +22,16 @@ export default function CategoriesBanner() {
     
 
     return (
-        <div>Categorías</div>
+        <div>
+            <h2>Encuentra publicaciones relacionadas al tema de tu interés</h2>
+            {categories.map(category => (
+                <Link to ={`categorias/${category.tag.toLowerCase()}`} key = {category._id}>
+                <div>
+                    <img alt = {category.tag} src = {category.avatar ? require(`../../../../../../../server/uploads/categories/${category.avatar}`) : require("../../../../../assets/img/png/Missing.png") }/>
+                    <h4>{category.tag}</h4>
+                </div>
+                </Link>
+            ))}
+        </div>
     )
 }
