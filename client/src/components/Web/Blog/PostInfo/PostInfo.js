@@ -5,7 +5,8 @@ import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import {getPostApi} from "../../../../api/post";
 import "moment/locale/es";
-import HyvorTalk from 'hyvor-talk-react'
+import HyvorTalk from 'hyvor-talk-react';
+import {EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, LinkedinShareButton, LinkedinIcon, PinterestShareButton, PinterestIcon, TwitterShareButton, TwitterIcon, WhatsappShareButton, WhatsappIcon} from "react-share";
 
 import "./PostInfo.scss";
 
@@ -59,10 +60,15 @@ export default function PostInfo(props) {
             </div>
             <div className = "post-info__description" dangerouslySetInnerHTML = {{__html: postInfo.content}}>
             </div>
+            <div className = "social-share">
+                <EmailShareButton subject = {`${postInfo.title} de Aparente`} body = "contenido del mensaje"><EmailIcon size = "2.5rem" /></EmailShareButton>
+            </div>
+            <div className = "hyvor-talk">
             <HyvorTalk.Embed 
                 websiteId={791}
                 id={postInfo._id}
             />
+            </div>
         </div>
         </>
     )
