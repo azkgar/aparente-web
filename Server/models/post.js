@@ -13,7 +13,8 @@ const PostSchema = Schema({
     date: Date,
     categories: Array,
     username: String,
-    cover: String
+    cover: String,
+    pinterest: String
 });
 
 PostSchema.plugin(mongoosePaginate);

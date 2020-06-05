@@ -14,6 +14,7 @@ export default function PostInfo(props) {
     const {url} = props;
     const [postInfo, setPostInfo] = useState(null);
     const [urlExists, setUrlExists] = useState(null);
+    const socialUrl = "localhost:3000/blog/";
 
     useEffect(() => {
         getPostApi(url).then(response => {
@@ -61,7 +62,9 @@ export default function PostInfo(props) {
             <div className = "post-info__description" dangerouslySetInnerHTML = {{__html: postInfo.content}}>
             </div>
             <div className = "social-share">
-                <EmailShareButton subject = {`${postInfo.title} de Aparente`} body = "contenido del mensaje"><EmailIcon size = "2.5rem" /></EmailShareButton>
+                <EmailShareButton url = {`${socialUrl}${url}`} subject ={postInfo.title} body = {`Te recomiendo leer ${postInfo.title} en: `} ><EmailIcon/></EmailShareButton>
+                <FacebookShareButton url = {`${socialUrl}${url}`} quote = {`Mira el post ${postInfo.title} de Aparente`} hashtag = "#nomasentes"><FacebookIcon /></FacebookShareButton>
+                <LinkedinShareButton url = {`${socialUrl}${url}`} title = {`Mira el post ${postInfo.title} de Aparente`}><LinkedinIcon/></LinkedinShareButton>
             </div>
             <div className = "hyvor-talk">
             <HyvorTalk.Embed 
