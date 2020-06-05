@@ -63,7 +63,7 @@ export default function PostInfo(props) {
                 
             </div>
             <div className = "social-share">
-                <h1>¡Comparte con tus amigos!</h1>
+                <h3>¡Comparte con tus amigos!</h3>
                 <EmailShareButton url = {`${socialUrl}${url}`} subject ={postInfo.title} body = {`Te recomiendo leer ${postInfo.title} de Aparente en: `} ><EmailIcon/></EmailShareButton>
                 <FacebookShareButton url = {`${socialUrl}${url}`} quote = {`Mira el post ${postInfo.title} de Aparente`} hashtag = "#NoMasEntes"><FacebookIcon /></FacebookShareButton>
                 <LinkedinShareButton url = {`${socialUrl}${url}`} title = {`Mira el post ${postInfo.title} de Aparente`} summary = "Nuevo post de Aparente" source = "aparente.mx"><LinkedinIcon/></LinkedinShareButton>
