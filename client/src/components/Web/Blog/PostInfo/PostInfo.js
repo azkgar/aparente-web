@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Spin, Tag, notification} from "antd";
+import {Spin, Tag, Button,notification} from "antd";
 import moment from "moment";
 import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
@@ -52,7 +52,7 @@ export default function PostInfo(props) {
                 {postInfo.categories.map(tag => {
                     if(tag){
                         return(
-                            <Tag key = {postInfo._id}color = "#0059ca">{tag}</Tag>
+                            <Tag key = {tag}color = "#0059ca">{tag}</Tag>
                         );
                     } else {
                         return null;

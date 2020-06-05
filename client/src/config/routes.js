@@ -14,6 +14,7 @@ import AdminCategories from "../pages/Admin/Categories";
 import Home from "../pages/Home";
 import Courses from "../pages/Courses";
 import Blog from "../pages/Blog";
+import BlogCategories from "../components/Web/Blog/Categories";
 
 //Error Page
 import Error404 from "../pages/Error404";
@@ -83,6 +84,16 @@ const routes = [
             {
                 path: "/blog/:url",
                 component: Blog,
+                exact: true
+            },
+            {
+                path: "/categorias",
+                component: BlogCategories,
+                exact: true
+            },
+            {
+                path: "/categorias/:tag",
+                component: BlogCategories,
                 exact: true
             },
             {
