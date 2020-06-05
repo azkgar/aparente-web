@@ -5,8 +5,8 @@ import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import {getPostApi} from "../../../../api/post";
 import "moment/locale/es";
-import HyvorTalk from 'hyvor-talk-react';
 import {EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, LinkedinShareButton, LinkedinIcon, PinterestShareButton, PinterestIcon, TwitterShareButton, TwitterIcon, WhatsappShareButton, WhatsappIcon} from "react-share";
+import CommentBox from "../CommentBox";
 
 import "./PostInfo.scss";
 
@@ -14,7 +14,7 @@ export default function PostInfo(props) {
     const {url} = props;
     const [postInfo, setPostInfo] = useState(null);
     const [urlExists, setUrlExists] = useState(null);
-    const socialUrl = "localhost:3000/blog/";
+    const socialUrl = "aparente.mx/blog/";
 
     useEffect(() => {
         getPostApi(url).then(response => {
@@ -60,18 +60,18 @@ export default function PostInfo(props) {
                 })}
             </div>
             <div className = "post-info__description" dangerouslySetInnerHTML = {{__html: postInfo.content}}>
+                
             </div>
             <div className = "social-share">
-                <EmailShareButton url = {`${socialUrl}${url}`} subject ={postInfo.title} body = {`Te recomiendo leer ${postInfo.title} en: `} ><EmailIcon/></EmailShareButton>
-                <FacebookShareButton url = {`${socialUrl}${url}`} quote = {`Mira el post ${postInfo.title} de Aparente`} hashtag = "#nomasentes"><FacebookIcon /></FacebookShareButton>
-                <LinkedinShareButton url = {`${socialUrl}${url}`} title = {`Mira el post ${postInfo.title} de Aparente`}><LinkedinIcon/></LinkedinShareButton>
+                <h1>¡Comparte con tus amigos!</h1>
+                <EmailShareButton url = {`${socialUrl}${url}`} subject ={postInfo.title} body = {`Te recomiendo leer ${postInfo.title} de Aparente en: `} ><EmailIcon/></EmailShareButton>
+                <FacebookShareButton url = {`${socialUrl}${url}`} quote = {`Mira el post ${postInfo.title} de Aparente`} hashtag = "#NoMasEntes"><FacebookIcon /></FacebookShareButton>
+                <LinkedinShareButton url = {`${socialUrl}${url}`} title = {`Mira el post ${postInfo.title} de Aparente`} summary = "Nuevo post de Aparente" source = "aparente.mx"><LinkedinIcon/></LinkedinShareButton>
+                <PinterestShareButton url = {`${socialUrl}${url}`} media = {postInfo.pinterest} description = {`${postInfo.title} de Aparente`}><PinterestIcon /></PinterestShareButton>
+                <TwitterShareButton url = {`${socialUrl}${url}`} title = {`Mira el post ${postInfo.title} de Aparente`} hashtags = {["NoMasEntes", "SinAparienciaSomosEntes"]}><TwitterIcon/></TwitterShareButton>
+                <WhatsappShareButton url = {`${socialUrl}${url}`} title = {`Mira el post ${postInfo.title} de Aparente`}><WhatsappIcon/></WhatsappShareButton>
             </div>
-            <div className = "hyvor-talk">
-            <HyvorTalk.Embed 
-                websiteId={791}
-                id={postInfo._id}
-            />
-            </div>
+            <CommentBox id = {postInfo._id}/>
         </div>
         </>
     )

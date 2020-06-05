@@ -101,6 +101,11 @@ export default function SearchBar() {
         };
     }, []);
 
+    function openNewPost() {
+        setOpen(false);
+        window.location.reload(false);
+    }
+
     const inputClass = isVisible ? "search-input-display" : "search-input-hidden";
     
     return (
@@ -108,7 +113,7 @@ export default function SearchBar() {
         <Form onSubmit = {searchValue}  className = "search-container">
             <Form.Item >
                 <Input
-                    placeholder = "Buscar" 
+                    placeholder = "Escribe la palabra que estás buscando" 
                     type = "text"
                     name = "searchTerm" 
                     prefix = {<FontSizeOutlined style= {{color: "rgba(0,0,0,0.25)"}}/>} 
@@ -119,13 +124,13 @@ export default function SearchBar() {
                 <Button shape = "circle" icon = {<SearchOutlined/>} htmlType = "submit" className = "search-button" onClick = {isTyping && isVisible ? searchValue : visible} /> 
             </Form.Item>
         </Form>
-        <FoundList urls = {urls} showPosts = {showPosts} matchTitles = {matchTitles} word = {word} setShowPosts = {setShowPosts} notFound = {notFound} open = {open} setOpen = {setOpen} />
+        <FoundList urls = {urls} showPosts = {showPosts} matchTitles = {matchTitles} word = {word} setShowPosts = {setShowPosts} notFound = {notFound} open = {open} openNewPost = {openNewPost} />
         </div>
     );
 }
 
 function FoundList(props) {
-    const {urls, showPosts, matchTitles, word, notFound, open, setOpen} = props;
+    const {urls, showPosts, matchTitles, word, notFound, open, openNewPost} = props;
     const result = []
     let i;
         for(i=0; i<urls.length; i++){
@@ -145,7 +150,7 @@ function FoundList(props) {
                 bordered
                 dataSource = {result}
                 renderItem = {item => (
-                    <List.Item onClick = {e => setOpen(false)}>
+                    <List.Item onClick = {openNewPost}>
                         <Link to = {`/blog/${item.url}`}> {item.title} </Link>
                     </List.Item>
                 )}
