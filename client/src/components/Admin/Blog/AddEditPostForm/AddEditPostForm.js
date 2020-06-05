@@ -7,6 +7,7 @@ import { getAccessTokenApi } from '../../../../api/auth';
 import {addPostApi, updatePostApi} from "../../../../api/post";
 import {getUsersActiveApi} from "../../../../api/user";
 import {getCategoriesApi} from "../../../../api/category";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import "./AddEditPostForm.scss";
 
@@ -167,6 +168,19 @@ function AddEditForm(props) {
                         onChange = {e => setPostData({...postData, cover: e.target.value})}
                         className = "cover-image"
                      />
+                     </Form.Item>
+                </Col>
+            </Row>
+            <Row>
+                <Col span = {8}>
+                    <Form.Item>
+                        <Input
+                            prefix = {<FontAwesomeIcon icon={['fab', 'pinterest-p']} className = "pinterest"/>}
+                            placeholder = "Pinterest cover url"
+                            value = {postData.pinterest}
+                            onChange = {e => setPostData({...postData, pinterest: e.target.value})}
+                            className = "pinterest-cover-image"
+                        />
                      </Form.Item>
                 </Col>
             </Row>
