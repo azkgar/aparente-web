@@ -30,7 +30,7 @@ export default function CategoriesBanner() {
         <div className = "categories-list">
             <h2>¿Buscas un tema específico?</h2>
             {categories.map(category => (
-                <Link to ={`categorias/${category.tag.toLowerCase()}`} key = {category._id}>
+                <Link to ={`/categorias/${category.tag.toLowerCase()}`} key = {category._id}>
                 <div className = "categories-list__item">
                     <img alt = {category.tag} src = {category.avatar ? require(`../../../../../../../server/uploads/categories/${category.avatar}`) : require("../../../../../assets/img/png/Missing.png") }/>
                     <h4>{category.tag}</h4>

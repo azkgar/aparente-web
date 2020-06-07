@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Spin, Tag, Button,notification} from "antd";
+import {Spin, Tag, notification} from "antd";
 import moment from "moment";
 import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
