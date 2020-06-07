@@ -107,7 +107,6 @@ export default function SearchBar() {
     }
 
     const inputClass = isVisible ? "search-input-display" : "search-input-hidden";
-    console.log(posts.length);
     
     return (
         <div ref = {node}>
