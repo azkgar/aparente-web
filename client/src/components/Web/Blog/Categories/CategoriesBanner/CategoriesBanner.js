@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {getCategoriesApi} from "../../../../../api/category";
 import {Link} from "react-router-dom";
 import {Spin} from "antd";
+import {Helmet} from "react-helmet";
 
 
 import "./CategoriesBanner.scss";
@@ -27,6 +28,11 @@ export default function CategoriesBanner() {
     
 
     return (
+        <>
+        <Helmet>
+            <title>Aparente | Categorías</title>
+            <meta name = "description" content = "Pagina principal de las categorías principales de las publicaciones del Blog con estilo de Aparente"/>
+        </Helmet>
         <div className = "categories-list">
             <h2>¿Buscas un tema específico?</h2>
             {categories.map(category => (
@@ -38,5 +44,6 @@ export default function CategoriesBanner() {
                 </Link>
             ))}
         </div>
+        </>
     )
 }

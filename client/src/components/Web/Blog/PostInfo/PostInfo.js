@@ -41,7 +41,7 @@ export default function PostInfo(props) {
     return (
         <>
         <Helmet>
-            <title>B_ | {postInfo.title}</title>
+            <title>Blog_ | {postInfo.title}</title>
             <meta name = "description" content =  {postInfo.title}/>
         </Helmet>
         <div className = "post-info">
@@ -53,7 +53,7 @@ export default function PostInfo(props) {
                 {postInfo.categories.map(tag => {
                     if(tag){
                         return(
-                            <Link to = {`/categorias/${tag}`} key = {tag}>
+                            <Link to = {`/categorias/${tag.toLowerCase()}`} key = {tag}>
                                 <Tag color = "#0059ca">{tag}</Tag>
                             </Link>
                         );
@@ -69,7 +69,6 @@ export default function PostInfo(props) {
                 <h3>¡Comparte con tus amigos!</h3>
                 <EmailShareButton url = {`${socialUrl}${url}`} subject ={postInfo.title} body = {`Te recomiendo leer ${postInfo.title} de Aparente en: `} ><EmailIcon/></EmailShareButton>
                 <FacebookShareButton url = {`${socialUrl}${url}`} quote = {`Mira el post ${postInfo.title} de Aparente`} hashtag = "#NoMasEntes"><FacebookIcon /></FacebookShareButton>
-                <LinkedinShareButton url = {`${socialUrl}${url}`} title = {`Mira el post ${postInfo.title} de Aparente`} summary = "Nuevo post de Aparente" source = "aparente.mx"><LinkedinIcon/></LinkedinShareButton>
                 <PinterestShareButton url = {`${socialUrl}${url}`} media = {postInfo.pinterest} description = {`${postInfo.title} de Aparente`}><PinterestIcon /></PinterestShareButton>
                 <TwitterShareButton url = {`${socialUrl}${url}`} title = {`Mira el post ${postInfo.title} de Aparente`} hashtags = {["NoMasEntes", "SinAparienciaSomosEntes"]}><TwitterIcon/></TwitterShareButton>
                 <WhatsappShareButton url = {`${socialUrl}${url}`} title = {`Mira el post ${postInfo.title} de Aparente`}><WhatsappIcon/></WhatsappShareButton>

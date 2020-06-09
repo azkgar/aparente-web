@@ -5,6 +5,7 @@ import {Card, Divider, List, Spin} from "antd";
 import {Link} from "react-router-dom";
 import moment from "moment";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {Helmet} from "react-helmet";
 
 import "./CategoryPage.scss";
 
@@ -117,6 +118,11 @@ function MatchList(props) {
     } else {
         return(
             completeList &&
+            <>
+            <Helmet>
+            <title>Aparente | {category}</title>
+            <meta name = "description" content = {`Página principal de todas las publicaciones del Blog con estilo de Aparente relacionadas con el tema ${category}`}/>
+            </Helmet>
             <div className = "container-posts">
              {postsRelated.map(post => {
                 const day = moment(post.date).format("DD");
@@ -135,6 +141,7 @@ function MatchList(props) {
              );
             })}
          </div>
+         </>
         );
     }
 }

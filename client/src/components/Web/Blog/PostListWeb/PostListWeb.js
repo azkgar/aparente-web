@@ -43,7 +43,7 @@ export default function PostListWeb(props) {
             <title>
                 Aparente | Blog con estilo
             </title>
-            <meta name = "description" content =  "Blog | Web sobre apariencia y estilo" />
+            <meta name = "description" content =  "Página principal del Blog con estilo de Aparente. Un blog donde puedes encontrar consejos para mejorar la imagen y presencia de tu marca, producto o empresa y tu imagen personal" />
         </Helmet>
         <div className = "posts-list-web">
             <h1>Publicaciones<span>_</span></h1>
