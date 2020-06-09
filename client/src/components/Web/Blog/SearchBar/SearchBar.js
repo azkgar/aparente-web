@@ -164,14 +164,14 @@ function FoundList(props) {
             <div className = "not-found">
             <p>Lo siento... 😔 Todavía no escribo un post relacionado con {word}.<br/>
 
-            Pero ¡Qué buen tema! Puedes mandarme un mensaje con tu duda o pregunta a:
+            Pero ¡Qué buen tema! Puedes mandarme un mensaje con tu duda o pregunta a:</p>
             <ul>
                 <li><FontAwesomeIcon icon={['fab', 'instagram']} className = "instagram"/>    <a href = "https://www.instagram.com/aparentemx/" target = "_blank">Instagram</a></li>
                 <li><FontAwesomeIcon icon={['fab', 'facebook-messenger']} className = "facebook"/>    <a href = "http://m.me/AparenteMX" target = "_blank">Facebook</a></li>
                 <li><FontAwesomeIcon icon={['fab', 'whatsapp']} className = "whatsapp"/>    <a href = {`https://api.whatsapp.com/send?phone=525612982728&text=¡Azkary!%20Tengo%20una%20duda%20buenísima%20relacionada%20con%20${word}%20que%20no%20encontré%20en%20el%20blog.%20😱`} target = "_blank">WhatsApp</a></li>
                 <li><FontAwesomeIcon icon={['far', 'envelope']} className = "email"/>    <a href = {`mailto:agarcia@aparente.mx?subject=Excelente%20tema%20para%20el%20blog.&body=¡Azkary!%20Tengo%20una%20duda%20buenísima%20relacionada%20con%20${word}%20que%20no%20encontré%20en%20el%20blog.%20😱`} target ="_top">email</a></li>
             </ul>
-            O puedes seguir mejorando tu imagen leyendo los posts disponibles en el blog 😉</p>
+            <p>O puedes seguir mejorando tu imagen leyendo los posts disponibles en el blog 😉</p>
             </div> </> : null
         );
     }

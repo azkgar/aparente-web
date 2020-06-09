@@ -11,7 +11,7 @@ import "./CategoryPage.scss";
 export default function CategoryPage(props) {
     const {tag} = props;
     const [category, setCategory] = useState("");
-    const [categoryNotExist, setCategoryNotExist] = useState(false);
+    const [categoryNotExist, setCategoryNotExist] = useState(true);
     const [cover, setCover] = useState ("");
     const [posts, setPosts] = useState({});
     const [categoriesList, setCategoriesList] = useState({});
@@ -32,18 +32,17 @@ export default function CategoryPage(props) {
                 if(match){
                     setCategory(category.tag);
                     setCover(category.avatar);
+                    setCategoryNotExist(false);
                 }
             });
         })
     }, [tag]);
 
     useEffect(() => {
-        if(category) { 
-            setCategoryNotExist(false);
-        } else {
-            setCategoryNotExist(true);
+        if(posts.length){
+            findPosts();
         }
-    }, [category]);
+    }, [!categoryNotExist]);
 
     function findPosts() {
         const matchPosts = [];
@@ -57,54 +56,40 @@ export default function CategoryPage(props) {
                         cover: post.cover,
                         date: post.date
                     });
-                }
+                } 
             });
-        })
+        });
         setPostsRelated(matchPosts);
+        setCompleteList(true);
     }
-
-    useEffect(() => {
-        if(posts.length){
-            findPosts();
-        }
-    },[category]);
-
-    useEffect(() => {
-        if(!postsRelated.length) {
-            setCompleteList(false);
-        } else {
-            setCompleteList(true);
-        }
-    }, [postsRelated]);
-
-    console.log(categoryNotExist);
     
-
-   if(!setCompleteList){
+   if(!completeList && !categoryNotExist){
     return (
         <Spin tip = "Cargando" style = {{width: "100%", padding: "200px 0"}} />
     )
    }
-   
+
     return (
         <div className = "main-container">
-            <div className = "category-header">
+        { categoryNotExist ? <div className = "main-container"> <MatchList categoryNotExist = {categoryNotExist} postsRelated = {postsRelated} categoriesList = {categoriesList} category = {category} completeList = {completeList} /> </div> : <div className = "main-container"> <div className = "category-header">
                 <h2>{category}</h2>
                 <img alt = {category} src = {cover ? require(`../../../../../../../server/uploads/categories/${cover}`) : require("../../../../../assets/img/png/Missing.png") } />
             </div>
             <Divider orientation = "left">Publicaciones: </Divider>
-            <MatchList categoryNotExist = {categoryNotExist} postsRelated = {postsRelated} categoriesList = {categoriesList} category = {category} completeList = {completeList} />
+            <MatchList categoryNotExist = {categoryNotExist} postsRelated = {postsRelated} categoriesList = {categoriesList} category = {category} completeList = {completeList} /> </div> }
         </div>
     )
 }
 
 function MatchList(props) {
-    const {categoryNotExists, postsRelated, categoriesList, category, completeList} = props;
+    const {categoryNotExist, postsRelated, categoriesList, category, completeList} = props;
     const {Meta} = Card;
 
     if(!postsRelated){
         return(
-            <>
+        
+             categoryNotExist && 
+            
             <div className = "not-found">
             <p>Lo siento... 😔 Todavía no escribo un post relacionado con {category.toUpperCase()}.<br/>
 
@@ -125,9 +110,9 @@ function MatchList(props) {
                         {item}
                     </List.Item>
                 )}
+                
             />
             </div>
-            </>
         );
     } else {
         return(

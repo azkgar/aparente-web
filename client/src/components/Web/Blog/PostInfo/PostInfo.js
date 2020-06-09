@@ -7,6 +7,7 @@ import {getPostApi} from "../../../../api/post";
 import "moment/locale/es";
 import {EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, LinkedinShareButton, LinkedinIcon, PinterestShareButton, PinterestIcon, TwitterShareButton, TwitterIcon, WhatsappShareButton, WhatsappIcon} from "react-share";
 import CommentBox from "../CommentBox";
+import {Link} from "react-router-dom";
 
 import "./PostInfo.scss";
 
@@ -52,7 +53,9 @@ export default function PostInfo(props) {
                 {postInfo.categories.map(tag => {
                     if(tag){
                         return(
-                            <Tag key = {tag}color = "#0059ca">{tag}</Tag>
+                            <Link to = {`/categorias/${tag}`} key = {tag}>
+                                <Tag color = "#0059ca">{tag}</Tag>
+                            </Link>
                         );
                     } else {
                         return null;

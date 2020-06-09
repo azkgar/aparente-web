@@ -46,7 +46,7 @@ export default function PostListWeb(props) {
             <meta name = "description" content =  "Blog | Web sobre apariencia y estilo" />
         </Helmet>
         <div className = "posts-list-web">
-            <h1>Posts<span>_</span></h1>
+            <h1>Publicaciones<span>_</span></h1>
             <PostCard posts = {posts.docs}/>
             <Pagination posts = {posts} location = {location} history = {history} />
         </div>
