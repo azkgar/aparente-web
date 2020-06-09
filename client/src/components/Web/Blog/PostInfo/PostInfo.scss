@@ -63,10 +63,15 @@
         text-align: right;
         margin-bottom: 70px;
         text-transform: capitalize;
+        
 
         @media (max-width: 450px){
             margin-top: 15px;
             margin-bottom: 40px;
+        }
+
+        .ant-tag{
+            cursor: pointer;
         }
     }
 

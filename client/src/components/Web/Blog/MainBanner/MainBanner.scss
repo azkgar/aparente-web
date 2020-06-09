@@ -25,7 +25,7 @@
     &__machine{
         .maquina{
             width: 230px;
-            margin-left: -60px;
+            margin-left: -110px;
 
             @media (max-width: 790px){
                 width: 130px;
@@ -38,7 +38,7 @@
             }
 
             @media (min-width: 2500px){
-                margin-left: -180px;    
+                margin-left: -200px;    
              }
         }
     }

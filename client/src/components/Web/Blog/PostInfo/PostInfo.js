@@ -5,7 +5,7 @@ import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import {getPostApi} from "../../../../api/post";
 import "moment/locale/es";
-import {EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, LinkedinShareButton, LinkedinIcon, PinterestShareButton, PinterestIcon, TwitterShareButton, TwitterIcon, WhatsappShareButton, WhatsappIcon} from "react-share";
+import {EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, PinterestShareButton, PinterestIcon, TwitterShareButton, TwitterIcon, WhatsappShareButton, WhatsappIcon} from "react-share";
 import CommentBox from "../CommentBox";
 import {Link} from "react-router-dom";
 
