@@ -87,10 +87,10 @@ export default function CategoryPage(props) {
    }
    
     return (
-        <div>
+        <div className = "main-container">
             <div className = "category-header">
-                <img alt = {category} src = {cover ? require(`../../../../../../../server/uploads/categories/${cover}`) : require("../../../../../assets/img/png/Missing.png") } />
                 <h2>{category}</h2>
+                <img alt = {category} src = {cover ? require(`../../../../../../../server/uploads/categories/${cover}`) : require("../../../../../assets/img/png/Missing.png") } />
             </div>
             <Divider orientation = "left">Publicaciones: </Divider>
             <MatchList categoryNotExist = {categoryNotExist} postsRelated = {postsRelated} categoriesList = {categoriesList} category = {category} completeList = {completeList} />
@@ -141,7 +141,6 @@ function MatchList(props) {
                 <Link to = {`/blog/${post.url}`} key = {post.url}>
                     <Card
                         hoverable
-                        style = {{width: 240}}
                         cover = {<img alt = {post.title} src = {post.cover} />}
                         className = "post-card"
                     >
