@@ -1,0 +1,27 @@
+@import "../../../../scss/index.scss";
+
+.contact-banner{
+    height: 450px;
+    font-family: $titles-font;
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+    background-image: url("../../../../assets/img/png/APARENTE-contact-banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; 
+    //border: 5px solid $azul-aparente;
+    margin-bottom: 2%;
+
+    @media (max-width: 790px){
+        background-image: url("../../../../assets/img/png/APARENTE-contact-banner-md.png");
+        background-size: contain;
+        height: 350px; 
+    }
+
+    @media (max-width: 450px) {
+        background-image: url("../../../../assets/img/png/APARENTE-contact-banner-sm.png");
+        background-size: contain;
+        height: 150px; 
+    }
+}
