@@ -1,1 +1,41 @@
 @import "../../../../scss/index.scss";
+
+.whatsapp-form{
+    overflow: hidden;
+    height: 800px;
+    background-color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+    &__description{
+
+    }
+
+    &__form{
+        //text-align: center;
+        p{
+            position: absolute;
+            margin-left: 75px;
+            margin-top: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        input{
+            width: 241px;
+            height: 23px;
+            position: absolute;
+            margin-left: 98px;
+            margin-top: 376px;
+            border-radius: 10px;
+        }
+        img{
+            margin-left: 60px;
+            position: absolute;
+            width: 320px;
+            height: auto;
+            border: 3px solid $negro-aparente;
+            border-radius: 20px;
+        }
+    }
+}
