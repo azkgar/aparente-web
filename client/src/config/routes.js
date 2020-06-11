@@ -16,6 +16,7 @@ import Courses from "../pages/Courses";
 import Blog from "../pages/Blog";
 import BlogCategories from "../components/Web/Blog/Categories";
 import Contact from "../pages/Contact";
+import Us from "../pages/Us";
 
 //Error Page
 import Error404 from "../pages/Error404";
@@ -100,6 +101,11 @@ const routes = [
             {
                 path: "/contacto",
                 component: Contact,
+                exact: true
+            },
+            {
+                path: "/nosotros",
+                component: Us,
                 exact: true
             },
             {
