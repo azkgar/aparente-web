@@ -16,13 +16,13 @@ export default function Blog(props) {
         {!url && <MainBanner />}
         <SearchBar />
         <Row>
-            <Col md = {1} sm = {0}/>
+            <Col md = {url ? 4 : 1} sm = {0}/>
             <Col md = {16} sm = {24} >
                 
                 {url ? <PostInfo url = {url} /> : <PostListWeb location = {location} history = {history} />}
             </Col>
-            <Col md = {1} sm = {0}/>
-            <Sider/>
+            <Col md = {url ? 4 : 1} sm = {0}/>
+            {url ? null : <Sider/>}
         </Row>
         </>
     )

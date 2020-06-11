@@ -67,7 +67,7 @@ export default function WhatsApp() {
             <a href = "https://www.facebook.com/aparentemx" target = "__blank" rel = "noopener noreferrer" > {<FontAwesomeIcon icon={['fab', 'facebook-f']} className = "facebook" size = "3x" />} </a>
             <a href = "https://www.pinterest.com/aparentemx" target = "__blank" rel = "noopener noreferrer" > {<FontAwesomeIcon icon={['fab', 'pinterest-p']} className = "pinterest" size = "3x" />} </a>
             <a href = "https://www.youtube.com/aparentemx" target = "__blank" rel = "noopener noreferrer" > {<FontAwesomeIcon icon={['fab', 'youtube']} className = "youtube" size = "3x" />} </a>
-            <a href = "https://www.linkedin.com/aparentemx" target = "__blank" rel = "noopener noreferrer" > {<FontAwesomeIcon icon={['fab', 'linkedin-in']} className = "linkedin" size = "3x" />} </a>
+            <a href = "https://www.linkedin.com/company/27186667" target = "__blank" rel = "noopener noreferrer" > {<FontAwesomeIcon icon={['fab', 'linkedin-in']} className = "linkedin" size = "3x" />} </a>
             </div>
         );
     }

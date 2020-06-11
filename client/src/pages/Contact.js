@@ -8,7 +8,7 @@ export default function Contact() {
         <>
         <Helmet>
             <title>Aparente | Contacto</title>
-            <meta name = "description" content = "Página donde puedes encontrar todos nuestros puntos de contacto."/>
+            <meta name = "description" content = "Página donde puedes encontrar teléfonos, correo electrónico, ligas a redes sociales y mandar WhatsApp para contactarme."/>
         </Helmet>
         <MainBanner />
         <WhatsApp />
