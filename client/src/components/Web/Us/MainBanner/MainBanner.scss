@@ -1,0 +1,111 @@
+@import "../../../../scss/index.scss";
+
+.us-banner{
+    position: relative;
+    text-align: center;
+    height: 300px;
+    width: 100vw;
+    background-color: $negro-aparente;
+    border-bottom: 2px solid white;
+    overflow: hidden;
+
+    @media (max-width: 890px) {
+        height: 250px;
+    }
+
+    @media (max-width: 425px) {
+        height: 180px;
+    }
+
+    @media (max-width: 320px) {
+        height: 150px;
+    }
+
+    
+    .computer{
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        bottom: -45px;
+        width: 220px;
+
+        @media (max-width: 890px) {
+            width: 170px;
+        }
+
+        @media (max-width: 425px) {
+            width: 120px;
+            left: -40px;
+            bottom: -25px;
+        }
+
+        @media (max-width: 375px) {
+            width: 110px;
+        }
+
+        @media (max-width: 320px) {
+            width: 100px;
+        }
+    }
+
+    h1{
+        font-family: $main-title-font;
+        text-transform: uppercase;
+        position: relative;
+        color: #fff;
+        font-size: 70px;
+        font-weight: bold;
+        letter-spacing: 15px;
+        margin-top: auto;
+        top: 50%;
+        transform: translateY(-50%);
+
+        span{
+            color: $azul-aparente;
+        }
+
+        @media (max-width: 890px) {
+            font-size: 55px;
+        }
+
+        @media (max-width: 425px) {
+            font-size: 35px;
+            letter-spacing: 10px;
+        }
+
+        @media (max-width: 375px) {
+            font-size: 30px;
+        }
+
+        @media (max-width: 375px) {
+            font-size: 25px;
+            letter-spacing: 8px;
+        }
+    }
+
+    .maniqui{
+        position: absolute;
+        display: inline-block;
+        right: 0;
+        bottom: 0;
+        width: 220px;
+
+        @media (max-width: 890px) {
+            width: 170px;
+        }
+
+        @media (max-width: 425px) {
+            width: 120px;
+            right: -30px;
+        }
+
+        @media (max-width: 375px) {
+            width: 110px;
+        }
+
+        @media (max-width: 320px) {
+            width: 100px;
+        }
+    }
+
+}
