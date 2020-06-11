@@ -10,7 +10,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center; 
-    //border: 5px solid $azul-aparente;
 
     @media (max-width: 790px){
         background-image: url("../../../../assets/img/png/APARENTE-contact-banner-md.png");
@@ -20,7 +19,8 @@
 
     @media (max-width: 450px) {
         background-image: url("../../../../assets/img/png/APARENTE-contact-banner-sm.png");
-        background-size: contain;
+        background-size: cover;
+        background-position: 25% 75%;
         height: 150px; 
     }
 }
