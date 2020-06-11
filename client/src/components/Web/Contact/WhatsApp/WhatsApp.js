@@ -49,7 +49,7 @@ export default function WhatsApp() {
                     <p>{time}</p>
                     <Form onSubmit = {handleChange}>
                         <Form.Item>
-                            <Input autoFocus = "autofocus" value = {message} onChange = {e => setMessage(e.target.value)}></Input>
+                            <Input autoFocus = "autofocus" value = {message} onChange = {e => setMessage(e.target.value)} placeholder = "Escribe tu mensaje_" ></Input>
                         </Form.Item>
                         <Form.Item>
                             <Button type = "primary" shape = "circle" size = "small" icon = {<SendOutlined /> } htmlType = "submit" onClick = {handleChange}></Button>

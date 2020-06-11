@@ -12,7 +12,15 @@
     }
 
     @media (max-width: 790px) {
-        height: 1800px;
+        height: 1750px;
+    }
+
+    @media(max-width: 450px) {
+        height: 1400px;
+    }
+
+    @media(max-width: 375px) {
+        height: 1350px;
     }
 
     &__description{
@@ -116,6 +124,18 @@
             margin-top: 12px;
             font-size: 12px;
             font-weight: bold;
+
+            @media (max-width: 790px) {
+                margin-left: 120px;
+                margin-top: 23px;
+                font-size: 19px;
+            }
+
+            @media(max-width: 450px) {
+                margin-left: 45px;
+                margin-top: 12px;
+                font-size: 13px;
+            }
         }
 
         input{
@@ -127,12 +147,68 @@
             border-radius: 10px;
 
             @media (max-width: 790px) {
-                margin-left: 152px;
-                margin-top: 741px;
-                width: 465px;
-                height: 45px;
+                margin-left: 150px;
+                margin-top: 723px;
+                width: 455px;
+                height: 43px;
                 border-radius: 20px;
             }
+
+            @media(max-width: 450px) {
+                margin-left: 58px;
+                margin-top: 474px;
+                width: 306px;
+                height: 30px;
+                border-radius: 20px;
+            }
+
+            @media(max-width: 375px) {
+                margin-left: 53px;
+                margin-top: 413px;
+                width: 265px;
+                height: 26px;
+                border-radius: 20px;
+            }
+
+            @media(max-width: 320px) {
+                margin-left: 45px;
+                margin-top: 350px;
+                width: 228px;
+                height: 23px;
+                border-radius: 20px;
+            }
+
+            //@media(max-width: 450px) and (min-width: 415px) {
+            //    margin-left: 66px;
+            //    margin-top: 454px;
+            //    border-radius: 12px;
+            //    width: 288px;
+            //    height: 27px;
+            //}
+
+            //@media(max-width: 414px) and (min-width: 412px) {
+            //    margin-left: 65px;
+            //    margin-top: 441px;
+            //    border-radius: 12px;
+            //    width: 280px;
+            //    height: 27px;
+            //}
+
+            //@media(max-width: 411px) and (min-width: 375px) {
+            //    margin-left: 63px;
+            //    margin-top: 438px;
+            //    border-radius: 12px;
+            //    width: 280px;
+            //    height: 27px;
+            //}
+
+            //@media(max-width: 375px) and (min-width: 360px) {
+            //    margin-left: 59px;
+            //    margin-top: 380px;
+            //    border-radius: 12px;
+            //    width: 243px;
+            //    height: 24px;
+            //}
         }
         img{
             margin-left: 80px;
@@ -143,8 +219,23 @@
             border-radius: 20px;
 
             @media (max-width: 790px) {
-                width: 80%;
+                width: 600px;
                 border-radius: 12px;
+            }
+
+            @media(max-width: 450px) {
+                margin-left: 12px;
+                width: 400px;
+            }
+
+            @media(max-width: 375px) {
+                margin-left: 12px;
+                width: 350px;
+            }
+
+            @media(max-width: 320px){
+                margin-left: 10px;
+                width: 300px;
             }
         }
 
@@ -154,12 +245,48 @@
             margin-left: 366px;
 
             @media (max-width: 790px) {
-                margin-left: 630px;
-                margin-top: 679px;
-                width: 465px;
-                height: 45px;
+                margin-left: 617px;
+                margin-top: 661px;
                 border-radius: 20px;
             }
+
+            @media(max-width: 450px) {
+                margin-left: 371px;
+                margin-top: 417px;
+                border-radius: 20px;
+            }
+
+            @media(max-width: 375px) {
+                margin-left: 323px;
+                margin-top: 353px;
+                border-radius: 20px;
+            }
+
+            @media(max-width: 320px) {
+                margin-left: 278px;
+                margin-top: 291px;
+                border-radius: 20px;
+            }
+
+            //@media(max-width: 450px) and (min-width: 415px){
+            //    margin-top: 395px;
+            //    margin-left: 363px;
+            //}
+
+            //@media(max-width: 414px) and (min-width: 312px){
+            //    margin-top: 381px;
+            //    margin-left: 353px;
+            //}
+
+            //@media(max-width: 411px) and (min-width: 376px){
+            //    margin-top: 378px;
+            //    margin-left: 351px;
+            //}
+
+            //@media(max-width: 375px) and (min-width: 360px) {
+            //    margin-top: 320px;
+            //    margin-left: 308px;
+            //}
 
             .anticon{
                 transform: translate(1.5px, -2.5px);
@@ -167,6 +294,11 @@
                 @media (max-width: 790px) {
                     font-size: 30px;
                     transform: translate(3.5px, -2.5px);
+                }
+
+                @media(max-width: 450px) {
+                    font-size: 16px;
+                    transform: translate(2px, -2.5px);
                 }
             }
         }
@@ -182,6 +314,14 @@
                 margin-left: 260px;
             }
 
+            @media(max-width: 450px) {
+                margin-left: 100px;
+            }
+
+            @media(max-width: 320px) {
+                margin-left: 55px;
+            }
+
             .whatsapp{
                 color: $whatsapp;
             }
@@ -195,8 +335,19 @@
     .ant-btn{
         @media (max-width: 790px){
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
+        }
+
+        @media(max-width: 450px) {
+            border-radius: 50%;
+            width: 29px;
+            height: 29px;
+        }
+
+        @media(max-width: 320px) {
+            width: 24px;
+            height: 24px;
         }
     }
 }

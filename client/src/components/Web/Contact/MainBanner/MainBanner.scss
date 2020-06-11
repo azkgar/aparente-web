@@ -11,6 +11,13 @@
     background-size: cover;
     background-position: center center; 
 
+    @media (max-width: 1024px){
+        background-image: url("../../../../assets/img/png/APARENTE-contact-banner-md.png");
+        background-size: cover;
+        background-position: 25% 75%;
+        height: 350px; 
+    }
+
     @media (max-width: 790px){
         background-image: url("../../../../assets/img/png/APARENTE-contact-banner-md.png");
         background-size: contain;
