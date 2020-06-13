@@ -1,0 +1,44 @@
+@import "../../../scss/index.scss";
+
+.us-description-banner {
+    font-family: $titles-font;
+    text-align: center;
+    height: 700px;
+    overflow: hidden;
+    display: flex;
+    background-color: white;
+    border-top: solid 2px $azul-aparente;
+
+    &__dark{
+        display: inline-block;
+        background-color: $negro-aparente;
+        height: 700px;
+        width: 800px;
+
+        .shadows{
+            width: 400px;
+            position: absolute;
+            margin-left: -300px;
+            margin-top: 160px;
+        }
+        .shadows-title{
+            margin-top: 10px;
+            position: absolute;
+        }
+
+    }
+
+    .walking{
+        width: 300px;
+        margin-top: 150px;
+        margin-left: 652px;
+        position: absolute;
+    }
+
+    .walking-title{
+        margin-top: 10px;
+        position: absolute;
+    }
+
+    
+}
