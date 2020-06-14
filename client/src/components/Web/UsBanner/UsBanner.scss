@@ -9,21 +9,121 @@
     background-color: white;
     border-top: solid 2px $azul-aparente;
 
+    @media (max-width: 1500px) {
+        height: 600px;
+    }
+
+    @media (max-width: 1024px) {
+        height: 550px;
+    }
+
+    @media (max-width: 900px) {
+        height: 400px;
+    }
+
+    @media (max-width: 425px) {
+        height: 270px;
+    }
+
+    @media (max-width: 320px) {
+        height: 220px;
+    }
+
     &__dark{
         display: inline-block;
         background-color: $negro-aparente;
         height: 700px;
         width: 800px;
 
+        @media (min-width: 2000px) {
+            width: 1200px;
+        }
+
+        @media (max-width: 1500px) {
+            width: 650px;
+        }
+
+        @media (max-width: 1024px) {
+            width: 500px;
+        }
+
+        @media (max-width: 900px) {
+            width: 370px;
+        }
+
+        @media (max-width: 425px) {
+            width: 180px;
+        }
+
         .shadows{
             width: 400px;
             position: absolute;
             margin-left: -300px;
             margin-top: 160px;
+
+            @media (max-width: 1500px) {
+                width: 300px;
+                margin-top: 160px;
+                margin-left: -230px;
+            }
+
+            @media (max-width: 1024px) {
+                width: 250px;
+                margin-left: -220px;
+            }
+
+            @media (max-width: 900px) {
+                width: 205px;
+                margin-left: -140px;
+                margin-top: 115px;
+            }
+
+            @media (max-width: 425px) {
+                width: 100px;
+                margin-left: -70px;
+                margin-top: 115px;
+            }
+
+            @media (max-width: 320px) {
+                width: 68px;
+                margin-left: -55px;
+                margin-top: 110px;
+            }
         }
         .shadows-title{
-            margin-top: 10px;
+            margin-top: 45px;
+            margin-left: 115px;
             position: absolute;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            @media (min-width: 2000px) {
+                margin-left: 450px;
+            }
+
+            @media (max-width: 1500px) {
+                margin-left: 115px;
+            }
+
+            @media (max-width: 1024px) {
+                margin-left: 45px;
+            }
+
+            @media (max-width: 900px) {
+                font-size: 25px;
+                margin-left: 25px;
+            }
+
+            @media (max-width: 425px) {
+                font-size: 12px;
+                margin-left: 12px;
+            }
+
+            @media (max-width: 320px) {
+                font-size: 10px;
+                margin-left: 8px;
+            }
         }
 
     }
@@ -33,12 +133,168 @@
         margin-top: 150px;
         margin-left: 652px;
         position: absolute;
+
+        @media (min-width: 2000px) {
+            margin-left: 1052px;
+        }
+
+        @media (max-width: 1500px) {
+            width: 220px;
+            margin-top: 155px;
+            margin-left: 542px;
+        }
+
+        @media (max-width: 1024px) {
+            width: 190px;
+            margin-left: 406px;
+        }
+
+        @media (max-width: 900px) {
+            width: 155px;
+            margin-left: 294px;
+            margin-top: 110px;
+        }
+
+        @media (max-width: 425px) {
+            width: 80px;
+            margin-left: 141px;
+        }
+
+        @media (max-width: 320px) {
+            width: 50px;
+            margin-left: 121px;
+        }
     }
 
     .walking-title{
-        margin-top: 10px;
+        margin-left: 1100px;
+        margin-top: 45px;
         position: absolute;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        span{
+            color: $azul-aparente;
+        }
+
+        @media (min-width: 2000px) {
+            margin-left: 1570px;
+        }
+
+        @media (max-width: 1500px) {
+            margin-left: 755px;
+        }
+
+        @media (max-width: 1024px) {
+            margin-left: 500px;
+        }
+
+        @media (max-width: 900px) {
+            font-size: 25px;
+            margin-left: 390px;
+        }
+
+        @media (max-width: 425px) {
+            font-size: 12px;
+            margin-left: 188px;
+        }
+
+        @media (max-width: 375px) {
+            font-size: 12px;
+            margin-left: 183px;
+        }
+
+        @media (max-width: 320px) {
+            font-size: 10px;
+            margin-left: 150px;
+        }
     }
 
-    
+    .walking-description{
+        position: absolute;
+        text-align: left;
+        font-size: 25px;
+        width: 550px;
+        margin-left: 1100px;
+        margin-top: 200px;
+
+        span{
+            color: $azul-aparente;
+        }
+
+        @media (min-width: 2000px) {
+            margin-left: 1570px;
+        }
+
+        @media (max-width: 1500px) {
+            margin-left: 790px;
+        }
+
+        @media (max-width: 1024px) {
+            margin-left: 620px;
+            font-size: 20px;
+            width: 380px;
+        }
+
+        @media (max-width: 900px) {
+            margin-left: 450px;
+            margin-top: 150px;
+            font-size: 18px;
+            width: 290px;
+        }
+
+        @media (max-width: 425px) {
+            font-size: 12px;
+            margin-top: 100px;
+            margin-left: 220px;
+            width: 190px;
+        }
+
+        @media (max-width: 375px) {
+            font-size: 12px;
+            margin-left: 183px;
+        }
+
+        @media (max-width: 320px) {
+            font-size: 10px;
+            margin-left: 150px;
+        }
+    }
+
+    .walking-button {
+        position: absolute;
+        margin-top: 400px;
+        margin-left: 1480px;
+
+        @media (min-width: 2000px) {
+            margin-left: 1950px;
+        }
+
+        @media (max-width: 1500px) {
+            margin-left: 1170px;
+        }
+
+        @media (max-width: 1024px) {
+            margin-left: 800px;
+        }
+
+        @media (max-width: 900px) {
+            margin-top: 320px;
+            margin-left: 550px;
+        }
+
+        @media (max-width: 425px) {
+            margin-top: 200px;
+            margin-left: 268px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 375px) {
+            margin-left: 183px;
+        }
+
+        @media (max-width: 320px) {
+            margin-left: 150px;
+        }
+    }
 }

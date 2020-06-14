@@ -12,7 +12,7 @@
     @media(max-width: 1024px){
         height: 400px;
     }
-    @media(max-width: $media-breackpoint-up-md){
+    @media(max-width: 900px){
         height: 250px;
     }
 
@@ -55,7 +55,7 @@
                 font-size: 50px;
             }
 
-            @media(max-width: $media-breackpoint-up-md){
+            @media(max-width: 900px){
                 font-size: 35px;
                 word-spacing: 15px;
                 letter-spacing: 10px;
@@ -84,7 +84,7 @@
                 width: 180px;
             }
 
-            @media(max-width: $media-breackpoint-up-md){
+            @media(max-width: 900px){
                 width: 130px;
             }
 
@@ -108,7 +108,7 @@
                 width: 235px;
             }
 
-            @media(max-width: $media-breackpoint-up-md){
+            @media(max-width: 900px){
                 width: 175px;
             }
 
