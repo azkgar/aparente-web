@@ -2,6 +2,7 @@ import React from "react";
 import {Helmet} from "react-helmet";
 import MainBanner from "../components/Web/MainBanner";
 import UsBanner from "../components/Web/UsBanner";
+import BlogBanner from "../components/Web/BlogBanner";
 
 export default function Home(){
     return(
@@ -12,6 +13,7 @@ export default function Home(){
             </Helmet>
             <MainBanner />
             <UsBanner />
+            <BlogBanner />
         </>
     );
 }
