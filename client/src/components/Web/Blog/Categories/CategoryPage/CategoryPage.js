@@ -60,7 +60,7 @@ export default function CategoryPage(props) {
                 } 
             });
         });
-        setPostsRelated(matchPosts);
+        setPostsRelated(matchPosts.reverse());
         setCompleteList(true);
     }
     
