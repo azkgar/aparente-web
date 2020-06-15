@@ -3,25 +3,50 @@
 .blog-home-banner{
     font-family: $titles-font;
     background-color: white;
-    padding-top: 3%;
+    padding-top: 50px;
     text-align: center;
 
     &__title{
         font-weight: bold;
         text-transform: uppercase;
         color: $azul-aparente;
+
+        @media (max-width: 790px){
+            font-size: 25px;
+        }
+
+        @media (max-width: 425px){
+            font-size: 12px;
+        }
+
+        @media (max-width: 320px){
+            font-size: 10px;
+        }
     }
 
     &__description{
         font-size: 25px;
+        margin-bottom: 50px;
+
+        @media (max-width: 1024px){
+            font-size: 20px;
+        }
+
+        @media (max-width: 790px){
+            font-size: 18px;
+        }
+
+        @media (max-width: 425px){
+            font-size: 12px;
+        }
+
+        @media (max-width: 320px){
+            font-size: 8px;
+        }
 
         span{
             color: $azul-aparente;
         }
-    }
-
-    .last-post{
-
     }
 
     .post-cover{
@@ -29,6 +54,40 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
+        box-shadow: 10px 15px 20px 0 rgba(0,0,0,.2);
+        transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    .post-item-container:hover .post-cover{
+        box-shadow: 1px 1px 10px 0 rgba(0,0,0,.1);
+        margin-top: 5px;
+    }
+
+    .post-item-container .glow-wrap{
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 27.5%;
+        width: 45%;
+        height: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .post-item-container .glow{
+        width: 100%;
+        height: 100%;
+        position:absolute;
+        background: rgba(255,255,255,.2);
+        top: 0;
+        filter: blur(5px);
+        transform: rotate(45deg) translate(-450%, 0);
+        transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+
+    .post-item-container:hover .glow{
+        transform: rotate(45deg) translate(450%, 0);
+        transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1); 
     }
 
     &__button{
@@ -38,15 +97,37 @@
 
     .category-cover{
         width: 90%;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+        &:hover{
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+            animation-name: example;
+            animation-duration: 0.25s;
+            border-left: 5px solid $azul-aparente;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+    }
+
+    @keyframes example {
+        0%   {border-left: 1px solid rgba(0,89,202,0.2)}
+        25%  {border-left: 2px solid rgba(0,89,202,0.4)}
+        50%  {border-left: 3px solid rgba(0,89,202,0.6)}
+        100% {border-left: 4px solid rgba(0,89,202,0.8)}
     }
 
     .divider{
-        margin-top: 50px;
+        margin-top: 25px;
     }
 
     .ant-divider-inner-text{
         color: $azul-aparente;
-        font-weight: bold;
         font-size: 20px;
+    }
+
+    .ant-col-xs-12{
+        display: inline-block;
+        margin-bottom: 10px;
     }
 }

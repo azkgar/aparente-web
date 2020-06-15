@@ -48,8 +48,11 @@ if(!posts || !categories){
             <Row>
                 <Col md = {4} sm = {0} />
                 <Col md = {16} sm = {24}>
-                <Link to = {`/blog/${posts.url}`} >
+                <Link to = {`/blog/${posts.url}`} className = "post-item-container" >
                     <img className = "post-cover" alt = {`Imagen relacionada con el post títulado ${posts.title}`} src = {posts.cover ? posts.cover : Missing} />
+                    <div class="glow-wrap">
+                        <i class="glow"></i>
+                    </div>
                 </Link>
                 <Button className = "blog-home-banner__button" size = "large" href = "/blog">Más publicaciones_</Button>
                 </Col>
@@ -64,8 +67,8 @@ if(!posts || !categories){
         return(
             <Row className = "categories-row" justify = "center">
                 {categories.map(category => (
-                    <Col md = {4} sm = {6} key = {category._id}>
-                        <Link to = {`/categorias/${category.tag}`} >
+                    <Col lg = {4} md = {6} sm = {12} xs = {12} key = {category._id}>
+                        <Link to = {`/categorias/${category.tag.toLowerCase()}`} >
                             <img className = "category-cover" alt = {`Portada de temas del blog relacionados con ${category.tag}`} src = {category.avatar ? require(`../../../../../server/uploads/categories/${category.avatar}`) : Missing}/>
                         </Link>
                     </Col>
