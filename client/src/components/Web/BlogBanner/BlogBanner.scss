@@ -11,7 +11,7 @@
         text-transform: uppercase;
         color: $azul-aparente;
 
-        @media (max-width: 790px){
+        @media (max-width: 950px){
             font-size: 25px;
         }
 
@@ -32,8 +32,9 @@
             font-size: 20px;
         }
 
-        @media (max-width: 790px){
+        @media (max-width: 950px){
             font-size: 18px;
+            margin-bottom: 25px;
         }
 
         @media (max-width: 425px){
@@ -42,6 +43,7 @@
 
         @media (max-width: 320px){
             font-size: 8px;
+            margin-bottom: 15px;
         }
 
         span{
@@ -93,6 +95,22 @@
     &__button{
         margin-top: 30px;
         margin-bottom: 30px;
+
+        @media (max-width: 1024px){
+            font-size: 20px;
+        }
+
+        @media (max-width: 950px){
+            font-size: 18px;
+        }
+
+        @media (max-width: 425px){
+            font-size: 15px;
+        }
+
+        @media (max-width: 320px){
+            font-size: 10px;
+        }
     }
 
     .category-cover{
@@ -124,6 +142,18 @@
     .ant-divider-inner-text{
         color: $azul-aparente;
         font-size: 20px;
+
+        @media (max-width: 950px){
+            font-size: 18px;
+        }
+
+        @media (max-width: 425px){
+            font-size: 12px;
+        }
+
+        @media (max-width: 320px){
+            font-size: 10px;
+        }
     }
 
     .ant-col-xs-12{
