@@ -8,8 +8,8 @@ export default function Services() {
         <div className = "services">
         <h2 className = "services-title">Lo que sabemos hacer<span>_</span></h2>
         <Row className = "services-list">
-            <Col md = {6} />
-            <Col md = {6} >
+            <Col md = {4} sm = {0} xs = {0}/>
+            <Col md = {8} sm = {24} xs = {24} >
                 <ul>
                     <li>Planeación y desarrollo de páginas web</li>
                     <li>Campañas de publicidad en internet</li>
@@ -17,7 +17,7 @@ export default function Services() {
                     <li>Innovación y resolución de problemas usando la metodología Sprint</li>
                 </ul>
             </Col>
-            <Col md = {6} >
+            <Col md = {8} sm = {24} xs = {24} >
                 <ul>
                     <li>Imagen personal</li>
                     <li>Imagen de marca o producto</li>
@@ -26,7 +26,7 @@ export default function Services() {
                     <li>Conferencias</li>
                 </ul>
             </Col>
-            <Col md = {6} />
+            <Col md = {4} sm = {0} xs = {0} />
         </Row>
         </div>
     )

@@ -3,6 +3,11 @@
 .services {
     font-family: $titles-font;
     background-color: white;
+    
+    @media (max-width: 950px){
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
 
     .services-title{
         font-weight: bold;
@@ -13,6 +18,19 @@
     
         span{
             color: $azul-aparente;
+        }
+
+        @media (max-width: 450px){
+            font-size: 28px;
+            padding-top: 35px;
+        }
+
+        @media (max-width: 450px){
+            font-size: 24px;
+        }
+
+        @media (max-width: 450px){
+            font-size: 24px;
         }
     }
     
@@ -28,6 +46,12 @@
 
             li{
                 margin-bottom: 8%;
+
+                @media (max-width: 450px){
+                    margin-left: -40px;
+                    padding-right: 5%;
+                    padding-left: 5%;
+                }
             }
         }
     }
