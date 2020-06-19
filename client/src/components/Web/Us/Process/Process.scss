@@ -13,6 +13,11 @@
         font-weight: bold;
         color: white;
         margin-bottom: 5%;
+
+        @media (max-width: 375px){
+            font-size: 28px;
+            letter-spacing: 4px;
+        }
     }
     
     span{
@@ -25,10 +30,19 @@
 
     img{
         width: 200px;
+
+        @media (max-width: 1024px){
+            width: 150px;
+        }
     }
 
     .know-description{
         transform: translateY(20%);
+
+        @media (max-width: 1024px){
+            transform: translateY(15%);
+            padding-left: 2%;
+        }
 
         h4{
             font-family: $titles-font;
@@ -36,6 +50,10 @@
             letter-spacing: 3px;
             text-align: left;
             color: white; 
+
+            @media (max-width: 920px){
+               text-align: center; 
+            }
     
            span{
                color: $azul-aparente;
@@ -47,6 +65,21 @@
             font-size: 22px;
             text-align: left;
             color: white;
+
+            @media (max-width: 1024px){
+                font-size: 20px
+            }
+
+            @media (max-width: 920px){
+                text-align: center; 
+                padding-right: 8%;
+                padding-left: 8%;
+                margin-bottom: 5%;
+             }
+
+             @media (max-width: 450px){
+                 margin-bottom: 50px;
+             }
         }
     }
 }
@@ -54,8 +87,13 @@
 .arrow-1{
     text-align: center;
     margin-top: 2%;
+
     img{
         width: 50px;
+
+        @media (max-width: 1024px){
+            width: 30px;
+        }
     }
 }
 
@@ -65,11 +103,20 @@
 
     img{
         width: 200px;
+
+        @media (max-width: 1024px){
+            width: 150px;
+        }
     }
 
     .plan-description{
         
         transform: translateY(25%);
+
+        @media (max-width: 1024px){
+            transform: translateY(15%);
+            padding-left: 2%;
+        }
 
         h4{
             font-family: $titles-font;
@@ -81,6 +128,10 @@
            span{
                color: $azul-aparente;
            }
+
+           @media (max-width: 920px){
+            text-align: center; 
+         }
         }
     
         p{
@@ -88,6 +139,21 @@
             font-size: 22px;
             text-align: left;
             color: white;
+
+            @media (max-width: 1024px){
+                font-size: 20px
+            }
+
+            @media (max-width: 920px){
+                text-align: center; 
+                padding-right: 8%;
+                padding-left: 8%;
+                margin-bottom: 5%;
+             }
+
+             @media (max-width: 450px){
+                margin-bottom: 50px;
+            }
         }
     }
 }
@@ -95,11 +161,19 @@
 .arrow-2{
     margin-top: -30px;
 
+    @media (max-width: 1024px){
+        margin-top: -10px;
+    }
+
     .arrow-left{
         text-align: right;
         img {
             padding-right: 20px;
             width: 150px;
+
+            @media (max-width: 1024px){
+                width: 120px;
+            }
         }
     }
 
@@ -109,6 +183,10 @@
             padding-left: 20px;
             width: 150px;
             height: 100%;
+
+            @media (max-width: 1024px){
+                width: 120px;
+            }
         }
     }
 }
@@ -118,8 +196,17 @@
 
     .analyze{
         text-align: right;
+
+        @media (max-width: 920px){
+            text-align: center; 
+         }
+
         img{
             width: 200px;
+
+            @media (max-width: 1024px){
+                width: 150px;
+            }
         }
     }
 
@@ -133,6 +220,10 @@
             letter-spacing: 3px;
             color: white; 
 
+            @media (max-width: 920px){
+                text-align: center; 
+             }
+
            span{
                color: $azul-aparente;
            }
@@ -143,12 +234,36 @@
             font-size: 22px;
             text-align: end;
             color: white;
+
+            @media (max-width: 1024px){
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            @media (max-width: 920px){
+                text-align: center; 
+                padding-right: 8%;
+                padding-left: 8%;
+                margin-bottom: 5%;
+             }
+
+             @media (max-width: 450px){
+                margin-bottom: 50px;
+            }
         }
     }
 
     .launch{
+        @media (max-width: 920px){
+            text-align: center; 
+         }
+
         img{
             width: 200px;
+
+            @media (max-width: 1024px){
+                width: 150px;
+            }
         }
     }
 
@@ -161,6 +276,10 @@
             letter-spacing: 3px;
             color: white; 
 
+            @media (max-width: 920px){
+                text-align: center; 
+             }
+
            span{
                color: $azul-aparente;
            }
@@ -170,6 +289,22 @@
             font-family: $body-font;
             font-size: 22px;
             color: white;
+
+            @media (max-width: 1024px){
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            @media (max-width: 920px){
+                text-align: center; 
+                padding-right: 8%;
+                padding-left: 8%;
+                margin-bottom: 5%;
+             }
+
+            @media (max-width: 450px){
+                margin-bottom: 50px;
+            }
         }
     }
 }
@@ -181,5 +316,9 @@
     
     img{
         width: 240px;
+
+        @media (max-width: 1024px){
+            width: 190px;
+        }
     }
 }

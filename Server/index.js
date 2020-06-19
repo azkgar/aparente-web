@@ -1,7 +1,7 @@
 
 const mongoose = require("mongoose");
 const app = require("./app");
-const PORT_SERVER = process.env.PORT || 5000;
+const PORT_SERVER = process.env.PORT || 5000 || "192.168.86.31:5000";
 const {API_VERSION, IP_SERVER, PORT_DB} = require("./config");
 const MONGO_URI = process.env.ATLAS_URI;
 
