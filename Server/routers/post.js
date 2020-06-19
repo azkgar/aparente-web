@@ -17,4 +17,6 @@ api.get("/get-post/:url", PostController.getPost);
 
 api.get("/get-all-posts", PostController.getAllPosts);
 
+api.get("/get-posts-related", PostController.getPostsRelated);
+
 module.exports = api;

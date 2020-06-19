@@ -98,11 +98,26 @@ function getAllPosts(req,res) {
     });
 }
 
+function getPostsRelated(req, res) {
+    Post.find({ "categories" : req.body.category}).exec((err, result) => {
+        if(err) {
+            res.status(500).send({message: "Error del servidor"});
+        } else {
+            if(!result) {
+                res.status(404).send({message: "No se encontró ningún menú"});
+            } else {
+                res.status(200).send({posts: result});
+            }
+        }
+    });
+}
+
 module.exports = {
     addPost,
     getPosts,
     updatePost,
     deletePost,
     getPost,
-    getAllPosts
+    getAllPosts,
+    getPostsRelated
 }
