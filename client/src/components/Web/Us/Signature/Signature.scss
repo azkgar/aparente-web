@@ -1,0 +1,23 @@
+@import "../../../../scss/index.scss";
+
+.signature{
+    font-family: $titles-font;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    
+    .compact-logo{
+        width: 70px;
+        margin-bottom: 2%;
+    }
+    
+    .slogan{
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+
+        sup{
+            font-size: 12px;
+        }
+    }
+}

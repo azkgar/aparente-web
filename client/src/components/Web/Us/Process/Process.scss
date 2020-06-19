@@ -1,0 +1,93 @@
+@import "../../../../scss/index.scss";
+
+.process-title{
+    font-family: $titles-font;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    padding-top: 5%;
+    padding-bottom: 2%;
+        
+
+    h2{
+        font-weight: bold;
+        color: white;
+        margin-bottom: 5%;
+    }
+    
+    span{
+        color: $azul-aparente;
+    }
+}
+
+.process-know{
+    text-align: center;
+    img{
+        width: 200px;
+    }
+}
+
+.arrow-1{
+    text-align: center;
+    margin-top: 2%;
+    img{
+        width: 50px;
+    }
+}
+
+.process-plan{
+    text-align: center;
+    margin-top: 2%;
+
+    img{
+        width: 200px;
+    }
+}
+
+.arrow-2{
+    margin-top: -70px;
+
+    .arrow-left{
+        text-align: right;
+        img {
+            padding-right: 20px;
+            width: 150px;
+        }
+    }
+
+    .arrow-right{
+
+        img {
+            padding-left: 20px;
+            width: 150px;
+            height: 100%;
+        }
+    }
+}
+
+.process-launch-analyze{
+    margin-top: 2%;
+
+    .analyze{
+        text-align: right;
+        img{
+            width: 200px;
+        }
+    }
+
+    .launch{
+        img{
+            width: 200px;
+        }
+    }
+}
+
+.arrow-3{
+    margin-top: 2%;
+    margin-bottom: 5%;
+    text-align: center;
+    
+    img{
+        width: 240px;
+    }
+}

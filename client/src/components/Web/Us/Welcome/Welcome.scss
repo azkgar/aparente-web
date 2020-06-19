@@ -1,0 +1,33 @@
+@import "../../../../scss/index.scss";
+
+.welcome-header{
+    font-family: $titles-font;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: white;
+    padding-top: 5%;
+
+    span{
+        color: $azul-aparente;
+    }
+}
+
+.welcome-text{
+    font-family: $titles-font;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    padding-top: 2%;
+    padding-bottom: 5%;
+
+    sup{
+        font-size: 10px;
+    }
+
+    span{
+        border-bottom: 2px solid $azul-aparente;
+    }
+}
