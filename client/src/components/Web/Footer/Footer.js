@@ -13,29 +13,29 @@ export default function Footer() {
     return (
         <Footer className = "footer">
             <Row>
-                <Col md = {4}/>
-                <Col md = {16}>
+                <Col lg = {4} sm = {0} xs ={0}/>
+                <Col lg = {16} sm = {24} xs ={24}>
                     <Row>
-                        <Col md = {8}>
+                        <Col lg = {8} md = {24} sm = {24} xs = {24} className = "info">
                             <MyInfo />
                         </Col>
-                        <Col md = {8}>
+                        <Col lg = {8} md = {24} sm = {24} xs = {24} className = "navigation">
                             <NavigationFooter />
                         </Col>
-                        <Col md = {8}>
+                        <Col lg = {8} md = {24} sm = {24} xs = {24} className = "newsletter">
                             <Newsletter />
                         </Col>
                     </Row>
-                    <Row className = "footer__copyright">
-                        <Col md = {12}>
-                            Creado con estilo por Aparente®
-                        </Col>
-                        <Col md = {12}>
-                            ©Todos los derechos reservados {moment().year()}
-                        </Col>
-                    </Row>
                 </Col>
-                <Col md = {4}/>
+                <Col lg = {4} sm = {0} xs ={0}/>
+            </Row>
+            <Row className = "footer__copyright">
+                <Col md = {12}>
+                    Creado con estilo por Aparente®
+                </Col>
+                <Col md = {12}>
+                    Todos los derechos reservados {moment().year()}
+                </Col>
             </Row>
         </Footer>
     )

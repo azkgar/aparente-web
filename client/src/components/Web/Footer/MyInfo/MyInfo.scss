@@ -1,14 +1,18 @@
-@import "../../../../scss//index.scss";
+@import "../../../../scss/index.scss";
 
 .my-info{
+    text-align: center;
+    font-family: $titles-font;
+
     img {
         width: 200px;
-        margin-bottom: 20px;
+        margin-top: -7px;
+        margin-bottom: 17px;
     }
 
     h5{
-        margin-bottom: 20px;
-        color: $primary-color-dark;
+        margin-bottom: 27px;
+        color: white;
     }
 
     .social-links{

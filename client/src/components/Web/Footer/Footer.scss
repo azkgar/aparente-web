@@ -8,10 +8,18 @@
         margin-top: 30px;
 
         .ant-col {
-            color: $primary-color-dark;
+            color: white;
+
+            @media (max-width: 950px){
+                text-align: center;
+            }
 
             &:last-of-type{
                 text-align: right;
+
+                @media (max-width: 950px){
+                    text-align: center;
+                }
             }
         }
     }

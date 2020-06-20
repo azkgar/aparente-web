@@ -1,9 +1,19 @@
 @import "../../../../scss/index.scss";
 
 .navigation-footer{
+    text-align: center;
+
     h3{
         color: $font-light;
         font-weight: bold;
+
+        @media (max-width: 950px){
+            margin-top: 50px;
+        }
+
+        @media (max-width: 375px){
+            margin-top: 25px;
+        }
     }
 
     ul {
@@ -21,6 +31,7 @@
 
                 .anticon {
                     padding-right: 10px;
+                    transform: translateY(-3px);
                 }
             }
         }

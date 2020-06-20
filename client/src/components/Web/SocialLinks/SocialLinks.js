@@ -1,46 +1,16 @@
 import React from "react";
-import {ReactComponent as YouTubeIcon} from "../../../assets/img/svg/youtube.svg";
-import {ReactComponent as TwitterIcon} from "../../../assets/img/svg/twitter.svg";
-import {ReactComponent as FacebookIcon} from "../../../assets/img/svg/facebook.svg";
-import {ReactComponent as LinkedInIcon} from "../../../assets/img/svg/linkedin.svg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import "./SocialLinks.scss";
 
 export default function SocialLinks() {
     return(
-        <div className = "social-links">
-            <a 
-            href = "https://www.youtube.com"
-            className = "youtube"
-            target = "_blank"
-            rel = "noopener noreferrer"
-            >
-                <YouTubeIcon />
-            </a>
-            <a 
-            href = "https://www.twitter.com"
-            className = "twitter"
-            target = "_blank"
-            rel = "noopener noreferrer"
-            >
-                <TwitterIcon />
-            </a>
-            <a 
-            href = "https://www.facebook.com"
-            className = "facebook"
-            target = "_blank"
-            rel = "noopener noreferrer"
-            >
-                <FacebookIcon />
-            </a>
-            <a 
-            href = "https://www.linkedin.com"
-            className = "linkedin"
-            target = "_blank"
-            rel = "noopener noreferrer"
-            >
-                <LinkedInIcon />
-            </a>
+        <div className = "social-bar">
+            <a href = "https://www.instagram.com/aparentemx" target = "__blank" rel = "noopener noreferrer" > {<FontAwesomeIcon icon={['fab', 'instagram']} className = "instagram" size = "2x" />}</a>
+            <a href = "https://www.facebook.com/aparentemx" target = "__blank" rel = "noopener noreferrer" > {<FontAwesomeIcon icon={['fab', 'facebook-f']} className = "facebook" size = "2x" />} </a>
+            <a href = "https://www.pinterest.com/aparentemx" target = "__blank" rel = "noopener noreferrer" > {<FontAwesomeIcon icon={['fab', 'pinterest-p']} className = "pinterest" size = "2x" />} </a>
+            {/* <a href = "https://www.youtube.com/aparentemx" target = "__blank" rel = "noopener noreferrer" > {<FontAwesomeIcon icon={['fab', 'youtube']} className = "youtube" size = "2x" />} </a>
+            <a href = "https://www.linkedin.com/company/27186667" target = "__blank" rel = "noopener noreferrer" > {<FontAwesomeIcon icon={['fab', 'linkedin-in']} className = "linkedin" size = "2x" />} </a> */}
         </div>
     )
 }

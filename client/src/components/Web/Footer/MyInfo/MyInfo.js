@@ -8,7 +8,7 @@ export default function MyInfo() {
     return (
         <div className = "my-info">
             <img src = {LogoAparente} alt = "Aparente"/>
-            <h5>Sin apariencia somos entes_ ®</h5>
+            <h5>Sin apariencia somos entes<sup>®</sup></h5>
             <SocialLinks />
         </div>
     )
