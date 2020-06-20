@@ -17,23 +17,41 @@
 .contact-banner-whatsapp{
     text-align: center;
     background-color: white;
-    height: 100px;
 
     input{
-        position: inline-block;
-        width: 650px;
         border-radius: 15px;
+
+        @media (max-width: 450px){
+            width: 80%;
+            padding-bottom: 1px;
+        }
+    }
+
+    .whatsapp-btn{
+        text-align: left;
+        padding-left: 10px;
+
+        @media (max-width: 450px){
+            text-align: center;
+            padding-left: 0;
+        }
     }
 
     button{
-        position: absolute;
-        top: -62px;
-        left: 820px;
+
+        @media (max-width: 450px){
+            margin-left: 40px;
+            margin-top: -10px;
+        }
     }
 
     .whatsapp{
-        font-size: 28px;
-        transform: translate(4%,5%);
+        font-size: 18px;
+        transform: translateY(1px);
+
+        @media (max-width: 450px){
+            font-size: 25px;
+        }
     }
 
     .ant-btn-primary {
@@ -45,8 +63,18 @@
         }
     }
 
+    .ant-btn{
+        @media(max-width: 450px) {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+    }
+
     .ant-divider{
-        margin-top: -50px;
+        @media (max-width: 450px) {
+            margin-top: -1px;
+        }
     }
 }
 
@@ -72,6 +100,14 @@
             margin-right: 2%;
         }
     }
+
+    a{
+        font-family: $titles-font;
+    }
+
+    .top-column{
+        margin-bottom: 30px;
+    }
 }
 
 .contact-banner-button{
@@ -80,5 +116,13 @@
     background-color: white;
     padding-top: 15px;
     padding-bottom: 50px;
+    
+    .ant-btn{
+        width: 100%;
+
+        @media (max-width: 450px){
+            width: 80%;
+        }
+    }
 }
 

@@ -16,45 +16,53 @@ export default function ContactBanner() {
     return (
         <>
         <Row className = {"contact-banner-title"}>
-            <Col lg = {4}/>
-            <Col lg ={16}>
+            <Col md = {4} sm = {0} xs = {0}/>
+            <Col md ={16} sm = {24} xs = {24}>
                 <h2>Contáctanos<span>_</span></h2>
             </Col>
-            <Col lg = {4}/>
+            <Col md = {4} sm = {0} xs = {0}/>
         </Row>
         <Row className = {"contact-banner-whatsapp"}>
-            <Col lg = {4}/>
-            <Col lg ={16}>
+            <Col md = {4} sm = {0} xs = {0}/>
+            <Col md ={16} sm = {24} xs = {24}>
                 <Form onSubmit = {handleChange}>
+                <Row>
+                    <Col md = {6} sm = {0} xs = {0}/>
+                    <Col md = {10} sm = {24} xs = {24}>
                     <Form.Item>
                         <Input value = {message} onChange = {e => setMessage(e.target.value)} placeholder = "Escribe tu mensaje_" ></Input>
                     </Form.Item>
+                    </Col>
+                    <Col md = {4} sm = {24} xs = {24} className = "whatsapp-btn">
                     <Form.Item>
-                        <Button type = "primary" shape = "circle" size = "middle" icon = {<FontAwesomeIcon icon={['fab', 'whatsapp']} className = "whatsapp"/>} htmlType = "submit" onClick = {handleChange}></Button>
+                        <Button type = "primary" shape = "circle" size = "small" icon = {<FontAwesomeIcon icon={['fab', 'whatsapp']} className = "whatsapp"/>} htmlType = "submit" onClick = {handleChange} ></Button>
                     </Form.Item>
+                    </Col>
+                    <Col md = {4} sm = {0} xs = {0}/>
+                    </Row>
                 </Form>
                 <Divider/>
             </Col>
-            <Col lg = {4}/>
+            <Col md = {4} sm = {0} xs = {0}/>
         </Row>
         <Row className = {"contact-banner-medium"}>
-            <Col lg = {4}/>
-            <Col lg = {8}>
+            <Col md = {4} sm = {0} xs = {0}/>
+            <Col md = {8} sm = {24} xs = {24} className = "top-column">
                 <h3><FontAwesomeIcon icon={['far', 'envelope']} className = "email"/>  email<span>_</span></h3>
                 <a href = "mailto:contacto@aparente.mx" target = "__blank" rel = "noopener noreferrer">contacto@aparente.mx</a>
             </Col>
-            <Col lg = {8}>
+            <Col md = {8} sm = {24} xs = {24}>
                 <h3><FontAwesomeIcon icon={['fas', 'phone']} className = "phone"/>  Teléfono<span>_</span></h3>
                 <a href = "tel:+525612982728" target = "__blank" rel = "noopener noreferrer">+52 56 1298 2728</a>    
             </Col>
-            <Col lg = {4}/>
+            <Col md = {4} sm = {0} xs = {0}/>
         </Row>
         <Row className = {"contact-banner-button"}>
-        <Col lg = {8}/>
-        <Col lg ={8}>
-            <Button size = "large" block href = "/contacto">Más medios_</Button>
+        <Col md = {8} sm = {0} xs = {0}/>
+        <Col md ={8} sm = {24} xs = {24}> 
+            <Button size = "large" href = "/contacto">Más medios_</Button>
         </Col>
-        <Col lg = {8}/>
+        <Col md = {8} sm = {0} xs = {0}/>
         </Row>
         </>
     )
