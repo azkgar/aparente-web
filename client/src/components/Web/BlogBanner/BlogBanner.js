@@ -24,8 +24,6 @@ useEffect(() => {
     })
 }, []); 
 
-console.log(categories);
-
 if(!posts || !categories){
     return (
         <Spin tip = "Cargando" style = {{width: "100%", padding: "200px 0"}} />

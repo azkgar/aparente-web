@@ -1,1 +1,84 @@
 @import "../../../scss/index.scss";
+
+.contact-banner-title{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: white;
+    border-top: 3px solid $azul-aparente;
+
+    h2{
+        font-family: $titles-font;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+
+.contact-banner-whatsapp{
+    text-align: center;
+    background-color: white;
+    height: 100px;
+
+    input{
+        position: inline-block;
+        width: 650px;
+        border-radius: 15px;
+    }
+
+    button{
+        position: absolute;
+        top: -62px;
+        left: 820px;
+    }
+
+    .whatsapp{
+        font-size: 28px;
+        transform: translate(4%,5%);
+    }
+
+    .ant-btn-primary {
+        background-color: $whatsapp;
+        border: none;
+    
+        &:hover{
+            background-color: $whatsapp-hover;
+        }
+    }
+
+    .ant-divider{
+        margin-top: -50px;
+    }
+}
+
+.contact-banner-medium{
+    text-align: center;
+    background-color: white;
+    padding-bottom: 2%;
+
+    h3{
+        font-family: $titles-font;
+        font-weight: bold;
+        margin-bottom: 3%;
+        
+        span{
+            color: $azul-aparente;
+        }
+
+        .email{
+            margin-right: 2%;
+        }
+
+        .phone{
+            margin-right: 2%;
+        }
+    }
+}
+
+.contact-banner-button{
+    font-family: $titles-font;
+    text-align: center;
+    background-color: white;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
+
