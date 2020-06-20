@@ -23,9 +23,9 @@ useEffect( () => {
 
     return (
         <Col md={5} sm = {24} className = "side-menu">
-            <h2>¡Hola!</h2>
+            {/*<h2>¡Hola!</h2>*/}
 
-            <h2><span>¡</span>Únete<span>!</span></h2>
+            <h2>Únete<span>_</span></h2>
             <SocialButtons />
             <Link to = "/categorias">
             <h2>Categorías<span>_</span></h2>
@@ -68,11 +68,11 @@ useEffect( () => {
             rel = "noopener noreferrer">
             <Button shape = "circle" icon = {<FontAwesomeIcon icon={['fab', 'pinterest-p']} className = "pinterest"/>} size = "large" ></Button>
             </a>
-            <a href = "https://www.youtube.com/AparenteMX"
+            {/*<a href = "https://www.youtube.com/AparenteMX"
             target = "_blank"
             rel = "noopener noreferrer">
             <Button shape = "circle" icon = {<FontAwesomeIcon icon={['fab', 'youtube']} className = "youtube"/>} size = "large" ></Button>
-            </a>
+            </a>*/}
             </div>
         );
     }
