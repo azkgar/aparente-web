@@ -20,6 +20,27 @@ export default function CategoriesBanner() {
         });
     }, []);
 
+    const urlCategory = (function() {
+        let from = "ÃÀÁÄÂÈÉËÊÌÍÏÎÒÓÖÔÙÚÜÛãàáäâèéëêìíïîòóöôùúüûÑñÇç", 
+            to   = "AAAAAEEEEIIIIOOOOUUUUaaaaaeeeeiiiioooouuuunncc",
+            mapping = {};
+       
+        for(let i = 0, j = from.length; i < j; i++ )
+            mapping[ from.charAt( i ) ] = to.charAt( i );
+       
+        return function( str ) {
+            let ret = [];
+            for( let i = 0, j = str.length; i < j; i++ ) {
+                let c = str.charAt( i );
+                if( mapping.hasOwnProperty( str.charAt( i ) ) )
+                    ret.push( mapping[ c ] );
+                else
+                    ret.push( c );
+            }      
+            return ret.join( '' ).replace( /[^-A-Za-z0-9]+/g, '-' ).toLowerCase();;
+        }
+      })();
+
     if(!categories){
         return (
             <Spin tip = "Cargando" style = {{width: "100%", padding: "200px 0"}} />
@@ -36,7 +57,7 @@ export default function CategoriesBanner() {
         <div className = "categories-list">
             <h2>¿Buscas un tema específico?</h2>
             {categories.map(category => (
-                <Link to ={`/categorias/${category.tag.toLowerCase()}`} key = {category._id}>
+                <Link to ={`/categorias/${category.tag}`} key = {category._id}>
                 <div className = "categories-list__item">
                     <img alt = {category.tag} src = {category.avatar ? require(`../../../../../../../server/uploads/categories/${category.avatar}`) : require("../../../../../assets/img/png/Missing.png") }/>
                     <h4>{category.tag}</h4>

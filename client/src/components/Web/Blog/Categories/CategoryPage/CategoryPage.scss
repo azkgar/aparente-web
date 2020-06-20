@@ -14,8 +14,9 @@
         h2{
             color: white;
             font-family: $body-font;
+            text-transform: capitalize;
             font-size: 50px;
-            margin-top: 5%;
+            margin-top: 20px;
 
             @media (max-width: 450px) {
                 font-size: 25px;
@@ -25,7 +26,7 @@
         img{
             margin-top: 2%;
             margin-bottom: 2%;
-            width: 60%;
+            width: 40%;
             height: auto;
 
             @media (max-width: 450px) {

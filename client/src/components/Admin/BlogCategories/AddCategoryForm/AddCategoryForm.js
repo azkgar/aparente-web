@@ -63,7 +63,7 @@ function AddForm(props) {
                 <Input 
                     prefix = {<TagOutlined />}
                     placeholder = "Categoría"
-                    value = {categoriesData.tag}
+                    value = {categoriesData.title}
                     onChange = {e => setCategoriesData({...categoriesData, tag: e.target.value})}
                 />
             </Form.Item>
@@ -75,3 +75,5 @@ function AddForm(props) {
         </Form>
     );
 }
+
+

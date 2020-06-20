@@ -4,7 +4,6 @@ import MainBanner from "../MainBanner";
 import CategoryPage from "./CategoryPage";
 import {useParams} from "react-router-dom";
 
-import "./Categories.scss";
 
 export default function Categories() {
     const {tag} = useParams();

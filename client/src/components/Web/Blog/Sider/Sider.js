@@ -43,7 +43,6 @@ useEffect( () => {
                     return(
                         <Link to = {`/categorias/${item.category.toLowerCase()}`} key = {item.category}>
                         <img alt = {item.category} src = {item.cover === undefined ? require("../../../../assets/img/png/Missing.png") : require(`../../../../../../server/uploads/categories/${item.cover}`)} />
-                            <h5>{item.category}</h5>
                         </Link>
                     );
                 })}

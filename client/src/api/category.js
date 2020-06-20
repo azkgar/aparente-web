@@ -128,3 +128,15 @@ export function getCoverApi(avatarName){
         return err.message;
     });
 }
+
+export function getCategoryApi(tag){
+    const url = `${basePath}/${apiVersion}/get-category/${tag}`;
+
+    return fetch(url).then(response => {
+        return response.json();
+    }).then(result => {
+        return result;
+    }).catch(err => {
+        return err;
+    });
+}

@@ -99,7 +99,9 @@ function getAllPosts(req,res) {
 }
 
 function getPostsRelated(req, res) {
-    Post.find({ "categories" : req.body.category}).exec((err, result) => {
+    const {tag} = req.params;
+
+    Post.find({ "categories" : tag}).exec((err, result) => {
         if(err) {
             res.status(500).send({message: "Error del servidor"});
         } else {

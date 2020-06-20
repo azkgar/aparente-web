@@ -23,4 +23,7 @@ api.route("/upload-category-cover/:id")
 api.route("/get-category-cover/:avatarName")
 .get(CategoryController.getCover);
 
+api.route("/get-category/:tag")
+.get(CategoryController.getCategory);
+
 module.exports = api;

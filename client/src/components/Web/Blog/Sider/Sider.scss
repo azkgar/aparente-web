@@ -8,6 +8,7 @@
     display: inline-table;
     border: 2px solid $azul-aparente;
     text-align: center;
+    padding-bottom: 50px;
 
     @media(max-width: 450px){
         margin: 0 auto 30px;
@@ -53,11 +54,12 @@
             width: 70%;
             height: auto;
             margin-top: 5%;
+            margin-bottom: 5%;
+            box-shadow: 10px 15px 20px 0 rgba(0,0,0,.2);
         }
 
-        h5{
-            font-family: $body-font;
-            margin-top: 3%;
+        img:hover{
+            box-shadow: 3px 3px 10px 0 rgba(0,0,0,.1);
         }
     }
 }

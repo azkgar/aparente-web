@@ -98,3 +98,15 @@ export function getAllPostsApi() {
         return err;
     });
 }
+
+export function getRelatedPostsApi (tag) {
+    const url = `${basePath}/${apiVersion}/get-posts-related/${tag}`;
+
+    return fetch(url).then(response => {
+        return response.json();
+    }).then(result => {
+        return result;
+    }).catch(err => {
+        return err;
+    });
+}
