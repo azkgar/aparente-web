@@ -26,4 +26,7 @@ api.route("/get-category-cover/:avatarName")
 api.route("/get-category/:url")
 .get(CategoryController.getCategory);
 
+api.route("/get-category-tag/:tag")
+.get(CategoryController.getCategoryTag);
+
 module.exports = api;

@@ -10,12 +10,12 @@ export default function NavigationFooter() {
     return (
         <>
         <Row className = "navigation-footer">
-            <Col md = {24}>
+            <Col md = {24} sm ={24} xs ={24}>
                 <h3>Navegación</h3>
             </Col>
         </Row>
         <Row className = "navigation-footer">
-            <Col md = {24}>
+            <Col md = {24} sm ={24} xs ={24}>
                 <RenderList />
             </Col>
         </Row>

@@ -16,11 +16,11 @@
         }
 
         @media (max-width: 425px){
-            font-size: 12px;
+            font-size: 15px;
         }
 
         @media (max-width: 320px){
-            font-size: 10px;
+            font-size: 12px;
         }
     }
 
@@ -110,6 +110,14 @@
 
         @media (max-width: 320px){
             font-size: 10px;
+        }
+
+        .ant-btn{
+            width: 100%;
+    
+            @media (max-width: 750px){
+                width: 80%;
+            }
         }
     }
 

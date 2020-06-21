@@ -26,7 +26,7 @@ export default function CategoryPage(props) {
 
     useEffect(() => {
         getCategoryApi(tag).then(response => {
-            setObject(response.category[0]);            
+            setObject(response.category[0]);  
         })
     }, []);
     

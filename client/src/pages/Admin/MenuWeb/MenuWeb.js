@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {getMenuApi} from "../../../api/menu";
 import MenuWebList from "../../../components/Admin/MenuWeb/MenuWebList";
+import {Helmet} from "react-helmet";
 
 export default function MenuWeb()  {
     const [menu, setMenu] = useState([]);
@@ -14,8 +15,14 @@ export default function MenuWeb()  {
     }, [reloadMenuWeb]);
 
     return(
+        <>
+        <Helmet>
+                <title>Admin | Menú</title>
+                <meta name = "description" content =  "Consola de administrador de Aparente. Página para agregar, eliminar y modificar el menú"/>
+        </Helmet>
         <div className = "menu-web">
             <MenuWebList menu = {menu} setReloadMenuWeb = {setReloadMenuWeb} />
         </div>
+        </>
     );
 }

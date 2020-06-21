@@ -15,7 +15,7 @@ useEffect( () => {
     getCategoriesApi().then(response => {
         const arrayCategories = [];
         response.category.forEach(item => {
-            item.active && arrayCategories.push({category: item.tag, cover: item.avatar});
+            item.active && arrayCategories.push({category: item.tag, cover: item.avatar, url: item.url});
         });
         setCategories(arrayCategories);
     });
@@ -41,7 +41,7 @@ useEffect( () => {
             <div className = "categories-container">
                 {categories.map( item  => {
                     return(
-                        <Link to = {`/categorias/${item.category.toLowerCase()}`} key = {item.category}>
+                        <Link to = {`/categorias/${item.url.toLowerCase()}`} key = {item.category}>
                         <img alt = {item.category} src = {item.cover === undefined ? require("../../../../assets/img/png/Missing.png") : require(`../../../../../../server/uploads/categories/${item.cover}`)} />
                         </Link>
                     );

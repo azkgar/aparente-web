@@ -140,3 +140,15 @@ export function getCategoryApi(tag){
         return err;
     });
 }
+
+export function getCategoryTagApi(tag){
+    const url = `${basePath}/${apiVersion}/get-category-tag/${tag}`;
+
+    return fetch(url).then(response => {
+        return response.json();
+    }).then(result => {
+        return result;
+    }).catch(err => {
+        return err;
+    });
+}

@@ -30,7 +30,7 @@ export default function Newsletter() {
 
     return (
         <div className = "newsletter">
-            <h3>Suscríbete<span>_</span></h3>
+            <h3>Suscríbete</h3>
             <Form >
                 <Form.Item>
                     <Input 

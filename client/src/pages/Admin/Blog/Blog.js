@@ -7,6 +7,7 @@ import PostsList from "../../../components/Admin/Blog/PostsList";
 import Pagination from "../../../components/Pagination";
 import AddEditPostForm from "../../../components/Admin/Blog/AddEditPostForm"
 import {getPostsApi} from "../../../api/post";
+import {Helmet} from "react-helmet";
 
 
 import "./Blog.scss";
@@ -52,6 +53,11 @@ import "./Blog.scss";
     }
 
     return (
+        <>
+        <Helmet>
+                <title>Admin | Blog</title>
+                <meta name = "description" content =  "Consola de administrador de Aparente. Página para redactar, eliminar y modificar posts"/>
+        </Helmet>
         <div className = "blog">
             <div className = "blog__add-post">
                 <Button type = "primary" onClick = {addPost}>
@@ -70,6 +76,7 @@ import "./Blog.scss";
                 {modalContent}
             </Modal>  
         </div>
+        </>
     );
 }
 

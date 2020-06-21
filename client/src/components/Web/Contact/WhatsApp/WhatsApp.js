@@ -11,6 +11,16 @@ import "./WhatsApp.scss";
 export default function WhatsApp() {
     const [time,setTime] = useState(moment().format("LT"));
     const [message, setMessage] = useState("");
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        window.addEventListener("resize",updateWidth);
+        return () => window.removeEventListener("resize", updateWidth);
+    });
+
+    const updateWidth = () => {
+        setWidth(window.innerWidth);
+    };
 
     useEffect(() => {
         const interval = setInterval(() => setTime(moment().format("LT")), 1000);
@@ -45,7 +55,7 @@ export default function WhatsApp() {
                 </Col>
                 <Col lg = {12} md = {24} className = "whatsapp-form__form">
                     <h2 className = "cta"><FontAwesomeIcon icon={['fab', 'whatsapp']} className = "whatsapp"/> WhatsApp<span>_</span></h2>
-                    <img alt = "Manda un WhatsApp al " src = {window.innerWidth >= 790 ? DesktopWA : MobileWA} />
+                    <img alt = "Manda un WhatsApp al " src = {width >= 790 ? DesktopWA : MobileWA} />
                     <p>{time}</p>
                     <Form onSubmit = {handleChange}>
                         <Form.Item>

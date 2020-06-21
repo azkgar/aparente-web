@@ -44,8 +44,8 @@ if(!posts || !categories){
             <Categories categories = {categories} />
             <Divider plain className = "divider">Última publicación</Divider>
             <Row>
-                <Col md = {4} sm = {0} />
-                <Col md = {16} sm = {24}>
+                <Col md = {4} sm = {0} xs = {0}/>
+                <Col md = {16} sm = {24} xs = {24}>
                 <Link to = {`/blog/${posts.url}`} className = "post-item-container" >
                     <img className = "post-cover" alt = {`Imagen relacionada con el post títulado ${posts.title}`} src = {posts.cover ? posts.cover : Missing} />
                     <div class="glow-wrap">
@@ -54,7 +54,7 @@ if(!posts || !categories){
                 </Link>
                 <Button className = "blog-home-banner__button" size = "large" href = "/blog">Más publicaciones_</Button>
                 </Col>
-                <Col md = {4} sm = {0} />
+                <Col md = {4} sm = {0} xs = {0}/>
             </Row>
         </div>
     )
@@ -66,7 +66,7 @@ if(!posts || !categories){
             <Row className = "categories-row" justify = "center">
                 {categories.map(category => (
                     <Col lg = {4} md = {6} sm = {12} xs = {12} key = {category._id}>
-                        <Link to = {`/categorias/${category.tag.toLowerCase()}`} >
+                        <Link to = {`/categorias/${category.url.toLowerCase()}`} >
                             <img className = "category-cover" alt = {`Portada de temas del blog relacionados con ${category.tag}`} src = {category.avatar ? require(`../../../../../server/uploads/categories/${category.avatar}`) : Missing}/>
                         </Link>
                     </Col>

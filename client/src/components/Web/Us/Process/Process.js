@@ -28,23 +28,23 @@ export default function Process() {
     return (
         <>
         <Row className = "process-title">
-            <Col lg = {4} md = {0}/>
-            <Col lg = {16} md = {24}>
+            <Col lg = {4} md = {0} sm = {0} xs = {0}/>
+            <Col lg = {16} md = {24} sm = {24} xs = {24}>
                 <h2>Tu proceso<span>_</span></h2>
             </Col>
-            <Col lg = {4} md = {0}/>
+            <Col lg = {4} md = {0} sm = {0} xs = {0}/>
         </Row>
         <Row className = "process-know" >
-            <Col lg = {2} md = {0}/>
-            <Col lg = {8} md = {0}/>
-            <Col lg = {4} md = {24}>
+            <Col lg = {2} md = {0} sm = {0} xs = {0} />
+            <Col lg = {8} md = {0} sm = {0} xs = {0} />
+            <Col lg = {4} md = {24} sm = {24} xs = {24}>
                 <img alt = "Conócete" src = {Know}  /> 
             </Col>
-            <Col lg = {8} md = {24} className = "know-description">
+            <Col lg = {8} md = {24} sm = {24} xs = {24} className = "know-description">
                 <h4>Conócete<span>_</span></h4>
                 <p>Una buena estrategia de imagen se basa en ti, tu personalidad y tus objetivos.</p>
             </Col>
-            <Col lg = {2} md = {0}/>
+            <Col lg = {2} md = {0} sm = {0} xs = {0}/>
         </Row>
         {width > 970 ?
             <Row className = "arrow-1" >
@@ -55,16 +55,16 @@ export default function Process() {
             <Col lg = {4} />
             </Row> : null}
         <Row className = "process-plan" >
-            <Col lg = {2} md = {0} />
-            <Col lg = {8} md = {0} />
-            <Col lg = {4} md = {24}>
+            <Col lg = {2} md = {0} sm = {0} xs = {0} />
+            <Col lg = {8} md = {0} sm = {0} xs = {0} />
+            <Col lg = {4} md = {24} sm = {24} xs = {24} >
                 <img alt = "Planea" src = {Plan} />
             </Col>
-            <Col lg = {8} md = {24} className = "plan-description">
+            <Col lg = {8} md = {24} sm = {24} xs = {24} className = "plan-description">
                 <h4>Planea<span>_</span></h4>
                 <p>Planeamos cada detalle para crear una imagen sólida y convincente.</p>
             </Col>
-            <Col lg = {2} md = {0}/>
+            <Col lg = {2} md = {0} sm = {0} xs = {0} />
         </Row>
         {width > 970 ? 
             <Row className = "arrow-2" >

@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {Spin, Tag, notification} from "antd";
+import {Spin, Tag, notification, BackTop} from "antd";
+import {ArrowUpOutlined} from "@ant-design/icons";
 import moment from "moment";
 import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import {getPostApi} from "../../../../api/post";
+import {getCategoryTagApi} from "../../../../api/category";
 import "moment/locale/es";
 import {EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, PinterestShareButton, PinterestIcon, TwitterShareButton, TwitterIcon, WhatsappShareButton, WhatsappIcon} from "react-share";
 import CommentBox from "../CommentBox";
@@ -14,8 +16,19 @@ import "./PostInfo.scss";
 export default function PostInfo(props) {
     const {url} = props;
     const [postInfo, setPostInfo] = useState(null);
+    const [categoryInfo, setCategoryInfo] = useState({});
     const [urlExists, setUrlExists] = useState(null);
     const socialUrl = "aparente.mx/blog/";
+    const style = {
+        height: 50,
+        width: 50,
+        lineHeight: "50px",
+        borderRadius: 4,
+        backgroundColor: "#0059ca",
+        color: "#fff",
+        textAlign: "center",
+        fontSize: 14
+    };
 
     useEffect(() => {
         getPostApi(url).then(response => {
@@ -51,9 +64,13 @@ export default function PostInfo(props) {
             </div>
             <div className = "post-info__tags">
                 {postInfo.categories.map(tag => {
+                    
                     if(tag){
+                        getCategoryTagApi(tag).then(response => {
+                            setCategoryInfo(response.category[0]);
+                        });
                         return(
-                            <Link to = {`/categorias/${tag.toLowerCase()}`} key = {tag}>
+                            <Link to = {`/categorias/${categoryInfo.url}`} key = {tag}>
                                 <Tag color = "#0059ca">{tag}</Tag>
                             </Link>
                         );
@@ -74,6 +91,9 @@ export default function PostInfo(props) {
                 <WhatsappShareButton url = {`${socialUrl}${url}`} title = {`Mira el post ${postInfo.title} de Aparente`}><WhatsappIcon/></WhatsappShareButton>
             </div>
             <CommentBox id = {postInfo._id}/>
+            <BackTop>
+                <div style = {style}><ArrowUpOutlined style = {{fontSize: 28}}/></div>
+            </BackTop>
         </div>
         </>
     )

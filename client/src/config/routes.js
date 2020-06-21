@@ -12,7 +12,6 @@ import AdminCategories from "../pages/Admin/Categories";
 
 //User Pages
 import Home from "../pages/Home";
-import Courses from "../pages/Courses";
 import Blog from "../pages/Blog";
 import BlogCategories from "../components/Web/Blog/Categories";
 import Contact from "../pages/Contact";
@@ -71,11 +70,6 @@ const routes = [
             {
                 path: "/",
                 component: Home,
-                exact: true
-            },
-            {
-                path: "/courses",
-                component: Courses,
                 exact: true
             },
             {

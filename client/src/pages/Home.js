@@ -9,7 +9,7 @@ export default function Home(){
     return(
         <>
             <Helmet>
-                <title>Aparente</title>
+                <title>Aparente | Inicio</title>
                 <meta name = "description" content =  "Consultoría en imagen. Desarrollamos estrategias para que personas y marcas usen su imagen como una herramienta que los impulse hacia sus metas"/>
             </Helmet>
             <MainBanner />

@@ -163,6 +163,22 @@ function getCategory(req, res) {
     });
 }
 
+function getCategoryTag(req, res) {
+    const {tag} = req.params;
+
+    Category.find({ "tag" : tag}).exec((err, result) => {
+        if(err) {
+            res.status(500).send({message: "Error del servidor"});
+        } else {
+            if(!result) {
+                res.status(404).send({message: "No se encontró la categoría"});
+            } else {
+                res.status(200).send({category: result});
+            }
+        }
+    });
+}
+
 module.exports = {
     addCategory,
     getCategories,
@@ -171,5 +187,6 @@ module.exports = {
     deleteCategory,
     uploadCover,
     getCover,
-    getCategory
+    getCategory,
+    getCategoryTag
 }

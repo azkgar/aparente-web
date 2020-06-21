@@ -1,127 +1,146 @@
 @import "../../../scss/index.scss";
 
-.contact-banner-title{
-    text-align: center;
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: white;
-    border-top: 3px solid $azul-aparente;
-
-    h2{
-        font-family: $titles-font;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-}
-
-.contact-banner-whatsapp{
-    text-align: center;
+.contact-banner-home{
     background-color: white;
 
-    input{
-        border-radius: 15px;
-
-        @media (max-width: 450px){
-            width: 80%;
-            padding-bottom: 1px;
-        }
-    }
-
-    .whatsapp-btn{
-        text-align: left;
-        padding-left: 10px;
-
-        @media (max-width: 450px){
-            text-align: center;
-            padding-left: 0;
-        }
-    }
-
-    button{
-
-        @media (max-width: 450px){
-            margin-left: 40px;
-            margin-top: -10px;
-        }
-    }
-
-    .whatsapp{
-        font-size: 18px;
-        transform: translate(0.5px,1.5px);
-
-        @media (max-width: 450px){
-            font-size: 25px;
-        }
-    }
-
-    .ant-btn-primary {
-        background-color: $whatsapp;
-        border: none;
+    .contact-banner-title{
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 20px;
+        border-top: 3px solid $azul-aparente;
     
-        &:hover{
-            background-color: $whatsapp-hover;
+        h2{
+            font-family: $titles-font;
+            font-weight: bold;
+            text-transform: uppercase;
+    
+            @media (max-width: 950px){
+                font-size: 25px;
+            }
+
+            @media (max-width:750px){
+                padding-left: 2%;
+                padding-right: 2%;
+            }
+    
+            @media (max-width: 450px){
+                font-size: 15px;
+            }
+    
+            @media (max-width: 320px){
+                font-size: 12px;
+            }
         }
     }
-
-    .ant-btn{
-        @media(max-width: 450px) {
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+    
+    .contact-banner-whatsapp{
+        text-align: center;
+    
+        input{
+            border-radius: 15px;
+    
+            @media (max-width: 750px){
+                width: 80%;
+                padding-bottom: 1px;
+            }
         }
-    }
-
-    .ant-divider{
-        @media (max-width: 450px) {
-            margin-top: -1px;
+    
+        .whatsapp-btn{
+            text-align: left;
+            padding-left: 10px;
+    
+            @media (max-width: 750px){
+                text-align: center;
+                padding-left: 0;
+            }
         }
-    }
-}
-
-.contact-banner-medium{
-    text-align: center;
-    background-color: white;
-    padding-bottom: 2%;
-
-    h3{
-        font-family: $titles-font;
-        font-weight: bold;
-        margin-bottom: 3%;
+    
+        button{
+    
+            @media (max-width: 750px){
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: -10px;
+            }
+        }
+    
+        .whatsapp{
+            font-size: 18px;
+            transform: translate(0.5px,1.5px);
+    
+            @media (max-width: 750px){
+                font-size: 25px;
+            }
+        }
+    
+        .ant-btn-primary {
+            background-color: $whatsapp;
+            border: none;
         
-        span{
-            color: $azul-aparente;
+            &:hover{
+                background-color: $whatsapp-hover;
+            }
         }
-
-        .email{
-            margin-right: 2%;
-        }
-
-        .phone{
-            margin-right: 2%;
-        }
-    }
-
-    a{
-        font-family: $titles-font;
-    }
-
-    .top-column{
-        margin-bottom: 30px;
-    }
-}
-
-.contact-banner-button{
-    font-family: $titles-font;
-    text-align: center;
-    background-color: white;
-    padding-top: 15px;
-    padding-bottom: 50px;
     
-    .ant-btn{
-        width: 100%;
-
-        @media (max-width: 450px){
-            width: 80%;
+        .ant-btn{
+            @media(max-width: 750px) {
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+            }
+        }
+    
+        .ant-divider{
+            @media (max-width: 750px) {
+                margin-top: -1px;
+            }
+        }
+    }
+    
+    .contact-banner-medium{
+        text-align: center;
+        background-color: white;
+        padding-bottom: 2%;
+    
+        h3{
+            font-family: $titles-font;
+            font-weight: bold;
+            margin-bottom: 3%;
+            
+            span{
+                color: $azul-aparente;
+            }
+    
+            .email{
+                margin-right: 2%;
+            }
+    
+            .phone{
+                margin-right: 2%;
+            }
+        }
+    
+        a{
+            font-family: $titles-font;
+        }
+    
+        .top-column{
+            margin-bottom: 30px;
+        }
+    }
+    
+    .contact-banner-button{
+        font-family: $titles-font;
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 50px;
+        
+        .ant-btn{
+            width: 100%;
+    
+            @media (max-width: 750px){
+                width: 80%;
+            }
         }
     }
 }

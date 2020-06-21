@@ -14,15 +14,15 @@ export default function ContactBanner() {
     }
 
     return (
-        <>
-        <Row className = {"contact-banner-title"}>
+        <div className = "contact-banner-home">
+        <Row className = "contact-banner-title">
             <Col md = {4} sm = {0} xs = {0}/>
             <Col md ={16} sm = {24} xs = {24}>
-                <h2>Contáctanos<span>_</span></h2>
+                <h2>Cumplir tu objetivo está a un clic de distancia</h2>
             </Col>
             <Col md = {4} sm = {0} xs = {0}/>
         </Row>
-        <Row className = {"contact-banner-whatsapp"}>
+        <Row className = "contact-banner-whatsapp">
             <Col md = {4} sm = {0} xs = {0}/>
             <Col md ={16} sm = {24} xs = {24}>
                 <Form onSubmit = {handleChange}>
@@ -45,7 +45,7 @@ export default function ContactBanner() {
             </Col>
             <Col md = {4} sm = {0} xs = {0}/>
         </Row>
-        <Row className = {"contact-banner-medium"}>
+        <Row className = "contact-banner-medium">
             <Col md = {4} sm = {0} xs = {0}/>
             <Col md = {8} sm = {24} xs = {24} className = "top-column">
                 <h3><FontAwesomeIcon icon={['far', 'envelope']} className = "email"/>  email<span>_</span></h3>
@@ -57,13 +57,13 @@ export default function ContactBanner() {
             </Col>
             <Col md = {4} sm = {0} xs = {0}/>
         </Row>
-        <Row className = {"contact-banner-button"}>
+        <Row className = "contact-banner-button">
         <Col md = {8} sm = {0} xs = {0}/>
         <Col md ={8} sm = {24} xs = {24}> 
             <Button size = "large" href = "/contacto">Más medios_</Button>
         </Col>
         <Col md = {8} sm = {0} xs = {0}/>
         </Row>
-        </>
+        </div>
     )
 }
