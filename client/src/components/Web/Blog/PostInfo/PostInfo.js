@@ -42,7 +42,7 @@ export default function PostInfo(props) {
         <>
         <Helmet>
             <title>Blog_ | {postInfo.title}</title>
-            <meta name = "description" content =  {postInfo.title}/>
+            <meta name = "description" content =  {postInfo.description}/>
         </Helmet>
         <div className = "post-info">
             <h1 className = "post-info__title">{postInfo.title}</h1>

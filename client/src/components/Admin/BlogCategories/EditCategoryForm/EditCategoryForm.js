@@ -35,7 +35,7 @@ export default function EditCategoryForm(props) {
 
     const editCategory = event => {
         event.preventDefault();
-        if(!categoriesData.tag) {
+        if(!categoriesData.tag || !categoriesData.url) {
             notification["error"]({message: "Todos los campos son obligatorios"});
         } else { 
             const accessToken = getAccessTokenApi();
@@ -122,6 +122,14 @@ function EditForm(props) {
                     placeholder = "Categoría"
                     value = {categoriesData.tag}
                     onChange = {e => setCategoriesData({...categoriesData, tag: e.target.value})}
+                />
+            </Form.Item>
+            <Form.Item>
+                <Input 
+                    prefix = {<TagOutlined />}
+                    placeholder = "url"
+                    value = {categoriesData.url}
+                    onChange = {e => setCategoriesData({...categoriesData, url: e.target.value})}
                 />
             </Form.Item>
             <Form.Item>

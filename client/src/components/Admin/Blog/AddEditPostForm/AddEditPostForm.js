@@ -47,9 +47,9 @@ export default function AddEditPostForm(props) {
 
     const processPost = e => {
         e.preventDefault();
-        const {title, url, content, date, categories, username} = postData;
+        const {title, url, content, date, categories, username, description} = postData;
 
-        if(!title || !url || !content || !date || !username || !categories){
+        if(!title || !url || !content || !date || !username || !categories || !description){
             notification["error"]({
                 message: "Todos los campos son obligatorios"
             });
@@ -179,6 +179,17 @@ function AddEditForm(props) {
                             placeholder = "Pinterest cover url"
                             value = {postData.pinterest}
                             onChange = {e => setPostData({...postData, pinterest: e.target.value})}
+                            className = "pinterest-cover-image"
+                        />
+                     </Form.Item>
+                </Col>
+                <Col span = {8}>
+                    <Form.Item>
+                        <Input
+                            prefix = {<FontAwesomeIcon icon={['fab', 'google']} className = "pinterest"/>}
+                            placeholder = "Descripción para Google"
+                            value = {postData.description}
+                            onChange = {e => setPostData({...postData, description: e.target.value})}
                             className = "pinterest-cover-image"
                         />
                      </Form.Item>

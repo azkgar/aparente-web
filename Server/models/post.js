@@ -14,7 +14,8 @@ const PostSchema = Schema({
     categories: Array,
     username: String,
     cover: String,
-    pinterest: String
+    pinterest: String,
+    description: String
 });
 
 PostSchema.plugin(mongoosePaginate);

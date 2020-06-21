@@ -14,9 +14,10 @@ export default function AddCategoryForm(props) {
         event.preventDefault();
         let finalData = {
           tag: categoriesData.tag,
+          url: categoriesData.url
         };
     
-        if (!finalData.tag) {
+        if (!finalData.tag || !finalData.url) {
           notification["error"]({
             message: "Todos los campos son obligatorios."
           });
@@ -63,8 +64,16 @@ function AddForm(props) {
                 <Input 
                     prefix = {<TagOutlined />}
                     placeholder = "Categoría"
-                    value = {categoriesData.title}
+                    value = {categoriesData.tag}
                     onChange = {e => setCategoriesData({...categoriesData, tag: e.target.value})}
+                />
+            </Form.Item>
+            <Form.Item>
+                <Input 
+                    prefix = {<TagOutlined />}
+                    placeholder = "url"
+                    value = {categoriesData.url}
+                    onChange = {e => setCategoriesData({...categoriesData, url: e.target.value})}
                 />
             </Form.Item>
             <Form.Item>

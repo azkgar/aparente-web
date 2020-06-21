@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {getCategoriesApi, getCategoryApi} from "../../../../../api/category";
+import { getCategoryApi} from "../../../../../api/category";
 import {getRelatedPostsApi} from "../../../../../api/post";
-import {Card, Divider, List, Spin} from "antd";
+import {Card, Divider, Spin} from "antd";
 import {Link} from "react-router-dom";
 import moment from "moment";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {Helmet} from "react-helmet";
 
 import "./CategoryPage.scss";
@@ -12,28 +11,24 @@ import "./CategoryPage.scss";
 export default function CategoryPage(props) {
     const {tag} = props;
     const [object, setObject] = useState("");
-    const [categoryNotExist, setCategoryNotExist] = useState(true);
-    const [categoriesList, setCategoriesList] = useState({});
     const [postsRelated, setPostsRelated] = useState({});
-    const [completeList, setCompleteList] = useState(false);
 
     useEffect(() => {
-        getRelatedPostsApi(tag).then(response => {
-            setPostsRelated(response.posts.reverse());
-        });
-    }, []);
+        if(object){
+            getRelatedPostsApi(object.tag).then(response => {
+                setPostsRelated(response.posts.reverse());
+            });
+        } else {
+            setPostsRelated({});
+        }
+        
+    }, [object]);
 
     useEffect(() => {
         getCategoryApi(tag).then(response => {
             setObject(response.category[0]);            
         })
     }, []);
-
-    useEffect(() => {
-        if (postsRelated.length) {
-            setCategoryNotExist(false);
-        }
-    }, [postsRelated]);
     
    if(!postsRelated.length){
     return (
@@ -48,7 +43,7 @@ export default function CategoryPage(props) {
                 <img alt = {object.tag} src = {object.avatar ? require(`../../../../../../../server/uploads/categories/${object.avatar}`) : require("../../../../../assets/img/png/Missing.png") } />
             </div> 
             <Divider orientation = "left">Publicaciones: </Divider>
-            <MatchList postsRelated = {postsRelated} categoriesList = {categoriesList} object = {object} completeList = {completeList} /> 
+            <MatchList postsRelated = {postsRelated} object = {object} /> 
         </div>
     )
 }

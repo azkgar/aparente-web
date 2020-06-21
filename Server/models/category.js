@@ -9,7 +9,11 @@ const CategorySchema = Schema ({
     },
     active: Boolean,
     avatar: String,
-    order: Number
+    order: Number,
+    url: {
+      type: String,
+      unique: true  
+    }
 });
 
 module.exports = mongoose.model("Category", CategorySchema);
