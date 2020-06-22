@@ -151,7 +151,9 @@
 
     .ant-anchor{
         background-color: $negro-aparente;
-
+        @media (max-width: 950px) {
+            margin-bottom: 10%;
+        }
     }
 
     .ant-anchor-ink::before{
