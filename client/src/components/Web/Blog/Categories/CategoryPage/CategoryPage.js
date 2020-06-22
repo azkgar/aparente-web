@@ -5,10 +5,17 @@ import {Card, Divider, Spin} from "antd";
 import {Link} from "react-router-dom";
 import moment from "moment";
 import {Helmet} from "react-helmet";
+import ReactGa from "react-ga";
 
 import "./CategoryPage.scss";
 
 export default function CategoryPage(props) {
+    useEffect(() => {
+        ReactGa.initialize("UA-170320020-1");
+    
+        ReactGa.pageview(window.location.pathname + window.location.search);
+      }, []);
+      
     const {tag} = props;
     const [object, setObject] = useState("");
     const [postsRelated, setPostsRelated] = useState({});

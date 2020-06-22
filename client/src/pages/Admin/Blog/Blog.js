@@ -8,11 +8,19 @@ import Pagination from "../../../components/Pagination";
 import AddEditPostForm from "../../../components/Admin/Blog/AddEditPostForm"
 import {getPostsApi} from "../../../api/post";
 import {Helmet} from "react-helmet";
+import ReactGa from "react-ga";
 
 
 import "./Blog.scss";
 
  function Blog(props) {
+
+    useEffect(() => {
+        ReactGa.initialize("UA-170320020-1");
+    
+        ReactGa.pageview(window.location.pathname + window.location.search);
+      }, []);
+      
     const {location, history} = props;
 
     const [modalTitle, setModalTitle] = useState("");

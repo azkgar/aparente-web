@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Layout, Tabs} from "antd";
 import {Redirect} from "react-router-dom";
 import Logo from "../../../assets/img/png/APARENTE_logo_blanco_sinfondo.png";
@@ -6,10 +6,17 @@ import RegisterForm from "../../../components/Admin/RegisterForm";
 import LoginForm from "../../../components/Admin/LoginForm";
 import {getAccessTokenApi} from "../../../api/auth";
 import {Helmet} from "react-helmet";
+import ReactGa from "react-ga";
 
 import "./SignIn.scss";
 
 export default function SignIn(){
+    useEffect(() => {
+        ReactGa.initialize("UA-170320020-1");
+    
+        ReactGa.pageview(window.location.pathname + window.location.search);
+      }, []);
+
     const {Content} = Layout;
     const {TabPane} = Tabs;
 
