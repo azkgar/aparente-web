@@ -7,6 +7,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import './App.scss';
 
 function App() {
+
   return (
     <AuthProvider>
       <Router>

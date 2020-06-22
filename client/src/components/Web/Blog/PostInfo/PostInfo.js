@@ -10,10 +10,17 @@ import "moment/locale/es";
 import {EmailShareButton, EmailIcon, FacebookShareButton, FacebookIcon, PinterestShareButton, PinterestIcon, TwitterShareButton, TwitterIcon, WhatsappShareButton, WhatsappIcon} from "react-share";
 import CommentBox from "../CommentBox";
 import {Link} from "react-router-dom";
+import ReactGa from "react-ga";
 
 import "./PostInfo.scss";
 
 export default function PostInfo(props) {
+    useEffect(() => {
+        ReactGa.initialize("UA-170320020-1");
+    
+        ReactGa.pageview(window.location.pathname + window.location.search);
+      }, []);
+      
     const {url} = props;
     const [postInfo, setPostInfo] = useState(null);
     const [categoryInfo, setCategoryInfo] = useState({});

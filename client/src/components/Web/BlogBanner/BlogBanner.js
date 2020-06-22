@@ -67,7 +67,7 @@ if(!posts || !categories){
                 {categories.map(category => (
                     <Col lg = {4} md = {6} sm = {12} xs = {12} key = {category._id}>
                         <Link to = {`/categorias/${category.url.toLowerCase()}`} >
-                            <img className = "category-cover" alt = {`Portada de temas del blog relacionados con ${category.tag}`} src = {category.avatar ? require(`../../../../../server/uploads/categories/${category.avatar}`) : Missing}/>
+                            <img className = "category-cover" alt = {`Portada de temas del blog relacionados con ${category.tag}`} src = {category.avatar ? `../../../../../server/uploads/categories/${category.avatar}` : Missing}/>
                         </Link>
                     </Col>
                    

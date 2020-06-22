@@ -39,7 +39,6 @@ export default function CategoryPage(props) {
     return (
         <div className = "main-container">
             <div className = "category-header">
-                <h2>{object.tag}</h2>
                 <img alt = {object.tag} src = {object.avatar ? require(`../../../../../../../server/uploads/categories/${object.avatar}`) : require("../../../../../assets/img/png/Missing.png") } />
             </div> 
             <Divider orientation = "left">Publicaciones: </Divider>

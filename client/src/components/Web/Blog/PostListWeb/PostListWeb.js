@@ -7,11 +7,18 @@ import {Helmet} from "react-helmet";
 import Pagination from "../../../Pagination";
 import {getPostsApi} from "../../../../api/post";
 import "moment/locale/es";
+import ReactGa from "react-ga";
 
 
 import "./PostListWeb.scss";
 
 export default function PostListWeb(props) {
+    useEffect(() => {
+        ReactGa.initialize("UA-170320020-1");
+    
+        ReactGa.pageview(window.location.pathname + window.location.search);
+      }, []);
+      
     const {location, history} =props;
     const [posts, setPosts] = useState(null);
     const {page = 1} = queryString.parse(location.search);
