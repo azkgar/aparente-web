@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Col} from "antd";
-import {getCategoriesApi} from "../../../../api/category";
+import {getCategoriesApi, getCoverApi} from "../../../../api/category";
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {Button} from "antd";
@@ -10,6 +10,7 @@ import "./Sider.scss";
 export default function Sider() {
 
 const [categories, setCategories] = useState([]);
+const [avatar, setAvatar] = useState("");
 
 useEffect( () => {
     getCategoriesApi().then(response => {
@@ -40,9 +41,17 @@ useEffect( () => {
         return(
             <div className = "categories-container">
                 {categories.map( item  => {
+                    console.log(item);
+                    getCoverApi(item.cover).then(response => {
+                    if(item.cover){
+                        setAvatar(response);
+                    } else {
+                        setAvatar(null);
+                    }
+                });
                     return(
                         <Link to = {`/categorias/${item.url.toLowerCase()}`} key = {item.category}>
-                        <img alt = {item.category} src = {item.cover === undefined ? require("../../../../assets/img/png/Missing.png") : require(`../../../../../../server/uploads/categories/${item.cover}`)} />
+                        <img alt = {item.category} src = {avatar ? avatar : require("../../../../assets/img/png/Missing.png") } />
                         </Link>
                     );
                 })}

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { getCategoryApi} from "../../../../../api/category";
+import { getCategoryApi, getCoverApi} from "../../../../../api/category";
 import {getRelatedPostsApi} from "../../../../../api/post";
 import {Card, Divider, Spin} from "antd";
 import {Link} from "react-router-dom";
@@ -19,6 +19,7 @@ export default function CategoryPage(props) {
     const {tag} = props;
     const [object, setObject] = useState("");
     const [postsRelated, setPostsRelated] = useState({});
+    const [avatar, setAvatar] = useState("");
 
     useEffect(() => {
         if(object){
@@ -36,6 +37,17 @@ export default function CategoryPage(props) {
             setObject(response.category[0]);  
         })
     }, []);
+
+    useEffect(() => {
+        getCoverApi(object.avatar).then(response => {
+            if(object.avatar) {
+                setAvatar(response);
+            } else {
+                setAvatar(null);
+            }
+        });
+    }, [object])
+
     
    if(!postsRelated.length){
     return (
@@ -46,7 +58,7 @@ export default function CategoryPage(props) {
     return (
         <div className = "main-container">
             <div className = "category-header">
-                <img alt = {object.tag} src = {object.avatar ? require(`../../../../../../../server/uploads/categories/${object.avatar}`) : require("../../../../../assets/img/png/Missing.png") } />
+                <img alt = {object.tag} src = {avatar ? avatar : require("../../../../../assets/img/png/Missing.png") } />
             </div> 
             <Divider orientation = "left">Publicaciones: </Divider>
             <MatchList postsRelated = {postsRelated} object = {object} /> 

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Row, Col, Button, Spin, Divider} from "antd";
 import { getAllPostsApi} from "../../../api/post";
-import {getCategoriesApi} from "../../../api/category";
+import {getCategoriesApi, getCoverApi} from "../../../api/category";
 import {Link} from "react-router-dom";
 import Missing from "../../../assets/img/png/Missing.png";
 
@@ -10,6 +10,7 @@ import "./BlogBanner.scss";
 export default function BlogBanner() {
 const [posts, setPosts] = useState();
 const [categories, setCategories] = useState();
+const [avatar, setAvatar] = useState("");
 
 useEffect(() => {
     getAllPostsApi().then(response => {
@@ -64,14 +65,22 @@ if(!posts || !categories){
 
         return(
             <Row className = "categories-row" justify = "center">
-                {categories.map(category => (
+                {categories.map(category => {
+                    getCoverApi(category.avatar).then(response => {
+                        if(category.avatar) {
+                            setAvatar(response);
+                        } else {
+                            setAvatar(null);
+                        }
+                    });
+                    return(
                     <Col lg = {4} md = {6} sm = {12} xs = {12} key = {category._id}>
                         <Link to = {`/categorias/${category.url.toLowerCase()}`} >
-                            <img className = "category-cover" alt = {`Portada de temas del blog relacionados con ${category.tag}`} src = {category.avatar ? require(`../../../../../server/uploads/categories/${category.avatar}`) : Missing}/>
+                            <img className = "category-cover" alt = {`Portada de temas del blog relacionados con ${category.tag}`} src = {avatar ? avatar : Missing}/>
                         </Link>
                     </Col>
-                   
-                ))}
+                    );
+                })}
             </Row>
         );
     }

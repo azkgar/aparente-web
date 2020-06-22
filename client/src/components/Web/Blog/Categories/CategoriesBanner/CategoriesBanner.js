@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import {getCategoriesApi} from "../../../../../api/category";
+import {getCategoriesApi, getCoverApi} from "../../../../../api/category";
 import {Link} from "react-router-dom";
 import {Spin} from "antd";
 import {Helmet} from "react-helmet";
-
 
 import "./CategoriesBanner.scss";
 
 export default function CategoriesBanner() {
     const [categories, setCategories] = useState([]);
+    const [avatar, setAvatar] = useState("");
 
     useEffect( () => {
         getCategoriesApi().then(response => {
@@ -39,7 +39,7 @@ export default function CategoriesBanner() {
             }      
             return ret.join( '' ).replace( /[^-A-Za-z0-9]+/g, '-' ).toLowerCase();;
         }
-      })();
+      });
 
     if(!categories){
         return (
@@ -56,14 +56,22 @@ export default function CategoriesBanner() {
         </Helmet>
         <div className = "categories-list">
             <h2>¿Buscas un tema específico?</h2>
-            {categories.map(category => (
+            {categories.map(category => {
+                getCoverApi(category.avatar).then(response => {
+                    if(category.avatar){
+                        setAvatar(response);
+                    } else {
+                        setAvatar(null);
+                    }
+                });
+                return(
                 <Link to ={`/categorias/${category.url}`} key = {category._id}>
                 <div className = "categories-list__item">
-                    <img alt = {category.tag} src = {category.avatar ? require(`../../../../../../../server/uploads/categories/${category.avatar}`) : require("../../../../../assets/img/png/Missing.png") }/>
-                    <h4>{category.tag}</h4>
+                    <img alt = {category.tag} src = {avatar ? avatar : require("../../../../../assets/img/png/Missing.png") }/>
                 </div>
                 </Link>
-            ))}
+                );
+            })}
         </div>
         </>
     )
