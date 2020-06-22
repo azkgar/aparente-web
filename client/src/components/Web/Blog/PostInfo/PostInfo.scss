@@ -141,7 +141,24 @@
     }
 
     .hyvor-talk{
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
+
+        @media (max-width: 950px){
+            width: 90%;
+        }
+    }
+
+    .ant-anchor{
+        background-color: $negro-aparente;
+
+    }
+
+    .ant-anchor-ink::before{
+        background-color: $negro-aparente;
+    }
+
+    .ant-anchor-wrapper{
+        background-color: $negro-aparente;
     }
 }

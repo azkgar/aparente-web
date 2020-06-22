@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Spin, Tag, notification, BackTop} from "antd";
-import {ArrowUpOutlined} from "@ant-design/icons";
+import {Spin, Tag, notification, BackTop, Anchor, Button} from "antd";
+import {ArrowUpOutlined, BookOutlined} from "@ant-design/icons";
 import moment from "moment";
 import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";
@@ -65,6 +65,9 @@ export default function PostInfo(props) {
             <meta name = "description" content =  {postInfo.description}/>
         </Helmet>
         <div className = "post-info">
+            <Anchor>
+                <Button href = "/blog" >Más posts</Button>
+            </Anchor>
             <h1 className = "post-info__title">{postInfo.title}</h1>
             <div className = "post-info__creation-date">
                 {moment(postInfo.date).local("es").format("LL")}
