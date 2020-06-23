@@ -4,6 +4,7 @@ import {getCategoriesApi} from "../../../../api/category";
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {Button} from "antd";
+import AdSense from "react-adsense";
 
 import "./Sider.scss";
 
@@ -27,6 +28,13 @@ useEffect( () => {
 
             <h2>Únete<span>_</span></h2>
             <SocialButtons />
+            <AdSense.Google
+             client = "ca-pub-6570985691505683"
+             slot = "7806394673"
+             style = {{display:"block"}}
+             layout = "in-article"
+             format = "fluid"
+             />
             <Link to = "/categorias">
             <h2>Categorías<span>_</span></h2>
             </Link>

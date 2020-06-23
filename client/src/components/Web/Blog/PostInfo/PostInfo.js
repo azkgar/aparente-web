@@ -24,7 +24,7 @@ export default function PostInfo(props) {
     const {url} = props;
     const [postInfo, setPostInfo] = useState(null);
     const [urlExists, setUrlExists] = useState(null);
-    const socialUrl = "aparente.mx/blog/";
+    const socialUrl = "https://aparente.mx/blog/";
     const style = {
         height: 50,
         width: 50,
