@@ -81,6 +81,13 @@
         font-size: 18px;
         margin-bottom: 5%;
 
+        h2,h3,h4,h5,h6{
+            font-family: $body-font;
+            font-weight: bold;
+            text-transform: capitalize;
+            color: rgb(215,215,215);
+        }
+
         blockquote{
             font-family: $body-font;
             font-style: italic;
@@ -96,7 +103,7 @@
             width: 100%;
             padding-left: 5%;
             padding-right: 5%;
-            font-size: 14px;
+            font-size: 18px;
 
             p{
                 display: inline-block;
@@ -151,6 +158,9 @@
 
     .ant-anchor{
         background-color: $negro-aparente;
+        margin-bottom: 5%;
+        height: 0;
+
         @media (max-width: 950px) {
             margin-bottom: 10%;
         }

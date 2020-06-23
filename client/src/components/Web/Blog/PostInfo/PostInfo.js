@@ -23,7 +23,6 @@ export default function PostInfo(props) {
       
     const {url} = props;
     const [postInfo, setPostInfo] = useState(null);
-    const [categoryInfo, setCategoryInfo] = useState({});
     const [urlExists, setUrlExists] = useState(null);
     const socialUrl = "aparente.mx/blog/";
     const style = {
@@ -36,6 +35,8 @@ export default function PostInfo(props) {
         textAlign: "center",
         fontSize: 14
     };
+    const [categories, setCategories] = useState([]);
+    const [complete, setComplete] = useState(false);
 
     useEffect(() => {
         getPostApi(url).then(response => {
@@ -52,9 +53,32 @@ export default function PostInfo(props) {
         });
     }, [url]);
 
+    useEffect(() => {
+        const categoriesArray = [];
+        if(postInfo){
+            if(postInfo.categories.length === 0) {
+                setCategories(null);
+            } else {
+                postInfo.categories.map(tag => {
+                    getCategoryTagApi(tag).then(response => {
+                        categoriesArray.push({id: response.category[0]._id,
+                        tag: response.category[0].tag,
+                        url: response.category[0].url
+                    });
+                        setCategories(categoriesArray); 
+                        if(categoriesArray.length === postInfo.categories.length) {
+                            setComplete(true);
+                        }
+                    });
+                });
+            } 
+        }
+        
+    }, [postInfo])
+    
     if(urlExists === false){
         return <Redirect to  = "/not-found" />
-    } else if (!postInfo){
+    } else if (!postInfo || !categories){
         return <Spin tip = "Cargando" style = {{width: "100%", padding: "200px 0"}} />
     }
 
@@ -73,19 +97,13 @@ export default function PostInfo(props) {
                 {moment(postInfo.date).local("es").format("LL")}
             </div>
             <div className = "post-info__tags">
-                {postInfo.categories.map(tag => {
-                    
-                    if(tag){
-                        getCategoryTagApi(tag).then(response => {
-                            setCategoryInfo(response.category[0]);
-                        });
+                {categories.map(category => {
+                    if(complete){
                         return(
-                            <Link to = {`/categorias/${categoryInfo.url}`} key = {tag}>
-                                <Tag color = "#0059ca">{tag}</Tag>
-                            </Link>
+                        <Link to = {`/categorias/${category.url}`} key = {category.tag}>
+                            <Tag color = "#0059ca">{category.tag}</Tag>
+                        </Link>
                         );
-                    } else {
-                        return null;
                     }
                 })}
             </div>
@@ -106,5 +124,5 @@ export default function PostInfo(props) {
             </BackTop>
         </div>
         </>
-    )
+    );
 }
