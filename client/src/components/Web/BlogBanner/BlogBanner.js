@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Row, Col, Button, Spin, Divider} from "antd";
 import { getAllPostsApi} from "../../../api/post";
-import {getCategoriesApi, getCoverApi} from "../../../api/category";
+import {getCategoriesApi} from "../../../api/category";
 import {Link} from "react-router-dom";
 import Missing from "../../../assets/img/png/Missing.png";
 
@@ -10,7 +10,6 @@ import "./BlogBanner.scss";
 export default function BlogBanner() {
 const [posts, setPosts] = useState();
 const [categories, setCategories] = useState();
-const [avatar, setAvatar] = useState("");
 
 useEffect(() => {
     getAllPostsApi().then(response => {
@@ -23,7 +22,7 @@ useEffect(() => {
         });
         setCategories(categoryArray);
     })
-}, []); 
+}, []);
 
 if(!posts || !categories){
     return (
@@ -49,8 +48,8 @@ if(!posts || !categories){
                 <Col md = {16} sm = {24} xs = {24}>
                 <Link to = {`/blog/${posts.url}`} className = "post-item-container" >
                     <img className = "post-cover" alt = {`Imagen relacionada con el post títulado ${posts.title}`} src = {posts.cover ? posts.cover : Missing} />
-                    <div class="glow-wrap">
-                        <i class="glow"></i>
+                    <div className="glow-wrap">
+                        <i className="glow"></i>
                     </div>
                 </Link>
                 <Button className = "blog-home-banner__button" size = "large" href = "/blog">Más publicaciones_</Button>
@@ -66,17 +65,10 @@ if(!posts || !categories){
         return(
             <Row className = "categories-row" justify = "center">
                 {categories.map(category => {
-                    getCoverApi(category.avatar).then(response => {
-                        if(category.avatar) {
-                            setAvatar(response);
-                        } else {
-                            setAvatar(null);
-                        }
-                    });
                     return(
                     <Col lg = {4} md = {6} sm = {12} xs = {12} key = {category._id}>
                         <Link to = {`/categorias/${category.url.toLowerCase()}`} >
-                            <img className = "category-cover" alt = {`Portada de temas del blog relacionados con ${category.tag}`} src = {avatar ? avatar : Missing}/>
+                            <img className = "category-cover" alt = {`Portada de temas del blog relacionados con ${category.tag}`} src = {category.avatar ? `https://aparente-server.herokuapp.com/api/v1/get-category-cover/${category.avatar}` : Missing}/>
                         </Link>
                     </Col>
                     );
