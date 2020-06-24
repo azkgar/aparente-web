@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Spin, Tag, notification, BackTop, Anchor, Button} from "antd";
-import {ArrowUpOutlined, BookOutlined} from "@ant-design/icons";
+import {ArrowUpOutlined} from "@ant-design/icons";
 import moment from "moment";
 import {Redirect} from "react-router-dom";
 import {Helmet} from "react-helmet";

@@ -1,0 +1,53 @@
+@import "../../../../scss/index.scss";
+
+.error-body{
+    text-align: center;
+    background-color: rgb(245,245,245,);
+    padding-top: 20px;
+    padding-bottom: 50px;
+
+    &__text{
+        padding-bottom: 20px;
+        @media (max-width: 1024px) {
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+    &__ask{
+        padding-bottom: 50px;
+        @media (max-width: 1024px) {
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+    &__cta{
+        @media (max-width: 450px) {
+            img{
+                width: 100%;
+            }
+        }
+        @media (max-width: 950px){
+            img{
+                width: 100%;
+            }
+        }
+        .cta{
+            text-align: right;
+            padding-right: 20px;
+        }
+        
+        .logo{
+            text-align: left;
+        }
+    }
+    
+}
+.ant-row{
+    @media (max-width: 950px){
+    display: inline-flex;
+    }
+}

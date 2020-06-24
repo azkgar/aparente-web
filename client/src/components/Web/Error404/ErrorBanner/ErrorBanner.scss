@@ -1,0 +1,47 @@
+@import "../../../../scss/index.scss";
+
+.error-main-banner{
+    text-align: center;
+    background-color: rgb(245,245,245);
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @media (max-width: 1024px) {
+        img{
+            width: 100%;
+        }
+
+        .doodle{
+            width: 125px;
+        }
+    }
+
+    @media (max-width: 950px){
+        .doodle{
+            width: 100px;
+        }
+    }
+
+    @media (max-width: 650px){
+        .doodle{
+            width: 70px;
+        }
+    }
+
+    @media (max-width: 450px) {
+        img{
+            width: 150px;
+        }
+        .doodle{
+            width: 50px;
+        }
+    }
+    @media (max-width: 450px) {
+        img{
+            width: 110px;
+        }
+        .doodle{
+            width: 40px;
+        }
+    }
+}

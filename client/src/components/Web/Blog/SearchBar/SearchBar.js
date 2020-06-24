@@ -166,10 +166,10 @@ function FoundList(props) {
 
             Pero ¡Qué buen tema! Puedes mandarme un mensaje con tu duda o pregunta a:</p>
             <ul>
-                <li><FontAwesomeIcon icon={['fab', 'instagram']} className = "instagram"/>    <a href = "https://www.instagram.com/aparentemx/" target = "_blank">Instagram</a></li>
-                <li><FontAwesomeIcon icon={['fab', 'facebook-messenger']} className = "facebook"/>    <a href = "http://m.me/AparenteMX" target = "_blank">Facebook</a></li>
-                <li><FontAwesomeIcon icon={['fab', 'whatsapp']} className = "whatsapp"/>    <a href = {`https://api.whatsapp.com/send?phone=525612982728&text=¡Azkary!%20Tengo%20una%20duda%20buenísima%20relacionada%20con%20${word}%20que%20no%20encontré%20en%20el%20blog.%20😱`} target = "_blank">WhatsApp</a></li>
-                <li><FontAwesomeIcon icon={['far', 'envelope']} className = "email"/>    <a href = {`mailto:agarcia@aparente.mx?subject=Excelente%20tema%20para%20el%20blog.&body=¡Azkary!%20Tengo%20una%20duda%20buenísima%20relacionada%20con%20${word}%20que%20no%20encontré%20en%20el%20blog.%20😱`} target ="_top">email</a></li>
+                <li><FontAwesomeIcon icon={['fab', 'instagram']} className = "instagram"/>    <a href = "https://www.instagram.com/aparentemx/" target = "_blank" rel = "noopener noreferrer">Instagram</a></li>
+                <li><FontAwesomeIcon icon={['fab', 'facebook-messenger']} className = "facebook"/>    <a href = "http://m.me/AparenteMX" target = "_blank" rel = "noopener noreferrer">Facebook</a></li>
+                <li><FontAwesomeIcon icon={['fab', 'whatsapp']} className = "whatsapp"/>    <a href = {`https://api.whatsapp.com/send?phone=525612982728&text=¡Azkary!%20Tengo%20una%20duda%20buenísima%20relacionada%20con%20${word}%20que%20no%20encontré%20en%20el%20blog.%20😱`} target = "_blank" rel = "noopener noreferrer">WhatsApp</a></li>
+                <li><FontAwesomeIcon icon={['far', 'envelope']} className = "email"/>    <a href = {`mailto:agarcia@aparente.mx?subject=Excelente%20tema%20para%20el%20blog.&body=¡Azkary!%20Tengo%20una%20duda%20buenísima%20relacionada%20con%20${word}%20que%20no%20encontré%20en%20el%20blog.%20😱`} target ="_top" rel = "noopener noreferrer">email</a></li>
             </ul>
             <p>O puedes seguir mejorando tu imagen leyendo los posts disponibles en el blog <span role = "img" aria-label = "Guiño">😉</span></p>
             </div> </> : null
