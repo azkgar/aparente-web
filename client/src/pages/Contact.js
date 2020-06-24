@@ -16,6 +16,7 @@ export default function Contact() {
         <Helmet>
             <title>Aparente | Contacto</title>
             <meta name = "description" content = "Página donde puedes encontrar teléfonos, correo electrónico, ligas a redes sociales y mandar WhatsApp para contactarme."/>
+            <link rel = "canonical" href = "https://aparente.mx/contacto"/>
         </Helmet>
         <MainBanner />
         <WhatsApp />

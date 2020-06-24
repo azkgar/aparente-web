@@ -51,7 +51,8 @@ export default function CategoriesBanner() {
         <>
         <Helmet>
             <title>Aparente | Categorías</title>
-            <meta name = "description" content = "Pagina principal de las categorías principales de las publicaciones del Blog con estilo de Aparente"/>
+            <meta name = "description" content = "Pagina principal donde se encuentran todas las categorías del Blog con estilo de Aparente"/>
+            <link rel = "canonical" href = "https://aparente.mx/categorias"/>
         </Helmet>
         <div className = "categories-list">
             <h2>¿Buscas un tema específico?</h2>

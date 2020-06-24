@@ -76,6 +76,7 @@ function MatchList(props) {
             <Helmet>
             <title>Aparente | {`${object.tag}`}</title>
             <meta name = "description" content = {`Página principal de todas las publicaciones del Blog con estilo de Aparente relacionadas con el tema ${object.tag}`}/>
+            <link rel = "canonical" href = {`https://aparente.mx/categorias/${object.url}`}/>
             </Helmet>
             <div className = "container-posts">
              {postsRelated.map(post => {

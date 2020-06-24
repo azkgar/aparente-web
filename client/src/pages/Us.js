@@ -19,6 +19,7 @@ export default function Us() {
         <Helmet>
             <title>Aparente | Nosotros</title>
             <meta name = "description" content = "Página donde puedes encontrar qué es aparente, los servicios que ofrece y la metodología que utiliza en sus servicios"/>
+            <link rel = "canonical" href = "https://aparente.mx/nosotros"/>
         </Helmet>
         <MainBanner />
         <Welcome />

@@ -87,6 +87,7 @@ export default function PostInfo(props) {
         <Helmet>
             <title>Blog_ | {postInfo.title}</title>
             <meta name = "description" content =  {postInfo.description}/>
+            <link rel = "canonical" href = {`https://aparente.mx/blog/${postInfo.url}`}/>
         </Helmet>
         <div className = "post-info">
             <Anchor>

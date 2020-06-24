@@ -18,6 +18,7 @@ export default function Home(){
             <Helmet>
                 <title>Aparente | Inicio</title>
                 <meta name = "description" content =  "Consultoría en imagen. Desarrollamos estrategias para que personas y marcas usen su imagen como una herramienta que los impulse hacia sus metas"/>
+                <link rel = "canonical" href = "https://aparente.mx/"/>
             </Helmet>
             <MainBanner />
             <UsBanner />
