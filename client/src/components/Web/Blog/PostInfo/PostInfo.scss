@@ -16,7 +16,6 @@
 
     img{
 
-
         @media (max-width: 450px){
             width: 95%;
             height: auto;
@@ -99,6 +98,13 @@
             }
         }
 
+        a{
+            font-family: $body-font;
+            font-weight: bold;
+            color: white;
+            text-decoration: underline;
+        }
+
         @media (max-width: 450px){
             width: 100%;
             padding-left: 5%;
@@ -157,20 +163,24 @@
     }
 
     .ant-anchor{
-        background-color: $negro-aparente;
+        background-color: rgba(25,25,25,0);;
         margin-bottom: 5%;
         height: 0;
 
         @media (max-width: 950px) {
             margin-bottom: 10%;
         }
+
+        @media (max-width: 450px) {
+            margin-bottom: 20%;
+        }
     }
 
     .ant-anchor-ink::before{
-        background-color: $negro-aparente;
+        background-color: rgba(25,25,25,0);;
     }
 
     .ant-anchor-wrapper{
-        background-color: $negro-aparente;
+        background-color: rgba(25,25,25,0);
     }
 }

@@ -34,15 +34,15 @@ if(!posts || !categories){
         <div className = "blog-home-banner">
             
             <Row>
-                <Col md = {4} sm = {0} />
-                <Col md = {16} sm = {24}>
+                <Col md = {4} sm = {0} xs = {0}/>
+                <Col md = {16} sm = {24} xs = {24}>
                     <h2 className = "blog-home-banner__title">Empieza ahora mismo</h2>
                     <p className = "blog-home-banner__description">Encuentra recomendaciones para mejorar tu imagen <strong>gratis</strong><span>_</span></p>
                 </Col>
-                <Col md = {4} sm = {0} />
+                <Col md = {4} sm = {0} xs = {0}/>
             </Row>
             <Categories categories = {categories} />
-            <Divider plain className = "divider">Última publicación</Divider>
+            <Divider plain className = "divider">Publicación reciente</Divider>
             <Row>
                 <Col md = {4} sm = {0} xs = {0}/>
                 <Col md = {16} sm = {24} xs = {24}>
