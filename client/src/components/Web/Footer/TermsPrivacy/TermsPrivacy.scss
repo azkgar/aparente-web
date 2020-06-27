@@ -1,0 +1,19 @@
+@import "../../../../scss/index.scss";
+
+.terms-privacy{
+    background-color: $azul-aparente;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    @media (max-width: 450px){
+        .ant-row{
+            display: flex;
+        }
+    }
+    
+    a{
+        color: $blanco-aparente;
+        text-decoration: underline;
+    }
+}

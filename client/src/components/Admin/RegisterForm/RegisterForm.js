@@ -149,7 +149,7 @@ export default function RegisterForm() {
             </Form.Item>
             <Form.Item>
                 <Checkbox name="privacyPolicy" checked={inputs.privacyPolicy} onChange={inputValidation}>
-                    He leído y acepto la política de privacidad.
+                    He leído y acepto el <a href = "/aviso-de-privacidad">aviso de privacidad</a>.
                 </Checkbox>
             </Form.Item>
             <Form.Item>

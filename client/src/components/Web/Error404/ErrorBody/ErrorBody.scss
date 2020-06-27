@@ -44,10 +44,10 @@
             text-align: left;
         }
     }
-    
-}
-.ant-row{
-    @media (max-width: 950px){
-    display: inline-flex;
+    .ant-row{
+        @media (max-width: 950px){
+        display: inline-flex;
+        }
     }
+    
 }

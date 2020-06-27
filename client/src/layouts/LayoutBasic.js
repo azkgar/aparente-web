@@ -2,6 +2,7 @@ import React from "react";
 import {Route, Switch} from "react-router-dom"
 import MenuBoot from "../components/Web/MenuBoot";
 import Footer from "../components/Web/Footer";
+import TermsPrivacy from "../components/Web/Footer/TermsPrivacy";
 
 import "./LayoutBasic.scss";
 
@@ -13,6 +14,7 @@ export default function LayoutBasic(props){
             <MenuBoot />
             <LoadRoutes routes={routes}/>
             <Footer />
+            <TermsPrivacy />
         </>
     )
 }

@@ -30,10 +30,10 @@ export default function Footer() {
                 <Col lg = {4} md = {4} sm = {0} xs ={0}/>
             </Row>
             <Row className = "footer__copyright">
-                <Col md = {12} sm ={24} xs = {24}>
+                <Col  lg = {12} md = {24} sm ={24} xs = {24}>
                     Creado con estilo por Aparente®
                 </Col>
-                <Col md = {12} sm ={24} xs = {24}>
+                <Col  lg = {12} md = {24} sm ={24} xs = {24}>
                     Todos los derechos reservados {moment().year()}
                 </Col>
             </Row>

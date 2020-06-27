@@ -1,0 +1,51 @@
+@import "../../../scss/index.scss";
+
+.terms-conditions{
+    font-family: $body-font;
+    font-size: 20px;
+    background-color: white;
+    color: $negro-aparente;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+
+    h1{
+        font-family: $titles-font;
+        letter-spacing: 5px;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 80px;
+        padding-bottom: 20px;
+        text-transform: uppercase;
+        
+        span{
+            color: $azul-aparente;
+        }
+
+        @media (max-width: 350px){
+            font-size: 28px;
+        }
+    }
+
+    p{
+        sup{
+            font-size: 12px;
+        }
+
+        .terms-conditions__titles{
+            text-transform: uppercase;
+            
+        }
+
+        a{
+            color: $azul-aparente;
+        }
+    }
+
+    .subtitles{
+        margin-left: 50px;
+    }
+
+    
+
+}

@@ -16,6 +16,8 @@ import Blog from "../pages/Blog";
 import BlogCategories from "../components/Web/Blog/Categories";
 import Contact from "../pages/Contact";
 import Us from "../pages/Us";
+import TermsConditions from "../pages/TermsConditions";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 
 //Error Page
 import Error404 from "../pages/Error404";
@@ -100,6 +102,16 @@ const routes = [
             {
                 path: "/nosotros",
                 component: Us,
+                exact: true
+            },
+            {
+                path: "/terminos-y-condiciones",
+                component: TermsConditions,
+                exact: true
+            },
+            {
+                path: "/aviso-de-privacidad",
+                component: PrivacyPolicy,
                 exact: true
             },
             {

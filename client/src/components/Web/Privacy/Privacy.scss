@@ -1,0 +1,48 @@
+@import "../../../scss/index.scss";
+
+.privacy{
+    font-family: $body-font;
+    font-size: 20px;
+    background-color: white;
+    color: $negro-aparente;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+
+    h1{
+        font-family: $titles-font;
+        letter-spacing: 5px;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 80px;
+        padding-bottom: 20px;
+        text-transform: uppercase;
+        
+        span{
+            color: $azul-aparente;
+        }
+
+        @media (max-width: 350px){
+            font-size: 32px;
+        }
+    }
+
+    p{
+        sup{
+            font-size: 12px;
+        }
+
+        .privacy__titles{
+            text-transform: uppercase;
+            
+        }
+
+        a{
+            color: $azul-aparente;
+        }
+    }
+
+    ol{
+        list-style-type: upper-roman;
+    }
+}
