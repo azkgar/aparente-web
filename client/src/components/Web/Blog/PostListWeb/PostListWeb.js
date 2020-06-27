@@ -52,6 +52,18 @@ export default function PostListWeb(props) {
             </title>
             <meta name = "description" content =  "Página principal del Blog con estilo de Aparente. Un blog donde puedes encontrar consejos para mejorar la imagen y presencia de tu marca, producto o empresa y tu imagen personal" />
             <link rel = "canonical" href = "https://aparente.mx/blog"/>
+            <meta property = "og:title" content =  "Aparente | Blog con estilo"/>
+                <meta property = "og:description" content =  "Página principal del Blog con estilo de Aparente. Un blog donde puedes encontrar consejos para mejorar la imagen y presencia de tu marca, producto o empresa y tu imagen personal"/>
+                <meta property = "og:locale" content = "es_MX"/>
+                <meta property = "og:type" content = "website"/>
+                <meta property = "og:url" content =  {window.location.pathname + window.location.search}/>
+                <meta property = "og:image" content = "http://aparente.mx/mstile-310x310.png" />
+                <meta property = "og:image:secure_url" content = "https://aparente.mx/mstile-310x310.png" />
+                <meta property = "og:image:type" content = "image/png" />
+                <meta property = "og:image:width" content = "310" />
+                <meta property = "og:image:height" content = "310" />
+                <meta property = "og:image:alt" content = "Aparente" />
+                <meta property = "og:site_name" content = "Aparente" />
         </Helmet>
         <div className = "posts-list-web">
             <h1>Publicaciones<span>_</span></h1>

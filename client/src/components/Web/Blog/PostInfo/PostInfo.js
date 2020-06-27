@@ -88,6 +88,21 @@ export default function PostInfo(props) {
             <title>Blog_ | {postInfo.title}</title>
             <meta name = "description" content =  {postInfo.description}/>
             <link rel = "canonical" href = {`https://aparente.mx/blog/${postInfo.url}`}/>
+            <meta property = "og:title" content =  {`Blog_ | ${postInfo.title}`}/>
+                <meta property = "og:description" content =  {postInfo.description}/>
+                <meta property = "og:locale" content = "es_MX"/>
+                <meta property = "og:type" content = "article"/>
+                <meta property = "article:published_time" content = {postInfo.date}/>
+                <meta property = "article:autor" content = {postInfo.username} />
+                <meta property = "article:tag" content = {postInfo.categories} />
+                <meta property = "og:url" content =  {window.location.pathname + window.location.search}/>
+                <meta property = "og:image" content = {postInfo.cover} />
+                <meta property = "og:image:secure_url" content = {postInfo.cover} />
+                <meta property = "og:image:type" content = "image/png" />
+                <meta property = "og:image:width" content = "1800" />
+                <meta property = "og:image:height" content = "1204" />
+                <meta property = "og:image:alt" content = {postInfo.title} />
+                <meta property = "og:site_name" content = "Aparente" />
         </Helmet>
         <div className = "post-info">
             <Anchor>

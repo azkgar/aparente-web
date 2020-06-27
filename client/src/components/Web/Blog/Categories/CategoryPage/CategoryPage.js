@@ -69,7 +69,7 @@ export default function CategoryPage(props) {
 function MatchList(props) {
     const {postsRelated, object} = props;
     const {Meta} = Card;
-
+    const serverPath = "https://aparente-server.herokuapp.com/api/v1/get-category-cover/";
         return(
             
             <>
@@ -77,6 +77,18 @@ function MatchList(props) {
             <title>Aparente | {`${object.tag}`}</title>
             <meta name = "description" content = {`Página principal de todas las publicaciones del Blog con estilo de Aparente relacionadas con el tema ${object.tag}`}/>
             <link rel = "canonical" href = {`https://aparente.mx/categorias/${object.url}`}/>
+            <meta property = "og:title" content =  {`Aparente | ${object.tag}`}/>
+                <meta property = "og:description" content =  {`Página principal de todas las publicaciones del Blog con estilo de Aparente relacionadas con el tema ${object.tag}`}/>
+                <meta property = "og:locale" content = "es_MX"/>
+                <meta property = "og:type" content = "website"/>
+                <meta property = "og:url" content =  {window.location.pathname + window.location.search}/>
+                <meta property = "og:image" content = {`serverPath${object.avatar}`} />
+                <meta property = "og:image:secure_url" content = {`serverPath${object.avatar}`} />
+                <meta property = "og:image:type" content = "image/png" />
+                <meta property = "og:image:width" content = "900" />
+                <meta property = "og:image:height" content = "600" />
+                <meta property = "og:image:alt" content = {object.tag} />
+                <meta property = "og:site_name" content = "Aparente" />
             </Helmet>
             <div className = "container-posts">
              {postsRelated.map(post => {
