@@ -27,7 +27,7 @@ function RenderList() {
     return (
         <ul>
             <li>
-                <Link to = "/inicio"><HomeOutlined />Inicio</Link>
+                <Link to = "/"><HomeOutlined />Inicio</Link>
             </li>
             <li>
                 <Link to="/blog"><FormOutlined /> Blog</Link>
