@@ -10,13 +10,13 @@ export default function ErrorBanner() {
     return (
         <div className = "error-main-banner">
             <Row>
-                <Col lg = {4} md = {4} sm ={8} xs = {8}>
+                <Col lg = {4} md = {4} sm ={4} xs = {4}>
                     <img alt = "hombre hecho con bolitas y palitos" src = {Hombre} className = "doodle"/>
                 </Col>
-                <Col lg = {16} md = {16} sm ={8} xs = {8}>
+                <Col lg = {16} md = {16} sm ={16} xs = {16}>
                     <img alt = "eslogan de aparente escrito a mano" src = {Frase} />
                 </Col>
-                <Col lg = {4} md = {4} sm ={8} xs = {8}>
+                <Col lg = {4} md = {4} sm ={4} xs = {4}>
                     <img alt = "mujer hecha con bolitas y palitos" src = {Mujer} className = "doodle"/>
                 </Col>
             </Row>

@@ -20,6 +20,12 @@
         .doodle{
             width: 100px;
         }
+
+        .ant-row{
+            @media (max-width: 950px){
+            display: inline-flex;
+            }
+        }
     }
 
     @media (max-width: 650px){
@@ -29,17 +35,12 @@
     }
 
     @media (max-width: 450px) {
-        img{
-            width: 150px;
-        }
         .doodle{
             width: 50px;
         }
     }
     @media (max-width: 450px) {
-        img{
-            width: 110px;
-        }
+
         .doodle{
             width: 40px;
         }
