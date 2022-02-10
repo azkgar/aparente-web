@@ -20,7 +20,7 @@
     "hyvor-talk-react": "^1.0.1",
     "jwt-decode": "^2.2.0",
     "moment": "^2.26.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "npm": "^6.14.5",
     "query-string": "^6.12.1",
     "react": "^16.13.1",
